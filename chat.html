@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Comms - Juan Nunez</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-layout {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+        }
+
+        .chat-header {
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-window {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message-row {
+            display: flex;
+            gap: 1rem;
+            max-width: 80%;
+        }
+
+        .message-row.me {
+            margin-left: auto;
+            flex-direction: row-reverse;
+        }
+
+        .msg-bubble {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .me .msg-bubble {
+            background: rgba(218, 174, 81, 0.2);
+            border: 1px solid rgba(218, 174, 81, 0.3);
+        }
+
+        .msg-user {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .msg-content {
+            color: #eee;
+        }
+
+        .chat-input-area {
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .btn-send {
+            background: var(--accent-primary);
+            color: #fff;
+            border: none;
+            padding: 0 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="chat-layout">
+        <header class="chat-header">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <a href="index.html" style="text-decoration: none; color: #fff; opacity: 0.7;">&larr; Return</a>
+                <span id="user-display" style="font-weight: 700; color: var(--accent-gold);">Identifying...</span>
+            </div>
+            <div>
+                <a href="admin.html" id="admin-link"
+                    style="color: #aaa; margin-right: 1rem; text-decoration: none; display:none;">ADMIN PANEL</a>
+                <button id="logout-btn"
+                    style="background: none; border: 1px solid #333; color: #aaa; padding: 5px 15px; cursor: pointer;">Jack
+                    Out</button>
+            </div>
+        </header>
+
+        <div id="chat-stream" class="chat-window">
+            <!-- Messages go here -->
+            <div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">
+                --- ENCRYPTED SESSION ESTABLISHED ---
+            </div>
+        </div>
+
+        <form id="compose-form" class="chat-input-area">
+            <input type="text" id="msg-input" class="chat-input" placeholder="Transmit data..." autocomplete="off">
+            <button type="submit" class="btn-send">Send</button>
+        </form>
+    </div>
+
+    <!-- Chat Logic -->
+    <script type="module">
+        import { auth } from './src/logic/auth-service.js';
+        import { chatService } from './src/logic/chat-service.js';
+
+        // 1. Auth Check
+        auth.requireAuth();
+        const user = auth.getUser();
+        if (user) {
+            document.getElementById('user-display').textContent = `Operator: ${user.username}`;
+            if (user.username === 'Administrator') {
+                document.getElementById('admin-link').style.display = 'inline';
+            }
+        }
+
+        const stream = document.getElementById('chat-stream');
+        const form = document.getElementById('compose-form');
+        const input = document.getElementById('msg-input');
+
+        // 2. Render Functions
+        function renderMessage(msg) {
+            const isMe = msg.user === user.username;
+            const div = document.createElement('div');
+            div.className = `message-row ${isMe ? 'me' : ''}`;
+            div.innerHTML = `
+                <div class="msg-bubble">
+                    <div class="msg-user">${msg.user}</div>
+                    <div class="msg-content">${msg.content}</div>
+                </div>
+            `;
+            stream.appendChild(div);
+            // Auto scroll
+            stream.scrollTop = stream.scrollHeight;
+        }
+
+        function loadHistory() {
+            const history = chatService.getHistory();
+            history.forEach(renderMessage);
+        }
+
+        // 3. Listeners
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const txt = input.value.trim();
+            if (!txt) return;
+
+            try {
+                chatService.sendMessage(txt);
+                input.value = '';
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+
+        // Event listener for incoming messages (from self or sync)
+        chatService.on('message', (msg) => {
+            if (msg.type === 'sync') {
+                // If sync trigger, just reload everything or find diff. 
+                // Simple version: clear and reload
+                stream.innerHTML = '<div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">--- ENCRYPTED SESSION ESTABLISHED ---</div>';
+                loadHistory();
+            } else {
+                renderMessage(msg);
+            }
+        });
+
+        chatService.on('chat_purged', () => {
+            stream.innerHTML = '<div style="text-align: center; color: var(--accent-primary); margin-top: 2rem; font-size: 0.9rem;">--- SESSION DATA PURGED BY ADMIN ---</div>';
+        });
+
+        chatService.on('message_deleted', (data) => {
+            // Reload simple
+            stream.innerHTML = '';
+            loadHistory();
+        });
+
+        // Logout
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            auth.logout();
+        });
+
+        // Initialize
+        loadHistory();
+
+        // System Greeting if empty
+        if (chatService.getHistory().length === 0) {
+            // Optional: System welcome
+        }
+
+    </script>
+</body>
+
+</html>

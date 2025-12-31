@@ -1,0 +1,633 @@
+/* 
+   Professional Portfolio Design System 
+   Theme: Modern Tech (Dark/Slate/Emerald)
+*/
+
+:root {
+    /* Color Palette - Premium Empire */
+    --bg-body: #050505;
+    /* Deep Black */
+    --bg-card: rgba(20, 20, 25, 0.6);
+    /* Glass Layer */
+    --bg-card-hover: rgba(30, 30, 40, 0.8);
+
+    --text-main: #ffffff;
+    --text-muted: #b0b0b8;
+
+    --accent-primary: #00f2ff;
+    /* Cyber Blue */
+    --accent-gold: #FFD700;
+    /* Rich Gold */
+    --accent-glow: rgba(255, 215, 0, 0.3);
+
+    --border-color: rgba(255, 255, 255, 0.08);
+
+    /* Typography */
+    --font-main: 'Outfit', system-ui, sans-serif;
+
+    /* Spacing */
+    --container-width: 1200px;
+    --header-height: 80px;
+
+    /* Effects */
+    --shadow-premium: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.2);
+    --glass-bg: rgba(10, 10, 15, 0.85);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --backdrop-blur: blur(20px);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+    display: none;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-image:
+        radial-gradient(circle at 15% 50%, rgba(0, 242, 255, 0.03), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(255, 215, 0, 0.03), transparent 25%);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.1;
+    font-weight: 700;
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    /* Behind content but check index.html z-indexes */
+    overflow: hidden;
+}
+
+.rain-letter {
+    position: absolute;
+    top: -50px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    user-select: none;
+    animation: rainDrop linear forwards;
+}
+
+@keyframes rainDrop {
+    to {
+        top: 110%;
+    }
+}
+
+h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    letter-spacing: -0.03em;
+}
+
+h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header & Nav */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: var(--backdrop-blur);
+    border-bottom: var(--glass-border);
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 95%;
+    /* Widened to push logo left */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+
+
+.logo {
+    white-space: nowrap;
+    /* Prevent logo wrapping */
+    font-size: 1.4rem;
+    /* Slightly smaller */
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--accent-gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    /* Reduced from 2rem */
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 0.85rem;
+    /* Reduced from 0.9rem */
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.5rem 0;
+    position: relative;
+    white-space: nowrap;
+    /* Prevent links form wrapping */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gold);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-main);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Primary Button (Gold Gradient) */
+.btn-primary {
+    background: linear-gradient(135deg, #d4af37 0%, #f1c40f 50%, #d4af37 100%);
+    background-size: 200% auto;
+    color: #000;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+/* Secondary Button */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-visual img {
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* Tech Stack Icons */
+.tech-stack {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+    opacity: 0.7;
+    align-items: center;
+}
+
+.tech-stack img {
+    height: 32px;
+    width: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.tech-stack img:hover {
+    filter: grayscale(0%);
+}
+
+/* Sections Generic */
+.section {
+    padding: 5rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h2 {
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Hero & Canvas */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+#hero-canvas {
+    position: fixed;
+    /* Fixed to stay in place while scrolling if desired, or absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    /* Let clicks pass through, mousemove on document handles rotation */
+}
+
+/* Services Grid */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--bg-card);
+    border: var(--glass-border);
+    padding: 2.5rem;
+    border-radius: 20px;
+    backdrop-filter: var(--backdrop-blur);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 242, 255, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-premium);
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--accent-primary);
+    margin-bottom: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 242, 255, 0.05);
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    transition: var(--transition-smooth);
+}
+
+.card:hover .card-icon {
+    background: var(--accent-primary);
+    color: #000;
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Footer */
+.site-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 4rem 0 2rem;
+    margin-top: 4rem;
+    background: #0b1120;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand h3 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Language Selector */
+.lang-select {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.lang-select option {
+    background: var(--bg-card);
+}
+
+/* Rain Container */
+.rain-container {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.4;
+    /* More subtle */
+}
+
+.rain-letter {
+    position: absolute;
+    color: var(--accent-primary);
+    font-family: monospace;
+    font-weight: bold;
+    opacity: 0;
+    animation-name: rain;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rain {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Mobile Menu Toggle Removed */
+
+/* Footer Love */
+.made-with-love {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.made-with-love .heart {
+    color: var(--accent-primary);
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Enhanced Interactions */
+.hero-img {
+    transition: transform 0.5s ease;
+}
+
+.hero-visual:hover .hero-img {
+    transform: scale(1.02) rotate(1deg);
+}
+
+/* Tech Stack Pulse */
+.tech-stack img {
+    transition: transform 0.3s, filter 0.3s;
+}
+
+.tech-stack img:hover {
+    transform: translateY(-5px) scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--bg-card);
+    aspect-ratio: 16/9;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 242, 255, 0.15);
+    border-color: var(--accent-primary);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+    object-position: top;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-left: 3px solid var(--accent-gold);
+    padding-left: 0.8rem;
+}
