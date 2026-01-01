@@ -9,8 +9,9 @@ function createRain() {
   container.textContent = '';
 
   const symbols = '01$€£₿¥₮';
-  const density = Math.max(10, Math.round(window.innerWidth / 20));
-  const count = Math.min(150, density);
+  // Reduced density for a cleaner look
+  const density = Math.max(10, Math.round(window.innerWidth / 40));
+  const count = Math.min(60, density); // Cap at 60 for performance/aesthetics
 
   const frag = document.createDocumentFragment();
   for (let i = 0; i < count; i++) {
@@ -19,17 +20,17 @@ function createRain() {
     el.textContent = symbols.charAt(Math.floor(Math.random() * symbols.length));
 
     const left = Math.random() * 100;
-    const size = Math.floor(Math.random() * 20) + 12;
-    const duration = (Math.random() * 3 + 1.5).toFixed(2);
+    const size = Math.floor(Math.random() * 14) + 10; // Smaller font
+    const duration = (Math.random() * 5 + 3).toFixed(2); // Slower fall
     const delay = (Math.random() * 5).toFixed(2);
-    const opacity = (Math.random() * 0.5 + 0.1).toFixed(2);
+    const opacity = (Math.random() * 0.3 + 0.05).toFixed(2); // More transparent
 
     el.style.left = `${left}%`;
     el.style.fontSize = `${size}px`;
     el.style.animationDuration = `${duration}s`;
     el.style.animationDelay = `${delay}s`;
     el.style.opacity = opacity;
-    el.style.color = Math.random() > 0.8 ? 'var(--accent-gold)' : 'var(--accent-primary)';
+    el.style.color = Math.random() > 0.9 ? 'var(--accent-gold)' : 'var(--accent-primary)';
 
     frag.appendChild(el);
   }
@@ -43,21 +44,63 @@ function initTypingEffect() {
 
   const originalText = heroTitle.textContent;
   heroTitle.textContent = '';
+  // Ensure we keep the height so no layout shift
+  heroTitle.style.display = 'inline-block';
+  heroTitle.style.minHeight = '1.2em';
+
   let i = 0;
 
   function type() {
     if (i < originalText.length) {
       heroTitle.textContent += originalText.charAt(i);
       i++;
-      setTimeout(type, 100);
+      setTimeout(type, 80); // Slightly faster
     }
   }
-  type();
+  setTimeout(type, 500); // Small delay before start
+}
+
+// ---------- Scroll Reveal Observer ----------
+function initScrollReveal() {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+}
+
+// ---------- Nav Scroll Effect ----------
+function initNavScroll() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 }
 
 let _resizeTimer = null;
 function initRain() {
   createRain();
+  initScrollReveal();
+  initNavScroll();
+
   window.addEventListener('resize', () => {
     clearTimeout(_resizeTimer);
     _resizeTimer = setTimeout(createRain, 240);
@@ -728,19 +771,46 @@ function initI18n() {
 
 // ---------- Contact form / mailto handler (uses translations above) ----------
 function initContactForm() {
+  console.log("Contact form initialized");
   const form = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    console.log("Form submission triggered");
+
+    // Rate Limiting Logic (Client-side proxy for IP limit)
+    const MAX_MESSAGES = 10;
+    const today = new Date().toDateString();
+    let storedDate = localStorage.getItem('contact_msg_date');
+    let count = parseInt(localStorage.getItem('contact_msg_count') || '0', 10);
+
+    if (storedDate !== today) {
+      count = 0;
+      localStorage.setItem('contact_msg_date', today);
+      localStorage.setItem('contact_msg_count', '0');
+    }
+
+    console.log(`Rate limit check: ${count}/${MAX_MESSAGES}`);
+
+    if (count >= MAX_MESSAGES) {
+      console.warn("Rate limit exceeded");
+      if (status) {
+        status.classList.remove('hidden');
+        status.style.color = '#ef4444';
+        status.textContent = 'Daily message limit reached (10/10). Please try again tomorrow.';
+      }
+      return;
+    }
+
     const fname = (form.firstname && form.firstname.value || '').trim();
-    const lname = (form.lastname && form.lastname.value || '').trim();
     const email = (form.email && form.email.value || '').trim();
     const message = (form.subject && form.subject.value || '').trim();
 
     // simple validation
     if (!fname || !email || !message) {
+      console.warn("Validation failed: missing fields");
       if (status) {
         status.classList.remove('hidden');
         status.style.color = '#ef4444';
@@ -749,25 +819,65 @@ function initContactForm() {
       return;
     }
 
-    const to = 'Juan_Ant772@hotmail.com';
-    const subject = encodeURIComponent('Contact from website — ' + (fname + (lname ? ' ' + lname : '')));
-    const body = encodeURIComponent(`Name: ${fname} ${lname}\nEmail: ${email}\n\nMessage:\n${message}`);
+    // Prepare FormData for Formsubmit.co
+    const formData = new FormData(form);
+    // Add a custom subject field for the email
+    formData.append('_subject', `New Lead: ${fname}`);
+    // Disable captcha to keep it smooth (optional, remove if spam is high)
+    formData.append('_captcha', 'false');
+    // Set template to box (optional, looks nicer)
+    formData.append('_template', 'table');
 
     if (status) {
       status.classList.remove('hidden');
       status.style.color = '#10b981';
-      status.textContent = _t('status.opening_mail') || 'Opening your mail client...';
+      status.textContent = 'Sending message...';
     }
 
-    // Use mailto to open user's mail app with prefilled content (works as fallback without server)
-    setTimeout(() => {
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      if (status) {
-        status.textContent = (_t('status.mail_fail') || 'If your mail client didn\'t open, please send an email to') + ' ' + to;
-      }
-    }, 250);
+    console.log("Sending fetch request to FormSubmit...");
 
-    form.reset();
+    fetch("https://formsubmit.co/ajax/juan.ant772@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+      .then(response => {
+        console.log("Response status:", response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log("FormSubmit data:", data);
+        if (data.success === "true" || data.success === true) {
+          // Increment count ONLY on success
+          count++;
+          localStorage.setItem('contact_msg_count', count.toString());
+
+          status.textContent = 'Message sent successfully! We will be in touch.';
+          status.style.color = '#10b981';
+          form.reset();
+
+          setTimeout(() => {
+            alert("Message sent successfully! We will be in touch shortly.");
+          }, 100);
+        } else {
+          // Handle specific FormSubmit errors
+          let msg = data.message || 'Submission failed';
+
+          if (msg.toLowerCase().includes('activate')) {
+            status.textContent = 'Action Required: Check your email (juan.ant772@gmail.com) to Activate this form.';
+            status.style.color = '#f59e0b'; // Orange/Yellow warning
+            alert("Almost done! Please check your email to Activate the form.");
+          } else {
+            status.textContent = 'Error: ' + msg;
+            status.style.color = '#ef4444';
+          }
+          // Don't throw here, just handled UI
+        }
+      })
+      .catch(error => {
+        console.error("Fetch error:", error);
+        status.textContent = 'Network Error. Please use WhatsApp: +1 (809) 729-2380';
+        status.style.color = '#ef4444';
+      });
   });
 }
 
@@ -940,8 +1050,7 @@ function initGoldenGlance() {
 // ---------- Init on DOM ready ----------
 window.addEventListener('DOMContentLoaded', () => {
   initRain();
-  // Load Tawk once (keeps previous behaviour of embedding Tawk by default)
-  loadTawkOnce();
+  // loadTawkOnce removed per user request
   // initialize i18n before other UI that may rely on text
   initI18n();
   // Then initialize fallback chat UI / safe API

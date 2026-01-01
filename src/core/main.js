@@ -4,10 +4,12 @@ import { mockDataService } from '../services/mock-data.js';
 import { initAnalytics } from '../services/analytics.js';
 import { initChatUI } from '../ui/chat.js';
 import { initContactForm } from '../ui/contact.js';
+import { initCalculator } from '../ui/calculator.js';
 import { initTypingEffect } from '../ui/typing.js';
 import { initRain } from '../visuals/rain.js';
-import { initNeuralCore } from '../visuals/neural-core.js';
 import { initAdvancedAnimations } from '../visuals/animations.js';
+
+// ...
 
 // Initialize everything on DOM Content Loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // UI
     initContactForm();
     initChatUI();
+    initCalculator();
     initTypingEffect();
 
     // Visuals
@@ -35,13 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initAdvancedAnimations();
 
     // Register Service Worker if supported
+    // Unregister Service Worker to prevent caching issues
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').then(registration => {
-                console.log('SW registered: ', registration);
-            }).catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+            for (let registration of registrations) {
+                registration.unregister();
+                console.log('SW Unregistered');
+            }
         });
     }
 });

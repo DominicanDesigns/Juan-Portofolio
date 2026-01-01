@@ -14,8 +14,8 @@ export function initChatUI() {
     const input = document.getElementById('chat-input');
     const form = document.getElementById('chat-form');
 
-    // 1. Try to connect via Socket.IO (for logged-in users)
-    if (window.io) {
+    // 1. Try to connect via Socket.IO (only if authenticated and not static)
+    if (window.io && window.IS_AUTHENTICATED) {
         socket = window.io();
 
         socket.on('connect', () => {
@@ -59,11 +59,16 @@ export function initChatUI() {
 
     // 3. AI Logic (Client-Side)
     function simulateAIResponse(userText) {
-        const lower = userText.toLowerCase();
-        let response = "Access Restricted. Please log in to access the Sovereign Network.";
+        const lower = userText.toLowerCase().trim();
+        // Default relative fallback
+        let response = `PROTOCOL MISMATCH. Pattern not recognized: [${lower}]. Try 'help' or 'status'.`;
 
         if (lower.includes('hello') || lower.includes('hi')) {
-            response = "Greetings. I am the Sovereign Protocol Assistant. How may I direct your inquiry?";
+            response = "Connection Established. Sovereign Identity confirmed. Awaiting command.";
+        } else if (lower.includes('help')) {
+            response = "Commands: STATUS, VENTURES, AUDIT, EMPIRE, LOGIN.";
+        } else if (lower.includes('status') || lower.includes('who')) {
+            response = "System Operational. User: GUEST. Net Worth: [REDACTED].";
         } else if (lower.includes('services') || lower.includes('ventures')) {
             response = "Our ventures include High-Utility Apps, Business Platforms, and Strategic Support. View the 'Ventures' section for details.";
         } else if (lower.includes('contact') || lower.includes('hire')) {
@@ -73,7 +78,8 @@ export function initChatUI() {
         } else if (lower.includes('game') || lower.includes('empire')) {
             response = "Sim: EMPIRE is active. Begin your simulation to understand the wealth algorithm.";
         } else if (lower.includes('login') || lower.includes('admin')) {
-            response = "Authorized personnel may proceed to /login.";
+            response = "Redirecting to Auth Gateway...";
+            setTimeout(() => window.location.href = 'login.html', 1500);
         }
 
         // Simulate network delay
@@ -85,23 +91,41 @@ export function initChatUI() {
 
     // 4. UI Helpers
     function ensureChatWidget() {
-        if (!document.getElementById('chat-open')) {
-            const openBtn = document.createElement('button');
+        let openBtn = document.getElementById('chat-open');
+        if (!openBtn) {
+            openBtn = document.createElement('button');
             openBtn.id = 'chat-open';
             openBtn.className = 'chat-open-btn';
             openBtn.textContent = 'Chat';
-            openBtn.onclick = () => {
-                document.getElementById('chat-widget').classList.toggle('hidden');
-                openBtn.classList.remove('has-new-messages'); // Clear badge on open
-
-                // Unlock audio context on interaction
-                const ctx = getAudioContext();
-                if (ctx && ctx.state === 'suspended') {
-                    ctx.resume();
-                }
-            };
             document.body.appendChild(openBtn);
         }
+
+        // Always re-bind (or ensure bound) - simple way is to just set onclick
+        // This handles cases where element existed but JS reloaded
+        openBtn.onclick = (e) => {
+            console.log('Chat button clicked'); // Debug
+            e.stopPropagation(); // Prevent bubbling issues
+
+            const widget = document.getElementById('chat-widget');
+            if (widget) {
+                widget.classList.toggle('hidden');
+
+                if (!widget.classList.contains('hidden')) {
+                    // Opened
+                    openBtn.classList.remove('has-new-messages');
+                    window.chatUnreadCount = 0;
+                    updateBadge();
+                }
+            } else {
+                console.error('Chat widget NOT found!');
+            }
+
+            // Unlock audio context on interaction
+            const ctx = getAudioContext();
+            if (ctx && ctx.state === 'suspended') {
+                ctx.resume();
+            }
+        };
 
         if (!document.getElementById('chat-widget')) {
             const w = document.createElement('div');
@@ -184,8 +208,7 @@ export function initChatUI() {
             // Only if document is hidden or user wants constant updates
             if (document.hidden) {
                 new Notification(`Message from ${name}`, {
-                    body: text,
-                    icon: '/favicon.ico' // Assuming standard favicon or similar
+                    body: text
                 });
             }
         }
@@ -195,6 +218,29 @@ export function initChatUI() {
         const widget = document.getElementById('chat-widget');
         if (btn && widget && widget.classList.contains('hidden')) {
             btn.classList.add('has-new-messages');
+
+            // Increment unread count
+            window.chatUnreadCount = (window.chatUnreadCount || 0) + 1;
+            updateBadge();
+        }
+    }
+
+    function updateBadge() {
+        const btn = document.getElementById('chat-open');
+        if (!btn) return;
+
+        let badge = btn.querySelector('.chat-notification-badge');
+        const count = window.chatUnreadCount || 0;
+
+        if (count > 0) {
+            if (!badge) {
+                badge = document.createElement('div');
+                badge.className = 'chat-notification-badge';
+                btn.appendChild(badge);
+            }
+            badge.textContent = count > 99 ? '99+' : count;
+        } else {
+            if (badge) badge.remove();
         }
     }
 
@@ -247,6 +293,7 @@ export function initChatUI() {
 
     // Expose for external calls
     window.chatBackend.sendMessage = handleSend;
+    window.chatBackend.receiveMessage = (text) => appendMessage({ name: 'Sovereign AI', text, self: false });
     console.log('Chat UI initialized');
 }
 

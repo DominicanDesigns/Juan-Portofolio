@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' 'unsafe-inline' data:; connect-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
     <title>Secure Comms - Juan Nunez</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -127,6 +129,14 @@
         </header>
 
         <div id="chat-stream" class="chat-window">
+            <h3 id="loading-status" style="color:var(--accent-primary);">INITIALIZING PROTOCOL...</h3>
+            <script>
+                window.onerror = function (msg, url, line) {
+                    alert("System Error: " + msg + "\nLine: " + line);
+                    document.getElementById('loading-status').style.color = 'red';
+                    document.getElementById('loading-status').textContent = "SYSTEM FAILURE: " + msg;
+                };
+            </script>
             <!-- Messages go here -->
             <div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">
                 --- ENCRYPTED SESSION ESTABLISHED ---
@@ -141,11 +151,19 @@
 
     <!-- Chat Logic -->
     <script type="module">
+        import { db } from './src/logic/db.js';
         import { auth } from './src/logic/auth-service.js';
         import { chatService } from './src/logic/chat-service.js';
 
-        // 1. Auth Check
-        auth.requireAuth();
+        // Success - Hide loader
+        const loader = document.getElementById('loading-status');
+        if (loader) loader.style.display = 'none';
+
+        // 1. Auth Check - Redirect to login if fail
+        if (!auth.isAuthenticated()) {
+            window.location.href = 'login.html';
+        }
+
         const user = auth.getUser();
         if (user) {
             document.getElementById('user-display').textContent = `Operator: ${user.username}`;
@@ -188,16 +206,61 @@
             try {
                 chatService.sendMessage(txt);
                 input.value = '';
+
+                // Trigger AI Response
+                simulateAIResponse(txt);
             } catch (err) {
                 alert(err.message);
             }
         });
 
+        function simulateAIResponse(userText) {
+            const lower = userText.toLowerCase().trim();
+            let response = `PROTOCOL MISMATCH. Pattern not recognized: [${lower}]. Try 'help' or 'status'.`;
+
+            if (lower.includes('hello') || lower.includes('hi')) {
+                response = "Connection Established. Sovereign Identity confirmed. Awaiting command.";
+            } else if (lower.includes('help')) {
+                response = "Commands: STATUS, VENTURES, AUDIT, EMPIRE, LOGIN.";
+            } else if (lower.includes('status') || lower.includes('who')) {
+                response = "System Operational. User: " + (user ? user.username : 'GUEST') + ". Net Worth: [REDACTED].";
+            } else if (lower.includes('services') || lower.includes('ventures')) {
+                response = "Our ventures include High-Utility Apps, Business Platforms, and Strategic Support. View the 'Ventures' section for details.";
+            } else if (lower.includes('audit')) {
+                response = "The Audit Protocol is available for domain analysis. Navigate to 'Protocol: AUDIT'.";
+            } else if (lower.includes('game') || lower.includes('empire')) {
+                response = "Simulation is active. Focus on accumulation. Reset available in dashboard.";
+            } else if (lower.includes('login')) {
+                response = "Redirecting to Auth Gateway...";
+                setTimeout(() => {
+                    // Manually clear session to prevent login.html from bouncing back
+                    // We don't use auth.logout() because it forcedly redirects to index.html
+                    localStorage.removeItem('current_user_session');
+                    window.location.href = 'login.html';
+                }, 1500);
+            }
+
+            // Simulate "Typing" delay
+            setTimeout(() => {
+                const aiMsg = {
+                    user: 'Sovereign AI',
+                    content: response
+                };
+                db.addMessage(aiMsg);
+                // db.addMessage automatically emits 'message' event in some setups, 
+                // but chatService.sendMessage emits it. db.addMessage might not?
+                // Let's check logic. chatService.sendMessage calls db.addMessage then emit.
+                // So we must emit manually or use chatService logic?
+                // I'll manually render for now to be safe, or use emit.
+                // Better: Create a helper in chatService?
+                // For now, direct render + history save.
+                renderMessage(aiMsg);
+            }, 800 + Math.random() * 1000);
+        }
+
         // Event listener for incoming messages (from self or sync)
         chatService.on('message', (msg) => {
             if (msg.type === 'sync') {
-                // If sync trigger, just reload everything or find diff. 
-                // Simple version: clear and reload
                 stream.innerHTML = '<div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">--- ENCRYPTED SESSION ESTABLISHED ---</div>';
                 loadHistory();
             } else {
@@ -210,7 +273,6 @@
         });
 
         chatService.on('message_deleted', (data) => {
-            // Reload simple
             stream.innerHTML = '';
             loadHistory();
         });
@@ -218,15 +280,11 @@
         // Logout
         document.getElementById('logout-btn').addEventListener('click', () => {
             auth.logout();
+            window.location.href = 'index.html';
         });
 
         // Initialize
         loadHistory();
-
-        // System Greeting if empty
-        if (chatService.getHistory().length === 0) {
-            // Optional: System welcome
-        }
 
     </script>
 </body>

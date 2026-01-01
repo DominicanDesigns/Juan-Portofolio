@@ -2,7 +2,8 @@
 
 export function trackEvent(category, action, label = null) {
     // Stub for future defined analytics backend or Google Analytics
-    if (process.env.NODE_ENV === 'development') {
+    // Safe check for development environment (localhost)
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
         console.log(`[Analytics] ${category} -> ${action} ${label ? '(' + label + ')' : ''}`);
     }
 }

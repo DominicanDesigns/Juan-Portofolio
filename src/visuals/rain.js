@@ -6,8 +6,9 @@ function createRain() {
     container.textContent = '';
 
     const symbols = '01$€£₿¥₮';
-    const density = Math.max(10, Math.round(window.innerWidth / 20));
-    const count = Math.min(150, density);
+    // Reduced density for professional look
+    const density = Math.max(10, Math.round(window.innerWidth / 40));
+    const count = Math.min(60, density);
 
     const frag = document.createDocumentFragment();
     for (let i = 0; i < count; i++) {
@@ -16,17 +17,17 @@ function createRain() {
         el.textContent = symbols.charAt(Math.floor(Math.random() * symbols.length));
 
         const left = Math.random() * 100;
-        const size = Math.floor(Math.random() * 20) + 12;
-        const duration = (Math.random() * 3 + 1.5).toFixed(2);
+        const size = Math.floor(Math.random() * 14) + 10;
+        const duration = (Math.random() * 5 + 3).toFixed(2); // Slower
         const delay = (Math.random() * 5).toFixed(2);
-        const opacity = (Math.random() * 0.5 + 0.1).toFixed(2);
+        const opacity = (Math.random() * 0.3 + 0.05).toFixed(2); // Fainter
 
         el.style.left = `${left}%`;
         el.style.fontSize = `${size}px`;
         el.style.animationDuration = `${duration}s`;
         el.style.animationDelay = `${delay}s`;
         el.style.opacity = opacity;
-        el.style.color = Math.random() > 0.8 ? 'var(--accent-gold)' : 'var(--accent-primary)';
+        el.style.color = Math.random() > 0.9 ? 'var(--accent-gold)' : 'var(--accent-primary)';
 
         frag.appendChild(el);
     }
