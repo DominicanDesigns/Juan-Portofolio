@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://cdn.jsdelivr.net;">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://cdn.jsdelivr.net https://formsubmit.co;">
     <meta name="description"
         content="Juan — Professional Web Developer. Building modern, fast, and accessible web experiences.">
     <meta name="author" content="Juan Antonio Núñez Rijo">
@@ -15,10 +15,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 
 </head>
 
 <body>
+    <div class="cinematic-blue-bg" aria-hidden="true"></div>
 
 
 
@@ -44,7 +46,7 @@
                 <a href="services.html" class="nav-link" data-i18n="nav.services">Ventures</a>
                 <a href="python_solutions.html" class="nav-link" data-i18n="nav.python">Python Solutions</a>
                 <a href="audit.html" class="nav-link" data-i18n="nav.audit"
-                    style="color: var(--accent-primary);">Protocol: AUDIT</a>
+                    style="color: var(--accent-primary);">Sovereign AI</a>
                 <a href="game.html" class="nav-link" data-i18n="nav.game" style="color: var(--accent-gold);">Sim:
                     EMPIRE</a>
                 <a href="chat.html" class="nav-link" data-i18n="nav.chat" style="color: var(--accent-primary);">CHAT</a>
@@ -195,12 +197,14 @@
                 <!-- ROI Calculator -->
                 <div class="roi-calculator reveal-on-scroll delay-100"
                     style="margin-bottom: 4rem; background: var(--bg-card); padding: 2rem; border-radius: 12px; border: 1px solid var(--accent-primary); max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-primary);">Empire Revenue
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: var(--accent-primary);"
+                        data-i18n="pricing.simulator.title">Empire Revenue
                         Simulator</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
                         <div style="flex: 1; min-width: 250px;">
                             <label
-                                style="display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Target
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;"
+                                data-i18n="pricing.simulator.traffic">Target
                                 Audience Reach (Users/Mo)</label>
                             <input type="range" id="roi-traffic" min="1000" max="100000" step="1000" value="10000"
                                 style="width: 100%; margin-bottom: 0.5rem;">
@@ -209,7 +213,8 @@
                         </div>
                         <div style="flex: 1; min-width: 250px;">
                             <label
-                                style="display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Avg.
+                                style="display: block; margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9rem;"
+                                data-i18n="pricing.simulator.value">Avg.
                                 Transaction Value ($)</label>
                             <input type="range" id="roi-value" min="10" max="500" step="10" value="50"
                                 style="width: 100%; margin-bottom: 0.5rem;">
@@ -218,12 +223,14 @@
                     </div>
                     <div
                         style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">Estimated Monthly
+                        <p style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;"
+                            data-i18n="pricing.simulator.revenue">Estimated Monthly
                             Revenue</p>
                         <div id="roi-total"
                             style="font-size: 3.5rem; font-weight: 800; color: var(--accent-gold); text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);">
                             $5,000</div>
-                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">*Based on standard
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;"
+                            data-i18n="pricing.simulator.disclaimer">*Based on standard
                             1% conversion rate</p>
                     </div>
                 </div>
@@ -231,55 +238,71 @@
                 <!-- Pricing Cards -->
                 <div class="grid-3">
                     <div class="card reveal-on-scroll delay-100" style="border-top: 4px solid var(--text-muted);">
-                        <h3 style="color: var(--text-muted);">Initiate</h3>
-                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">$5,000</div>
-                        <p>Foundation for new market entrants.</p>
+                        <h3 style="color: var(--text-muted);" data-i18n="pricing.initiate.title">Initiate</h3>
+                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;"
+                            data-i18n="pricing.initiate.price">$5,000</div>
+                        <p data-i18n="pricing.initiate.desc">Foundation for new market entrants.</p>
                         <ul style="margin: 2rem 0; list-style: none; color: var(--text-muted);">
-                            <li style="margin-bottom: 0.8rem;">✓ Premium Web Platform</li>
-                            <li style="margin-bottom: 0.8rem;">✓ Basic SEO Protocol</li>
-                            <li style="margin-bottom: 0.8rem;">✓ 1 Month Support</li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.initiate.f1">✓ Premium Web Platform
+                            </li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.initiate.f2">✓ Basic SEO Protocol</li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.initiate.f3">✓ 1 Month Support</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Deploy</a>
+                        <a href="contact.html" class="btn btn-secondary" style="width: 100%;"
+                            data-i18n="pricing.btn.deploy">Deploy</a>
                     </div>
 
                     <div class="card reveal-on-scroll delay-200"
                         style="border: 2px solid var(--accent-gold); transform: scale(1.05); box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-                        <div
-                            style="background: var(--accent-gold); color: #000; text-transform: uppercase; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.5rem; position: absolute; top: 0; right: 0; border-bottom-left-radius: 8px;">
+                        <div style="background: var(--accent-gold); color: #000; text-transform: uppercase; font-size: 0.7rem; font-weight: 800; padding: 0.25rem 0.5rem; position: absolute; top: 0; right: 0; border-bottom-left-radius: 8px;"
+                            data-i18n="pricing.badge.best">
                             Best Value</div>
                         <div
                             style="color: #ef4444; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 5px;">
                             <span
                                 style="width: 8px; height: 8px; background: #ef4444; border-radius: 50%; display: inline-block; animation: pulse 1s infinite;"></span>
-                            ONLY 2 SLOTS LEFT
+                            <span data-i18n="pricing.badge.slots">ONLY 2 SLOTS LEFT</span>
                         </div>
-                        <h3 style="color: var(--accent-gold);">Conquest</h3>
-                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0; color: #fff;">
+                        <h3 style="color: var(--accent-gold);" data-i18n="pricing.conquest.title">Conquest</h3>
+                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0; color: #fff;"
+                            data-i18n="pricing.conquest.price">
                             $8,000</div>
-                        <p>Rapid expansion & automation for serious entrepreneurs.</p>
+                        <p data-i18n="pricing.conquest.desc">Rapid expansion & automation for serious entrepreneurs.</p>
                         <ul style="margin: 2rem 0; list-style: none;">
-                            <li style="margin-bottom: 0.8rem; color: #fff;">★ <strong>Sovereign App
-                                    (iOS/Android)</strong></li>
-                            <li style="margin-bottom: 0.8rem; color: #fff;">★ <strong>Algorithm Integration</strong>
+                            <li style="margin-bottom: 0.8rem; color: #fff;" data-i18n="pricing.conquest.f1">★
+                                <strong>Sovereign App
+                                    (iOS/Android)</strong>
                             </li>
-                            <li style="margin-bottom: 0.8rem;">✓ P2P Marketplace System</li>
-                            <li style="margin-bottom: 0.8rem;">✓ 3 Months Priority Support</li>
+                            <li style="margin-bottom: 0.8rem; color: #fff;" data-i18n="pricing.conquest.f2">★
+                                <strong>Algorithm Integration</strong>
+                            </li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.conquest.f3">✓ P2P Marketplace System
+                            </li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.conquest.f4">✓ 3 Months Priority
+                                Support</li>
                         </ul>
-                        <a href="contact.html?plan=conquest" class="btn btn-primary" style="width: 100%;">Dominance
+                        <a href="contact.html?plan=conquest" class="btn btn-primary" style="width: 100%;"
+                            data-i18n="pricing.btn.access">Dominance
                             Access</a>
                     </div>
 
                     <div class="card reveal-on-scroll delay-300" style="border-top: 4px solid var(--accent-primary);">
-                        <h3 style="color: var(--accent-primary);">Monopoly</h3>
-                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;">Custom</div>
-                        <p>Total market domination for established entities.</p>
+                        <h3 style="color: var(--accent-primary);" data-i18n="pricing.monopoly.title">Monopoly</h3>
+                        <div class="price" style="font-size: 2.5rem; font-weight: 800; margin: 1rem 0;"
+                            data-i18n="pricing.monopoly.price">Custom</div>
+                        <p data-i18n="pricing.monopoly.desc">Total market domination for established entities.</p>
                         <ul style="margin: 2rem 0; list-style: none; color: var(--text-muted);">
-                            <li style="margin-bottom: 0.8rem;">✓ Full Ecosystem (Web + App)</li>
-                            <li style="margin-bottom: 0.8rem;">✓ AI Neural Integration</li>
-                            <li style="margin-bottom: 0.8rem;">✓ Dedicated Data Mining</li>
-                            <li style="margin-bottom: 0.8rem;">✓ 24/7 War Room Support</li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.monopoly.f1">✓ Full Ecosystem (Web +
+                                App)</li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.monopoly.f2">✓ AI Neural Integration
+                            </li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.monopoly.f3">✓ Dedicated Data Mining
+                            </li>
+                            <li style="margin-bottom: 0.8rem;" data-i18n="pricing.monopoly.f4">✓ 24/7 War Room Support
+                            </li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Contact HQ</a>
+                        <a href="contact.html" class="btn btn-secondary" style="width: 100%;"
+                            data-i18n="pricing.btn.contact_hq">Contact HQ</a>
                     </div>
                 </div>
             </div>
@@ -410,7 +433,7 @@
                 <a href="audit.html"
                     style="color: #aaa; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s;"
                     onmouseover="this.style.color='var(--accent-primary)'"
-                    onmouseout="this.style.color='#aaa'">Protocol: AUDIT</a>
+                    onmouseout="this.style.color='#aaa'">Sovereign AI</a>
                 <a href="game.html"
                     style="color: #aaa; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s;"
                     onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='#aaa'">Sim:
@@ -441,12 +464,12 @@
 
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    <!-- PWA Manifest Removed -->
     <script>
         // Server-side auth flag - REMOVED for Static Version
         window.IS_AUTHENTICATED = false; 
     </script>
-    <script type="module" src="src/core/main.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>

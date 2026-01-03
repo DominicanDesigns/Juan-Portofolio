@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy"
         content="default-src 'self' 'unsafe-inline' data:; connect-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    <link rel="icon" type="image/png" href="favicon.png">
     <title>Secure Comms - Juan Nunez</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -116,20 +117,49 @@
     <div class="chat-layout">
         <header class="chat-header">
             <div style="display: flex; align-items: center; gap: 1rem;">
-                <a href="index.html" style="text-decoration: none; color: #fff; opacity: 0.7;">&larr; Return</a>
-                <span id="user-display" style="font-weight: 700; color: var(--accent-gold);">Identifying...</span>
+                <!-- LOGO -->
+                <a href="index.html" class="logo"
+                    style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: 1rem;">
+                    <div
+                        style="background: var(--accent-gold); color: #000; font-weight: 900; padding: 4px 8px; font-size: 1.25rem; border-radius: 2px; line-height: 1;">
+                        JN</div>
+                    <div style="display: flex; flex-direction: column; line-height: 1;">
+                        <span
+                            style="color: #fff; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase;">JUAN
+                            NUNEZ</span>
+                        <span
+                            style="color: var(--accent-primary); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 2px;">ORGANIZATION</span>
+                    </div>
+                </a>
+
+                <a href="index.html" style="text-decoration: none; color: #fff; opacity: 0.7;"
+                    data-i18n="chat.nav.return">&larr; Return</a>
+                <span id="user-display" style="font-weight: 700; color: var(--accent-gold);"
+                    data-i18n="chat.status.identifying">Identifying...</span>
             </div>
-            <div>
+            <div style="display:flex; align-items:center; gap:10px;">
+                <!-- Lang -->
+                <div style="display:flex; gap:5px; margin-right:15px; border-right:1px solid #333; padding-right:15px;">
+                    <button class="lang-btn" onclick="setLang('en')"
+                        style="background:none; border:none; color:#666; cursor:pointer;">EN</button>
+                    <button class="lang-btn" onclick="setLang('es')"
+                        style="background:none; border:none; color:#666; cursor:pointer;">ES</button>
+                    <button class="lang-btn" onclick="setLang('fr')"
+                        style="background:none; border:none; color:#666; cursor:pointer;">FR</button>
+                </div>
+
                 <a href="admin.html" id="admin-link"
-                    style="color: #aaa; margin-right: 1rem; text-decoration: none; display:none;">ADMIN PANEL</a>
+                    style="color: #aaa; margin-right: 1rem; text-decoration: none; display:none;"
+                    data-i18n="chat.nav.admin">ADMIN PANEL</a>
                 <button id="logout-btn"
-                    style="background: none; border: 1px solid #333; color: #aaa; padding: 5px 15px; cursor: pointer;">Jack
-                    Out</button>
+                    style="background: none; border: 1px solid #333; color: #aaa; padding: 5px 15px; cursor: pointer;"
+                    data-i18n="chat.nav.logout">Jack Out</button>
             </div>
         </header>
 
         <div id="chat-stream" class="chat-window">
-            <h3 id="loading-status" style="color:var(--accent-primary);">INITIALIZING PROTOCOL...</h3>
+            <h3 id="loading-status" style="color:var(--accent-primary);" data-i18n="chat.status.init">INITIALIZING
+                PROTOCOL...</h3>
             <script>
                 window.onerror = function (msg, url, line) {
                     alert("System Error: " + msg + "\nLine: " + line);
@@ -139,46 +169,153 @@
             </script>
             <!-- Messages go here -->
             <div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">
-                --- ENCRYPTED SESSION ESTABLISHED ---
+                <span data-i18n="chat.status.established">--- ENCRYPTED SESSION ESTABLISHED ---</span>
             </div>
         </div>
 
         <form id="compose-form" class="chat-input-area">
-            <input type="text" id="msg-input" class="chat-input" placeholder="Transmit data..." autocomplete="off">
-            <button type="submit" class="btn-send">Send</button>
+            <input type="text" id="msg-input" class="chat-input" placeholder="Transmit data..."
+                data-i18n-placeholder="chat.input.placeholder" autocomplete="off">
+            <button type="submit" class="btn-send" data-i18n="chat.btn.send">Send</button>
         </form>
     </div>
 
     <!-- Chat Logic -->
-    <script type="module">
-        import { db } from './src/logic/db.js';
-        import { auth } from './src/logic/auth-service.js';
-        import { chatService } from './src/logic/chat-service.js';
+    <script>
+        // --- I18N MOCK ---
+        const translations = {
+            en: {
+                'chat.nav.return': '← Return',
+                'chat.status.init': 'INITIALIZING PROTOCOL...',
+                'chat.status.established': '--- ENCRYPTED SESSION ESTABLISHED ---',
+                'chat.btn.send': 'Send',
+                'chat.nav.admin': 'ADMIN PANEL',
+                'chat.nav.logout': 'Jack Out',
+                'chat.input.placeholder': 'Transmit data...',
+                'chat.status.identifying': 'Identifying...',
+                'chat.status.guest': 'Status: Guest Access',
+                'chat.prefix.operator': 'Operator: '
+            },
+            es: {
+                'chat.nav.return': '← Volver',
+                'chat.status.init': 'INICIALIZANDO PROTOCOLO...',
+                'chat.status.established': '--- SESIÓN ENCRIPTADA ESTABLECIDA ---',
+                'chat.btn.send': 'Enviar',
+                'chat.nav.admin': 'PANEL DE ADMIN',
+                'chat.nav.logout': 'Desconectar',
+                'chat.input.placeholder': 'Transmitir datos...',
+                'chat.status.identifying': 'Identificando...',
+                'chat.status.guest': 'Estado: Acceso de Invitado',
+                'chat.prefix.operator': 'Operador: '
+            },
+            fr: {
+                'chat.nav.return': '← Retour',
+                'chat.status.init': 'INITIALISATION DU PROTOCOLE...',
+                'chat.status.established': '--- SESSION CHIFFRÉE ÉTABLIE ---',
+                'chat.btn.send': 'Envoyer',
+                'chat.nav.admin': 'PANEL ADMIN',
+                'chat.nav.logout': 'Déconnexion',
+                'chat.input.placeholder': 'Transmettre...',
+                'chat.status.identifying': 'Identification...',
+                'chat.status.guest': 'Statut: Accès Invité',
+                'chat.prefix.operator': 'Opérateur: '
+            }
+        };
 
-        // Success - Hide loader
+        function setLang(lang) {
+            localStorage.setItem('site_lang', lang);
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.style.color = (b.textContent.toLowerCase() === lang) ? 'var(--accent-gold)' : '#666';
+            });
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.textContent = translations[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+        }
+        window.setLang = setLang;
+        setLang(localStorage.getItem('site_lang') || 'en');
+
+
+        // --- MOCK SERVICES (Replaces deleted src/logic) ---
+
+        // Simple Storage Wrapper
+        const store = {
+            get: (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+            set: (key, val) => localStorage.setItem(key, JSON.stringify(val)),
+            remove: (key) => localStorage.removeItem(key)
+        };
+
+        // Auth Service
+        const auth = {
+            isAuthenticated: () => !!store.get('user_session'),
+            getUser: () => store.get('user_session'),
+            requestLogin: () => window.location.href = 'login.html',
+            logout: () => {
+                store.remove('user_session');
+                window.location.href = 'login.html'; // Redirect to login page
+            }
+        };
+
+        // Database / Chat Service
+        const db = {
+            getMessages: () => store.get('chat_history') || [],
+            addMessage: (msg) => {
+                const history = db.getMessages();
+                history.push({ ...msg, ts: Date.now() });
+                if (history.length > 50) history.shift(); // Keep last 50
+                store.set('chat_history', history);
+                return history;
+            }
+        };
+
+        const chatService = {
+            sendMessage: (txt) => {
+                const user = auth.getUser();
+                const msg = {
+                    user: user ? user.username : 'Guest',
+                    content: txt,
+                    type: 'text'
+                };
+                db.addMessage(msg);
+                return msg;
+            },
+            getHistory: () => db.getMessages(),
+            sendEmail: (txt, user) => {
+                // Mock email trigger
+                console.log(`[EMAIL SENT] From: ${user}, Body: ${txt}`);
+            }
+        };
+
+        // --- UI LOGIC ---
+
+        // Hide loader immediately
         const loader = document.getElementById('loading-status');
         if (loader) loader.style.display = 'none';
 
-        // 1. Auth Check - Redirect to login if fail
-        if (!auth.isAuthenticated()) {
-            window.location.href = 'login.html';
-        }
-
+        // Display User
         const user = auth.getUser();
         if (user) {
-            document.getElementById('user-display').textContent = `Operator: ${user.username}`;
+            const prefix = translations[localStorage.getItem('site_lang') || 'en']['chat.prefix.operator'];
+            document.getElementById('user-display').textContent = `${prefix}${user.username}`;
             if (user.username === 'Administrator') {
                 document.getElementById('admin-link').style.display = 'inline';
             }
+        } else {
+            const key = 'chat.status.guest';
+            document.getElementById('user-display').textContent = translations[localStorage.getItem('site_lang') || 'en'][key];
+            document.getElementById('user-display').setAttribute('data-i18n', key);
         }
 
         const stream = document.getElementById('chat-stream');
         const form = document.getElementById('compose-form');
         const input = document.getElementById('msg-input');
 
-        // 2. Render Functions
         function renderMessage(msg) {
-            const isMe = msg.user === user.username;
+            const isMe = user ? (msg.user === user.username) : (msg.user === 'Guest');
             const div = document.createElement('div');
             div.className = `message-row ${isMe ? 'me' : ''}`;
             div.innerHTML = `
@@ -188,102 +325,72 @@
                 </div>
             `;
             stream.appendChild(div);
-            // Auto scroll
             stream.scrollTop = stream.scrollHeight;
         }
 
         function loadHistory() {
             const history = chatService.getHistory();
+            stream.innerHTML = '<div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">--- ENCRYPTED SESSION ESTABLISHED ---</div>';
             history.forEach(renderMessage);
         }
 
-        // 3. Listeners
+        // --- EVENT LISTENERS ---
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const txt = input.value.trim();
             if (!txt) return;
 
-            try {
-                chatService.sendMessage(txt);
-                input.value = '';
+            // 1. Render User Message
+            const msg = chatService.sendMessage(txt);
+            renderMessage(msg);
+            input.value = '';
 
-                // Trigger AI Response
-                simulateAIResponse(txt);
-            } catch (err) {
-                alert(err.message);
+            // 2. Trigger AI
+            simulateAIResponse(txt);
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            if (confirm("Terminate Session?")) {
+                auth.logout();
             }
         });
 
-        function simulateAIResponse(userText) {
+        // --- AI LOGIC (Ported) ---
+        async function simulateAIResponse(userText) {
             const lower = userText.toLowerCase().trim();
-            let response = `PROTOCOL MISMATCH. Pattern not recognized: [${lower}]. Try 'help' or 'status'.`;
+            const role = !user ? 'GUEST' : (user.username === 'Administrator' ? 'ADMIN' : 'PARTNER');
 
-            if (lower.includes('hello') || lower.includes('hi')) {
-                response = "Connection Established. Sovereign Identity confirmed. Awaiting command.";
-            } else if (lower.includes('help')) {
-                response = "Commands: STATUS, VENTURES, AUDIT, EMPIRE, LOGIN.";
-            } else if (lower.includes('status') || lower.includes('who')) {
-                response = "System Operational. User: " + (user ? user.username : 'GUEST') + ". Net Worth: [REDACTED].";
-            } else if (lower.includes('services') || lower.includes('ventures')) {
-                response = "Our ventures include High-Utility Apps, Business Platforms, and Strategic Support. View the 'Ventures' section for details.";
-            } else if (lower.includes('audit')) {
-                response = "The Audit Protocol is available for domain analysis. Navigate to 'Protocol: AUDIT'.";
-            } else if (lower.includes('game') || lower.includes('empire')) {
-                response = "Simulation is active. Focus on accumulation. Reset available in dashboard.";
-            } else if (lower.includes('login')) {
-                response = "Redirecting to Auth Gateway...";
-                setTimeout(() => {
-                    // Manually clear session to prevent login.html from bouncing back
-                    // We don't use auth.logout() because it forcedly redirects to index.html
-                    localStorage.removeItem('current_user_session');
-                    window.location.href = 'login.html';
-                }, 1500);
+            let response = "";
+            let delay = 600 + Math.random() * 800;
+
+            // Simple Pattern Matching
+            if (role === 'ADMIN') {
+                if (lower.includes('status')) response = "SYSTEM STATUS: NORMAL.";
+                else response = "COMMAND EXECUTED.";
+            } else {
+                if (lower.includes('hello') || lower.includes('hi')) {
+                    response = "Greetings. How may the Sovereign AI assist you?";
+                } else if (lower.includes('price') || lower.includes('cost')) {
+                    response = "Our ventures typically require a starting capital of $5k. ROI optimization is our priority.";
+                } else if (lower.includes('help')) {
+                    response = "Available topics: SERVICES, PRICING, STATUS, LOGIN.";
+                } else {
+                    response = "Input received. Processing... (Our team will review your query).";
+                }
             }
 
-            // Simulate "Typing" delay
             setTimeout(() => {
                 const aiMsg = {
                     user: 'Sovereign AI',
                     content: response
                 };
                 db.addMessage(aiMsg);
-                // db.addMessage automatically emits 'message' event in some setups, 
-                // but chatService.sendMessage emits it. db.addMessage might not?
-                // Let's check logic. chatService.sendMessage calls db.addMessage then emit.
-                // So we must emit manually or use chatService logic?
-                // I'll manually render for now to be safe, or use emit.
-                // Better: Create a helper in chatService?
-                // For now, direct render + history save.
                 renderMessage(aiMsg);
-            }, 800 + Math.random() * 1000);
+            }, delay);
         }
 
-        // Event listener for incoming messages (from self or sync)
-        chatService.on('message', (msg) => {
-            if (msg.type === 'sync') {
-                stream.innerHTML = '<div style="text-align: center; color: #666; margin-top: 2rem; font-size: 0.9rem;">--- ENCRYPTED SESSION ESTABLISHED ---</div>';
-                loadHistory();
-            } else {
-                renderMessage(msg);
-            }
-        });
-
-        chatService.on('chat_purged', () => {
-            stream.innerHTML = '<div style="text-align: center; color: var(--accent-primary); margin-top: 2rem; font-size: 0.9rem;">--- SESSION DATA PURGED BY ADMIN ---</div>';
-        });
-
-        chatService.on('message_deleted', (data) => {
-            stream.innerHTML = '';
-            loadHistory();
-        });
-
-        // Logout
-        document.getElementById('logout-btn').addEventListener('click', () => {
-            auth.logout();
-            window.location.href = 'index.html';
-        });
-
-        // Initialize
+        // Init
         loadHistory();
 
     </script>

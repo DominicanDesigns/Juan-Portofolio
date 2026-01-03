@@ -4,277 +4,576 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - Juan Nunez</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Sovereign Access - Juan Nunez</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .auth-container {
-            min-height: 100vh;
+        body {
+            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000;
-            position: relative;
+            height: 100vh;
             overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            position: relative;
         }
 
-        .auth-box {
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 400px;
-            z-index: 2;
-            backdrop-filter: blur(10px);
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
         }
 
-        .auth-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .auth-logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-gold);
-        }
-
-        .btn-auth {
-            width: 100%;
-            padding: 12px;
-            background: var(--accent-gold);
-            color: #000;
-            border: none;
-            font-weight: 700;
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #888;
+            font-size: 0.75rem;
             cursor: pointer;
+            padding: 4px 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
             transition: all 0.3s;
         }
 
-        .btn-auth:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        .lang-btn.active,
+        .lang-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
         }
 
-        .auth-footer {
-            margin-top: 1.5rem;
+        /* Gradient Background */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at center, #0a0a1a 0%, #000 70%);
+            z-index: -1;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 420px;
+            padding: 2.5rem;
+            background: rgba(10, 10, 10, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 15px rgba(218, 174, 81, 0.05);
+            /* Subtle gold glow */
             text-align: center;
-            font-size: 0.9rem;
-            color: #666;
+            position: relative;
+            overflow: hidden;
+            transition: height 0.3s ease;
         }
 
-        .auth-footer a {
+        /* Gold Top Border */
+        .login-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent-gold);
+            box-shadow: 0 0 10px var(--accent-gold);
+        }
+
+        .login-header {
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Logo Box */
+        .logo-box {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 900;
+            padding: 8px 14px;
+            font-size: 1.5rem;
+            border-radius: 2px;
+            line-height: 1;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px rgba(218, 174, 81, 0.4);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .logo-sub {
             color: var(--accent-primary);
-            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 4px;
+            opacity: 0.8;
         }
 
-        .flash-msg {
-            padding: 10px;
-            margin-bottom: 15px;
+        .input-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .input-label {
+            display: block;
+            color: #888;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .login-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #333;
+            padding: 14px 16px;
+            color: #fff;
+            font-family: inherit;
             border-radius: 4px;
-            font-size: 0.9rem;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(0, 242, 255, 0.05);
+            /* Cyan tint */
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--accent-primary) 0%, #00c2cc 100%);
+            color: #000;
+            font-weight: 800;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            transition: all 0.3s;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.3);
+            color: #fff;
+        }
+
+        .switch-mode {
+            margin-top: 1.5rem;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .switch-link {
+            color: var(--accent-gold);
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            margin-left: 5px;
+            transition: color 0.3s;
+        }
+
+        .switch-link:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 2rem;
+            color: #444;
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .error-msg {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            color: #ff4444;
+            font-size: 0.85rem;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
             display: none;
         }
 
-        .flash-error {
-            background: rgba(220, 38, 38, 0.2);
-            color: #ef4444;
-            border: 1px solid rgba(220, 38, 38, 0.3);
-        }
-
-        .flash-success {
-            background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .hidden {
+        .hidden-input {
             display: none;
+            animation: slideDown 0.3s ease forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            z-index: 10;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #000;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="auth-container">
-        <!-- Return Link -->
-        <a href="index.html"
-            style="position: absolute; top: 2rem; left: 2rem; color: #fff; text-decoration: none; opacity: 0.7; font-weight: 600; z-index: 10;">&larr;
-            Return</a>
-
-        <!-- Background Elements -->
-        <div
-            style="position: absolute; top:-10%; left:-10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(218, 174, 81, 0.1) 0%, transparent 70%);">
-        </div>
-        <div
-            style="position: absolute; bottom:-10%; right:-10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(213, 51, 105, 0.1) 0%, transparent 70%);">
-        </div>
-
-        <div class="auth-box">
-            <div class="auth-header">
-                <a href="index.html" class="auth-logo">JN</a>
-                <p style="color: #666; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Secure Access
-                </p>
-            </div>
-
-            <div id="flash-message" class="flash-msg"></div>
-
-            <!-- LOGIN FORM -->
-            <form id="login-form">
-                <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" id="login-username" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="login-password" class="form-control" required>
-                </div>
-
-                <div id="admin-field" class="form-group hidden">
-                    <label style="color: var(--accent-primary);">Security Key (Admin Only)</label>
-                    <input type="password" id="login-key" class="form-control" placeholder="Required for Admin">
-                </div>
-
-                <button type="submit" class="btn-auth">Initialize Session</button>
-            </form>
-
-            <!-- REGISTER FORM (Hidden by default) -->
-            <form id="register-form" class="hidden">
-                <div class="form-group">
-                    <label>Choose Username</label>
-                    <input type="text" id="reg-username" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Choose Password</label>
-                    <input type="password" id="reg-password" class="form-control" required>
-                </div>
-                <button type="submit" class="btn-auth" style="background: var(--accent-primary); color: #fff;">Create
-                    Identity</button>
-            </form>
-
-            <div class="auth-footer">
-                <span id="toggle-text">New to the network?</span>
-                <a href="#" id="toggle-auth">Register Access</a>
-            </div>
-        </div>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('es')">ES</button>
+        <button class="lang-btn" onclick="setLang('fr')">FR</button>
     </div>
 
-    <!-- Auth Logic -->
-    <script type="module">
-        import { auth } from './src/logic/auth-service.js';
+    <div class="login-container">
+        <div class="login-header">
+            <a href="index.html" class="logo"
+                style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none;">
+                <div
+                    style="background: var(--accent-gold); color: #000; font-weight: 900; padding: 4px 8px; font-size: 1.5rem; border-radius: 2px; line-height: 1;">
+                    JN</div>
+                <div style="display: flex; flex-direction: column; line-height: 1; align-items: center;">
+                    <span
+                        style="color: #fff; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; text-transform: uppercase;">JUAN
+                        NUNEZ</span>
+                    <span
+                        style="color: var(--accent-primary); font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 4px;"
+                        data-i18n="login.org">ORGANIZATION</span>
+                </div>
+            </a>
+        </div>
 
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const toggleBtn = document.getElementById('toggle-auth');
-        const toggleText = document.getElementById('toggle-text');
-        const flashEl = document.getElementById('flash-message');
-        const adminField = document.getElementById('admin-field');
-        const usernameInput = document.getElementById('login-username');
+        <div id="error-display" class="error-msg">Access Denied</div>
 
-        // Check if already logged in
-        if (auth.isAuthenticated()) {
-            window.location.href = 'chat.html';
+        <form id="login-form">
+            <div class="input-group">
+                <label class="input-label" id="id-label" data-i18n="login.identity">Identity</label>
+                <input type="text" id="username" class="login-input" placeholder="Operative Name"
+                    data-i18n-placeholder="login.placeholder.id" required autocomplete="off" oninput="checkAdmin()">
+            </div>
+
+            <div class="input-group">
+                <label class="input-label" data-i18n="login.passkey">Passkey</label>
+                <input type="password" id="password" class="login-input" placeholder="••••••••" required
+                    autocomplete="new-password">
+            </div>
+
+            <!-- Dynamic Secret Key for Admin -->
+            <div class="input-group" id="secret-group" style="display: none;">
+                <label class="input-label" style="color: var(--accent-gold);" data-i18n="login.secret">Secret Protocol
+                    Key</label>
+                <input type="password" id="secret-key" class="login-input" placeholder="Required for Level 5"
+                    data-i18n-placeholder="login.placeholder.secret" style="border-color: var(--accent-gold);">
+            </div>
+
+            <button type="submit" class="login-btn" id="submit-btn" data-i18n="login.jackin">Jack In</button>
+        </form>
+
+        <div class="switch-mode">
+            <span id="switch-text" data-i18n="login.new">New Operative?</span>
+            <span id="switch-action" class="switch-link" data-i18n="login.init">Initialize Registration</span>
+        </div>
+
+        <a href="index.html" class="back-link"
+            style="border:1px solid #333; padding:10px; border-radius:4px; text-align:center; margin-top:1.5rem;"
+            data-i18n="login.return">Return to Public Sector</a>
+    </div>
+
+    <script>
+        // --- 1. STATE VARIABLES (Must be defined first) ---
+        let isRegistering = false;
+
+        const translations = {
+            en: {
+                'login.org': 'Organization',
+                'login.identity': 'Identity',
+                'login.passkey': 'Passkey',
+                'login.secret': 'Secret Protocol Key',
+                'login.jackin': 'Jack In',
+                'login.register': 'Register Identity',
+                'login.new': 'New Operative?',
+                'login.init': 'Initialize Registration',
+                'login.already': 'Already an operative?',
+                'login.return': 'Return to Public Sector',
+                'login.error': 'Access Denied',
+                'login.placeholder.id': 'Operative Name',
+                'login.placeholder.secret': 'Required for Level 5'
+            },
+            es: {
+                'login.org': 'Organización',
+                'login.identity': 'Identidad',
+                'login.passkey': 'Código de Acceso',
+                'login.secret': 'Llave de Protocolo Secreta',
+                'login.jackin': 'Conectar',
+                'login.register': 'Registrar Identidad',
+                'login.new': '¿Nuevo Operativo?',
+                'login.init': 'Inicializar Registro',
+                'login.already': '¿Ya es operativo?',
+                'login.return': 'Volver al Sector Público',
+                'login.error': 'Acceso Denegado',
+                'login.placeholder.id': 'Nombre del Operativo',
+                'login.placeholder.secret': 'Requerido para Nivel 5'
+            },
+            fr: {
+                'login.org': 'Organisation',
+                'login.identity': 'Identité',
+                'login.passkey': 'Code d\'accès',
+                'login.secret': 'Clé de Protocole Secrète',
+                'login.jackin': 'Connecter',
+                'login.register': 'Enregistrer l\'identité',
+                'login.new': 'Nouvel Opérateur?',
+                'login.init': 'Initialiser l\'inscription',
+                'login.already': 'Déjà opérationnel?',
+                'login.return': 'Retour au Secteur Public',
+                'login.error': 'Accès Refusé',
+                'login.placeholder.id': 'Nom de l\'Opérateur',
+                'login.placeholder.secret': 'Requis pour Niveau 5'
+            }
+        };
+
+        // --- 2. CORE FUNCTIONS ---
+
+        function setLang(lang) {
+            // Safety Check
+            if (!translations[lang]) lang = 'en';
+
+            // Persist
+            localStorage.setItem('site_lang', lang);
+
+            // Update Translations
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) el.textContent = translations[lang][key];
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) el.placeholder = translations[lang][key];
+            });
+
+            // Update Buttons
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.classList.toggle('active', b.textContent.trim().toLowerCase() === lang);
+            });
+
+            // Update Toggle State
+            updateToggleState(lang);
         }
 
-        // Toggle Admin Field check
-        usernameInput.addEventListener('input', (e) => {
-            if (e.target.value === 'Administrator') {
-                adminField.classList.remove('hidden');
-            } else {
-                adminField.classList.add('hidden');
-            }
-        });
+        function updateToggleState(lang) {
+            // If lang not provided, fetch from storage or default
+            if (!lang) lang = localStorage.getItem('site_lang') || 'en';
+            if (!translations[lang]) lang = 'en';
 
-        // Toggle Login/Register
-        toggleBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (loginForm.classList.contains('hidden')) {
-                loginForm.classList.remove('hidden');
-                registerForm.classList.add('hidden');
-                toggleText.textContent = 'New to the network?';
-                toggleBtn.textContent = 'Register Access';
-            } else {
-                loginForm.classList.add('hidden');
-                registerForm.classList.remove('hidden');
-                toggleText.textContent = 'Already have credentials?';
-                toggleBtn.textContent = 'Login';
-            }
-            showFlash('', ''); // clear messages
-        });
+            const submitBtn = document.getElementById('submit-btn');
+            const switchText = document.getElementById('switch-text');
+            const switchAction = document.getElementById('switch-action');
 
-        function showFlash(msg, type) {
-            if (!msg) {
-                flashEl.style.display = 'none';
-                return;
+            if (!submitBtn || !switchAction) return;
+
+            if (isRegistering) {
+                submitBtn.textContent = translations[lang]['login.register'];
+                switchText.textContent = translations[lang]['login.already'];
+                switchAction.textContent = translations[lang]['login.jackin'];
+
+                // Styling for register
+                submitBtn.style.background = 'linear-gradient(135deg, var(--accent-gold) 0%, #b8860b 100%)';
+            } else {
+                submitBtn.textContent = translations[lang]['login.jackin'];
+                switchText.textContent = translations[lang]['login.new'];
+                switchAction.textContent = translations[lang]['login.init'];
+
+                // Styling for login
+                submitBtn.style.background = 'linear-gradient(135deg, var(--accent-primary) 0%, #00c2cc 100%)';
             }
-            flashEl.textContent = msg;
-            flashEl.className = 'flash-msg ' + (type === 'error' ? 'flash-error' : 'flash-success');
-            flashEl.style.display = 'block';
         }
 
-        // Handle Login
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const u = document.getElementById('login-username').value;
-            const p = document.getElementById('login-password').value;
-            const k = document.getElementById('login-key').value;
+        // Exposed globally for oninput
+        window.checkAdmin = function () {
+            const uInput = document.getElementById('username');
+            const sGroup = document.getElementById('secret-group');
+            const sInput = document.getElementById('secret-key');
 
-            try {
-                const user = auth.login(u, p, k);
-                showFlash(`Welcome, ${user.username}. Redirecting...`, 'success');
-                setTimeout(() => window.location.href = 'chat.html', 1000);
-            } catch (err) {
-                showFlash(err.message, 'error');
+            if (!uInput || !sGroup || !sInput) return;
+
+            const val = uInput.value.trim();
+
+            // STRICT CHECK: Exact match + Not Registering
+            if (val === 'Administrator' && !isRegistering) {
+                sGroup.style.display = 'block';
+                sInput.required = true;
+                sGroup.style.opacity = '1';
+                sGroup.style.transform = 'translateY(0)';
+            } else {
+                sGroup.style.display = 'none';
+                sInput.required = false;
+                sInput.value = '';
             }
-        });
+        };
 
-        // Handle Register
-        registerForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const u = document.getElementById('reg-username').value;
-            const p = document.getElementById('reg-password').value;
-
-            try {
-                auth.register(u, p);
-                showFlash('Identity Created. Please Login.', 'success');
-                // Auto switch to login
-                setTimeout(() => {
-                    toggleBtn.click();
-                }, 1500);
-            } catch (err) {
-                showFlash(err.message, 'error');
+        function showError(msg) {
+            const el = document.getElementById('error-display');
+            if (el) {
+                if (!msg) {
+                    el.style.display = 'none';
+                } else {
+                    el.textContent = msg;
+                    el.style.display = 'block';
+                }
             }
-        });
+        }
+
+        function loginUser(username, role) {
+            const userData = { username, role, token: 'tok_' + Date.now() };
+            localStorage.setItem('user_session', JSON.stringify(userData));
+
+            const container = document.querySelector('.login-container');
+            if (container) {
+                container.style.transform = 'scale(0.95)';
+                container.style.opacity = '0';
+            }
+            setTimeout(() => window.location.href = 'chat.html', 300);
+        }
+
+        // --- 3. INITIALIZATION & LISTENERS ---
+
+        // Init language first
+        const savedLang = localStorage.getItem('site_lang');
+        const initialLang = (savedLang && translations[savedLang]) ? savedLang : 'en';
+
+        // Expose setLang globally
+        window.setLang = setLang;
+
+        // Run init
+        setLang(initialLang);
+
+        // Attach Listeners
+        const switchAction = document.getElementById('switch-action');
+        if (switchAction) {
+            switchAction.addEventListener('click', () => {
+                isRegistering = !isRegistering;
+                showError(""); // Clear errors
+
+                // Clear inputs on toggle
+                const uInput = document.getElementById('username');
+                if (uInput) uInput.value = '';
+
+                // Re-check admin (which will hide it since value is empty)
+                window.checkAdmin();
+
+                updateToggleState();
+            });
+        }
+
+        const form = document.getElementById('login-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const uInput = document.getElementById('username');
+                const pInput = document.getElementById('password');
+                const sInput = document.getElementById('secret-key');
+
+                const username = uInput.value.trim();
+                const password = pInput.value.trim();
+                const secret = sInput.value.trim();
+
+                showError("");
+
+                if (isRegistering) {
+                    // REGISTER
+                    if (username === 'Administrator') {
+                        showError("Start-up Error: 'Administrator' handle is reserved.");
+                        return;
+                    }
+                    const users = JSON.parse(localStorage.getItem('users_db') || '{}');
+                    if (users[username]) {
+                        showError("Identity already registered.");
+                        return;
+                    }
+                    users[username] = { password, role: 'PARTNER' };
+                    localStorage.setItem('users_db', JSON.stringify(users));
+                    loginUser(username, 'PARTNER');
+
+                } else {
+                    // LOGIN
+                    if (username === 'Administrator') {
+                        if (password === 'Juan5872890@@@@' && secret === 'rasta') {
+                            loginUser('Administrator', 'ADMIN');
+                        } else {
+                            showError("SECURITY ALERT: Invalid Administrator Credentials.");
+                        }
+                    } else {
+                        // STANDARD USER
+                        const users = JSON.parse(localStorage.getItem('users_db') || '{}');
+                        const user = users[username];
+                        if (user && user.password === password) {
+                            loginUser(username, user.role);
+                        } else {
+                            showError("Authentication Failed: Invalid credentials.");
+                        }
+                    }
+                }
+            });
+        }
+
     </script>
 </body>
 

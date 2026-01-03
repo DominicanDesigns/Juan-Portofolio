@@ -4,27 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sovereign Audit Protocol. Analyze your digital asset.">
-    <title>Audit Protocol - Juan Antonio Núñez Rijo Organization</title>
+    <meta name="description" content="Sovereign AI Interface. Advanced intelligence for digital asset management.">
+    <title>Sovereign AI - Juan Antonio Núñez Rijo Organization</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="glance.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         /* Audit Specific Styles */
         .terminal-container {
-            background: rgba(10, 10, 15, 0.95);
-            border: 1px solid var(--accent-primary);
-            border-radius: 10px;
+            background: rgba(5, 5, 8, 0.98);
+            /* Darker, more contrast */
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            border-radius: 4px;
+            /* More angular/tech */
             padding: 2rem;
-            max-width: 800px;
+            max-width: 900px;
+            /* Wider */
             margin: 0 auto;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 242, 255, 0.1);
+            box-shadow: 0 0 60px rgba(0, 242, 255, 0.05);
+            min-height: 600px;
+            /* Taller */
         }
 
         .terminal-header {
@@ -129,7 +134,7 @@
 
 <body>
 
-    <div class="rain-container" aria-hidden="true"></div>
+    <!-- Rain Removed -->
 
     <header class="site-header">
         <div class="nav-container">
@@ -151,7 +156,7 @@
                 <a href="services.html" class="nav-link" data-i18n="nav.services">Ventures</a>
                 <a href="python_solutions.html" class="nav-link" data-i18n="nav.python">Python Solutions</a>
                 <a href="audit.html" class="nav-link active" data-i18n="nav.audit"
-                    style="color: var(--accent-primary);">Protocol: AUDIT</a>
+                    style="color: var(--accent-primary);">Sovereign AI</a>
                 <a href="game.html" class="nav-link" data-i18n="nav.game" style="color: var(--accent-gold);">Sim:
                     EMPIRE</a>
                 <a href="chat.html" class="nav-link" data-i18n="nav.chat" style="color: var(--accent-primary);">CHAT</a>
@@ -169,58 +174,137 @@
     </header>
 
     <main>
-        <section class="section" style="min-height: 80vh; display: flex; align-items: center;">
-            <div class="container">
+        <section class="section" style="min-height: 90vh; display: flex; align-items: center; padding-top: 100px;">
+            <div class="container" style="max-width: 1400px;">
                 <div class="section-header">
-                    <h1 data-i18n="audit.title"
-                        style="font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: -2px;">
-                        Sovereign Audit Protocol</h1>
-                    <p data-i18n="audit.lead" class="lead">Initiate a deep-scan analysis of your digital asset.</p>
+                    <h1 data-i18n="arch.title" class="glitch-text"
+                        style="font-family: 'Share Tech Mono', monospace; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-cyan);">
+                        SOVEREIGN ARCHITECT</h1>
+                    <p data-i18n="audit.lead" class="lead"
+                        style="font-family: 'Share Tech Mono'; color: var(--accent-cyan);">
+                        Construct your digital infrastructure. Initialize Sequence.</p>
                 </div>
 
-                <div class="terminal-container">
-                    <div class="terminal-header">
-                        <span
-                            style="font-family: 'JetBrains Mono'; color: var(--text-muted); font-size: 0.8rem;">SYS.ROOT.ADMIN</span>
-                        <span style="font-family: 'JetBrains Mono'; color: var(--accent-primary); font-size: 0.8rem;">●
-                            V.2.0.4 ONLINE</span>
-                    </div>
+                <!-- Architect Interface -->
+                <div class="architect-interface">
 
-                    <form id="audit-form">
-                        <div class="audit-input-group">
-                            <input type="text" id="audit-input" class="terminal-input" placeholder="ENTER TARGET URL..."
-                                data-i18n-placeholder="audit.input.placeholder" autocomplete="off">
-                            <button type="submit" class="btn btn-primary"
-                                style="width: 100%; margin-top: 2rem; font-family: 'JetBrains Mono';"
-                                data-i18n="audit.btn.scan">INITIATE SCAN</button>
-                        </div>
-                    </form>
-
-                    <div id="scan-status" class="scan-progress hidden">
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
-                        </div>
-                        <span class="status-text blink" data-i18n="audit.status.init">Initializing...</span>
-                    </div>
-
-                    <div id="result-card" class="result-card hidden">
-                        <h3 data-i18n="audit.result.title"
-                            style="color: var(--accent-gold); margin-bottom: 2rem; letter-spacing: 5px;">AUDIT COMPLETE
-                        </h3>
-
-                        <div class="score-circle">
-                            <span id="score-value">34%</span>
+                    <!-- 1. Systems Panel (Left) -->
+                    <div class="arch-panel systems-panel">
+                        <div class="panel-header">
+                            <span class="panel-title">MODULE_SELECT</span>
+                            <div class="panel-deco"></div>
                         </div>
 
-                        <h4 data-i18n="audit.result.vuln" style="color: var(--text-main); margin-bottom: 1rem;">Critical
-                            Vulnerabilities Detected</h4>
-                        <p data-i18n="audit.result.msg" style="color: var(--text-muted); margin-bottom: 2rem;">Your
-                            asset is exposed. Efficiency is sub-optimal.</p>
+                        <div class="category-group">
+                            <h4 class="cat-title">CORE PLATFORM</h4>
+                            <div class="option-grid">
+                                <button class="arch-option" onclick="toggleModule('core_web', 2000, 2, 'Web Platform')">
+                                    <span class="opt-icon">🌐</span>
+                                    <span class="opt-label">Web App</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('core_mob', 3000, 3, 'Mobile App')">
+                                    <span class="opt-icon">📱</span>
+                                    <span class="opt-label">Mobile App</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('core_desk', 2500, 3, 'Desktop SW')">
+                                    <span class="opt-icon">💻</span>
+                                    <span class="opt-label">Desktop</span>
+                                </button>
+                            </div>
+                        </div>
 
-                        <a href="contact.html" class="btn btn-primary"
-                            style="background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); border:none;"
-                            data-i18n="audit.cta.fix">DEPLOY FIXES</a>
+                        <div class="category-group">
+                            <h4 class="cat-title">INTELLIGENCE</h4>
+                            <div class="option-grid">
+                                <button class="arch-option" onclick="toggleModule('ai_basic', 1500, 1, 'AI Chatbot')">
+                                    <span class="opt-icon">🤖</span>
+                                    <span class="opt-label">AI Chat</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('ai_adv', 4000, 3, 'Neural Net')">
+                                    <span class="opt-icon">🧠</span>
+                                    <span class="opt-label">Neural Net</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="category-group">
+                            <h4 class="cat-title">INFRASTRUCTURE</h4>
+                            <div class="option-grid">
+                                <button class="arch-option" onclick="toggleModule('inf_db', 500, 1, 'Secure DB')">
+                                    <span class="opt-icon">🗄️</span>
+                                    <span class="opt-label">Database</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('inf_pay', 800, 1, 'Payments')">
+                                    <span class="opt-icon">💳</span>
+                                    <span class="opt-label">Payments</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('inf_crypto', 1500, 2, 'Blockchain')">
+                                    <span class="opt-icon">⛓️</span>
+                                    <span class="opt-label">Blockchain</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- 2. Blueprint Canvas (Center) -->
+                    <div class="arch-canvas" id="blueprint-canvas">
+                        <div class="grid-background"></div>
+                        <div class="scanline"></div>
+                        <div class="canvas-center-marker"></div>
+
+                        <!-- Empty State -->
+                        <div id="canvas-empty" class="canvas-message">
+                            Select Modules to Begin Architecture<br>
+                            <span class="blink">_</span>
+                        </div>
+
+                        <!-- Dynamic Nodes will be injected here -->
+                        <div id="active-nodes" class="nodes-container"></div>
+                    </div>
+
+                    <!-- 3. Specs Panel (Right) -->
+                    <div class="arch-panel specs-panel">
+                        <div class="panel-header">
+                            <span class="panel-title">SYS_ANALYSIS</span>
+                            <div class="panel-deco"></div>
+                        </div>
+
+                        <div class="spec-readout">
+                            <div class="spec-row">
+                                <span class="spec-label">COMPLEXITY</span>
+                                <div class="readout-bar-container">
+                                    <div class="readout-bar" id="complexity-bar" style="width: 0%"></div>
+                                </div>
+                            </div>
+
+                            <div class="spec-matrix">
+                                <div class="matrix-item">
+                                    <span class="matrix-label">EST. WEEKS</span>
+                                    <span class="matrix-val" id="time-display">0</span>
+                                </div>
+                                <div class="matrix-item">
+                                    <span class="matrix-label">INVESTMENT</span>
+                                    <span class="matrix-val gold" id="cost-display">$0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-area">
+                            <h4 class="cat-title">REQ. STACK</h4>
+                            <div id="tech-stack-list" class="stack-list">
+                                <!-- Icons injected by JS -->
+                                <span class="stack-placeholder">Waiting for input...</span>
+                            </div>
+                        </div>
+
+                        <div class="action-area">
+                            <button class="init-btn" onclick="initiateSequence()">
+                                <span class="btn-scan"></span>
+                                <span class="btn-text">INITIALIZE BUILD</span>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -262,7 +346,7 @@
                 <a href="audit.html"
                     style="color: #aaa; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s;"
                     onmouseover="this.style.color='var(--accent-primary)'"
-                    onmouseout="this.style.color='#aaa'">Protocol: AUDIT</a>
+                    onmouseout="this.style.color='#aaa'">Sovereign AI</a>
                 <a href="game.html"
                     style="color: #aaa; text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: color 0.3s;"
                     onmouseover="this.style.color='var(--accent-primary)'" onmouseout="this.style.color='#aaa'">Sim:
@@ -292,7 +376,8 @@
     </footer>
 
     <script src="script.js"></script>
-    <script src="audit.js"></script>
+    <script src="src/logic/db.js" type="module"></script>
+    <script src="audit.js" type="module"></script>
 </body>
 
 </html>

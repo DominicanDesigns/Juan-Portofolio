@@ -111,10 +111,39 @@ function initRain() {
 // Tawk.to integration removed by user request
 
 function initChatUI() {
-  // Provide a safe chatBackend API so pages/scripts can use it
-  window.chatBackend = window.chatBackend || {};
+  // Shared Storage Logic
+  const store = {
+    get: (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+    set: (key, val) => localStorage.setItem(key, JSON.stringify(val))
+  };
 
-  // Minimal chat widget (lightweight fallback)
+  const db = {
+    getMessages: () => store.get('chat_history') || [],
+    addMessage: (msg) => {
+      const history = db.getMessages();
+      history.push({ ...msg, ts: Date.now() });
+      if (history.length > 50) history.shift();
+      store.set('chat_history', history);
+      return history;
+    }
+  };
+
+  // Provide a safe chatBackend API
+  window.chatBackend = {
+    sendMessage: (text) => {
+      const user = store.get('user_session');
+      const msg = {
+        user: user ? user.username : 'Guest',
+        content: text,
+        type: 'text'
+      };
+      db.addMessage(msg);
+      // Trigger update for other tabs
+      window.dispatchEvent(new Event('storage'));
+      return msg;
+    }
+  };
+
   if (!document.getElementById('chat-open')) {
     const openBtn = document.createElement('button');
     openBtn.id = 'chat-open';
@@ -130,7 +159,7 @@ function initChatUI() {
     widget.className = 'chat-widget hidden';
     widget.innerHTML = `
       <div class="chat-header">
-        <span>Chat</span>
+        <span>Guests Chat</span>
         <button id="chat-close" aria-label="Close chat" style="border:none;background:transparent;cursor:pointer">✕</button>
       </div>
       <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
@@ -151,43 +180,76 @@ function initChatUI() {
   btn && btn.addEventListener('click', () => document.getElementById('chat-widget').classList.toggle('hidden'));
   closeBtn && closeBtn.addEventListener('click', () => document.getElementById('chat-widget').classList.add('hidden'));
 
-  function appendMessage({ name = 'Guest', text = '', self = false, ts }) {
+  function renderMessage({ user, content, ts }) {
     if (!messagesEl) return;
+    const sessionUser = store.get('user_session');
+    // Determine if "self"
+    const isMe = sessionUser ? (user === sessionUser.username) : (user === 'Guest' && !sessionUser);
+    // Note: If you are logged in as Admin, Guest messages are NOT "me".
+    // If you are Guest, Guest messages ARE "me".
+
+    // Simplification for Badge Chat: 
+    // If I just sent it (sessionUser matches OR I am Guest and msg is Guest), mark as me.
+    // However, to avoid complexity, let's just use the `user` string match.
+
+    // Better logic:
+    // If I am logged in, "me" is my username.
+    // If I am NOT logged in, "me" is 'Guest'. 
+    // This has a flaw: All guests look like "me". 
+    // Fix: We don't have unique IDs for guests in this simple mock. That's acceptable.
+
+    const self = sessionUser ? (user === sessionUser.username) : (user === 'Guest');
+
     const wrap = document.createElement('div');
     wrap.className = 'chat-message' + (self ? ' me' : '');
+
     const meta = document.createElement('div');
     meta.className = 'meta';
-    meta.textContent = `${name} · ${new Date(ts || Date.now()).toLocaleTimeString()}`;
+    meta.textContent = `${user} · ${new Date(ts || Date.now()).toLocaleTimeString()}`;
+
     const txt = document.createElement('div');
     txt.className = 'text';
-    txt.textContent = text;
+    txt.textContent = content;
+
     wrap.appendChild(meta);
     wrap.appendChild(txt);
     messagesEl.appendChild(wrap);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  window.chatBackend.sendMessage = window.chatBackend.sendMessage || function (text) { appendMessage({ name: 'You', text, self: true }); };
-  window.chatBackend.onMessage = window.chatBackend.onMessage || function (cb) { /* optional */ };
-  window.__appendChatMessage = appendMessage;
+  function loadMessages() {
+    if (!messagesEl) return;
+    messagesEl.innerHTML = '';
+    const history = db.getMessages();
+    history.forEach(msg => renderMessage(msg));
+  }
 
   if (form && input) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const text = input.value.trim();
       if (!text) return;
-      try {
-        if (window.chatBackend && typeof window.chatBackend.sendMessage === 'function') {
-          window.chatBackend.sendMessage(text);
-        }
-        if (window.__appendChatMessage) {
-          window.__appendChatMessage({ name: 'You', text, self: true });
-        }
-      } catch (err) { console.error(err); }
+
+      // 1. Send (Saves to LocalStorage)
+      window.chatBackend.sendMessage(text);
+
+      // 2. Reload UI to show new message (and any others)
+      loadMessages();
+
       input.value = '';
       input.focus();
     });
   }
+
+  // Listen for storage changes (Sync across tabs)
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'chat_history') {
+      loadMessages();
+    }
+  });
+
+  // Initial load
+  loadMessages();
 }
 
 // ---------- Lightweight i18n (client-only) ----------
@@ -196,7 +258,7 @@ const _i18n = {
     'nav.home': 'Organization',
     'nav.services': 'Ventures',
     'nav.python': 'Python Solutions',
-    'nav.audit': 'Protocol: AUDIT',
+    'nav.audit': 'Sovereign AI',
     'nav.game': 'Sim: EMPIRE',
     'nav.contact': 'Partnership',
     'nav.languages': 'Languages:',
@@ -343,9 +405,10 @@ const _i18n = {
     'python.stats.1': 'Efficiency Incr.',
     'python.stats.2': 'Cost Reduct.',
     'python.stats.3': 'Logic Uptime',
-    'audit.title': 'Sovereign Audit Protocol',
+    'audit.title': 'Sovereign AI',
     'audit.lead': 'Initiate a deep-scan analysis of your digital asset. Identify vulnerabilities. Quantify inefficiency. Prepare for conquest.',
-    'audit.input.placeholder': 'ENTER TARGET URL (e.g. business.com)',
+    'audit.input.placeholder': 'AWAITING NEURAL COMMAND...',
+    'audit.btn.enter': 'ENTER',
     'audit.btn.scan': 'INITIATE SCAN',
     'audit.status.init': 'Initializing Sovereign Protocol...',
     'audit.status.connect': 'Establishing Neural Handshake...',
@@ -365,12 +428,64 @@ const _i18n = {
     'game.upg.algo': 'Trading Algorithm',
     'game.upg.ai': 'Neural Network',
     'game.locked': 'Locked',
+    // Simulator & Pricing
+    'pricing.simulator.title': 'Empire Revenue Simulator',
+    'pricing.simulator.traffic': 'Target Audience Reach (Users/Mo)',
+    'pricing.simulator.value': 'Avg. Transaction Value ($)',
+    'pricing.simulator.revenue': 'Estimated Monthly Revenue',
+    'pricing.simulator.disclaimer': '*Based on standard 1% conversion rate',
+    'pricing.initiate.title': 'Initiate',
+    'pricing.initiate.price': '$5,000',
+    'pricing.initiate.desc': 'Foundation for new market entrants.',
+    'pricing.initiate.f1': '✓ Premium Web Platform',
+    'pricing.initiate.f2': '✓ Basic SEO Protocol',
+    'pricing.initiate.f3': '✓ 1 Month Support',
+    'pricing.btn.deploy': 'Deploy',
+    'pricing.badge.best': 'Best Value',
+    'pricing.badge.slots': 'ONLY 2 SLOTS LEFT',
+    'pricing.conquest.title': 'Conquest',
+    'pricing.conquest.price': '$8,000',
+    'pricing.conquest.desc': 'Rapid expansion & automation for serious entrepreneurs.',
+    'pricing.conquest.f1': '★ Sovereign App (iOS/Android)',
+    'pricing.conquest.f2': '★ Algorithm Integration',
+    'pricing.conquest.f3': '✓ P2P Marketplace System',
+    'pricing.conquest.f4': '✓ 3 Months Priority Support',
+    'pricing.btn.access': 'Dominance Access',
+    'pricing.monopoly.title': 'Monopoly',
+    'pricing.monopoly.price': 'Custom',
+    'pricing.monopoly.desc': 'Total market domination for established entities.',
+    'pricing.monopoly.f1': '✓ Full Ecosystem (Web + App)',
+    'pricing.monopoly.f2': '✓ AI Neural Integration',
+    'pricing.monopoly.f3': '✓ Dedicated Data Mining',
+    'pricing.monopoly.f4': '✓ 24/7 War Room Support',
+    'pricing.btn.contact_hq': 'Contact HQ',
+    // Sovereign Architect
+    'arch.title': 'Sovereign Architect',
+    'arch.systems': 'System Core',
+    'arch.analysis': 'System Analysis',
+    'arch.cat.platform': 'CORE PLATFORM',
+    'arch.cat.intel': 'INTELLIGENCE',
+    'arch.cat.infra': 'INFRASTRUCTURE',
+    'arch.spec.complexity': 'COMPLEXITY',
+    'arch.spec.time': 'EST. WEEKS',
+    'arch.spec.cost': 'INVESTMENT',
+    'arch.stack.label': 'TECH STACK',
+    'arch.btn.init': 'INITIALIZE BUILD',
+    'arch.msg.empty': 'SELECT MODULES TO BEGIN',
+    'arch.mod.web': 'Web Platform',
+    'arch.mod.mob': 'Mobile App',
+    'arch.mod.desk': 'Desktop SW',
+    'arch.mod.chat': 'AI Chatbot',
+    'arch.mod.net': 'Neural Net',
+    'arch.mod.db': 'Secure DB',
+    'arch.mod.pay': 'Payments',
+    'arch.mod.chain': 'Blockchain',
   },
   es: {
     'nav.home': 'Organización',
     'nav.services': 'Empresas',
     'nav.python': 'Soluciones Python',
-    'nav.audit': 'Protocolo: AUDITORÍA',
+    'nav.audit': 'Sovereign AI',
     'nav.game': 'Sim: IMPERIO',
     'nav.contact': 'Alianzas',
     'nav.languages': 'Idiomas:',
@@ -519,7 +634,8 @@ const _i18n = {
     'python.stats.3': 'Tiempo de Lógica',
     'audit.title': 'Protocolo de Auditoría Soberana',
     'audit.lead': 'Inicie un análisis profundo de su activo digital. Identifique vulnerabilidades. Cuantifique la ineficiencia. Prepárese para la conquista.',
-    'audit.input.placeholder': 'INGRESAR URL OBJETIVO',
+    'audit.input.placeholder': 'ESPERANDO COMANDO NEURONAL...',
+    'audit.btn.enter': 'ENTRAR',
     'audit.btn.scan': 'INICIAR ESCANEO',
     'audit.status.init': 'Inicializando Protocolo Soberano...',
     'audit.status.connect': 'Estableciendo Apretón de Manos Neural...',
@@ -539,12 +655,64 @@ const _i18n = {
     'game.upg.algo': 'Algoritmo de Trading',
     'game.upg.ai': 'Red Neuronal',
     'game.locked': 'Bloqueado',
+    // Simulator & Pricing
+    'pricing.simulator.title': 'Simulador de Ingresos Imperial',
+    'pricing.simulator.traffic': 'Alcance de Audiencia (Usuarios/Mes)',
+    'pricing.simulator.value': 'Valor Promedio Transacción ($)',
+    'pricing.simulator.revenue': 'Ingreso Mensual Estimado',
+    'pricing.simulator.disclaimer': '*Basado en tasa de conversión estándar del 1%',
+    'pricing.initiate.title': 'Iniciado',
+    'pricing.initiate.price': '$5,000',
+    'pricing.initiate.desc': 'Cimientos para nuevos participantes del mercado.',
+    'pricing.initiate.f1': '✓ Plataforma Web Premium',
+    'pricing.initiate.f2': '✓ Protocolo SEO Básico',
+    'pricing.initiate.f3': '✓ 1 Mes de Soporte',
+    'pricing.btn.deploy': 'Desplegar',
+    'pricing.badge.best': 'Mejor Valor',
+    'pricing.badge.slots': 'SOLO 2 CUPOS RESTANTES',
+    'pricing.conquest.title': 'Conquista',
+    'pricing.conquest.price': '$8,000',
+    'pricing.conquest.desc': 'Expansión rápida y automatización para emprendedores serios.',
+    'pricing.conquest.f1': '★ App Soberana (iOS/Android)',
+    'pricing.conquest.f2': '★ Integración de Algoritmo',
+    'pricing.conquest.f3': '✓ Sistema de Mercado P2P',
+    'pricing.conquest.f4': '✓ 3 Meses de Soporte Prioritario',
+    'pricing.btn.access': 'Acceso de Dominio',
+    'pricing.monopoly.title': 'Monopolio',
+    'pricing.monopoly.price': 'A Medida',
+    'pricing.monopoly.desc': 'Dominación total del mercado para entidades establecidas.',
+    'pricing.monopoly.f1': '✓ Ecosistema Completo (Web + App)',
+    'pricing.monopoly.f2': '✓ Integración Neuronal IA',
+    'pricing.monopoly.f3': '✓ Minería de Datos Dedicada',
+    'pricing.monopoly.f4': '✓ Soporte War Room 24/7',
+    'pricing.btn.contact_hq': 'Contactar HQ',
+    // Sovereign Architect
+    'arch.title': 'Arquitecto Soberano',
+    'arch.systems': 'Núcleo del Sistema',
+    'arch.analysis': 'Análisis del Sistema',
+    'arch.cat.platform': 'PLATAFORMA CENTRAL',
+    'arch.cat.intel': 'INTELIGENCIA',
+    'arch.cat.infra': 'INFRAESTRUCTURA',
+    'arch.spec.complexity': 'COMPLEJIDAD',
+    'arch.spec.time': 'EST. SEMANAS',
+    'arch.spec.cost': 'INVERSIÓN',
+    'arch.stack.label': 'STACK TECNOLÓGICO',
+    'arch.btn.init': 'INICIAR CONSTRUCCIÓN',
+    'arch.msg.empty': 'SELECCIONAR MÓDULOS',
+    'arch.mod.web': 'Plataforma Web',
+    'arch.mod.mob': 'App Móvil',
+    'arch.mod.desk': 'Software Escritorio',
+    'arch.mod.chat': 'Chatbot IA',
+    'arch.mod.net': 'Red Neuronal',
+    'arch.mod.db': 'Base de Datos Segura',
+    'arch.mod.pay': 'Pagos',
+    'arch.mod.chain': 'Blockchain',
   },
   fr: {
     'nav.home': 'Organisation',
     'nav.services': 'Entreprises',
     'nav.python': 'Solutions Python',
-    'nav.audit': 'Protocole : AUDIT',
+    'nav.audit': 'Sovereign AI',
     'nav.game': 'Sim: EMPIRE',
     'nav.contact': 'Partenariats',
     'nav.languages': 'Langues :',
@@ -693,7 +861,8 @@ const _i18n = {
     'python.stats.3': 'Dispo. Logique',
     'audit.title': 'Protocole d\'Audit Souverain',
     'audit.lead': 'Initiez une analyse approfondie de votre actif numérique. Identifiez les vulnérabilités. Quantifiez l\'inefficacité. Préparez-vous à la conquête.',
-    'audit.input.placeholder': 'ENTRER L\'URL CIBLE',
+    'audit.input.placeholder': 'EN ATTENTE DE COMMANDE NEURONALE...',
+    'audit.btn.enter': 'ENTRER',
     'audit.btn.scan': 'LANCER LE SCAN',
     'audit.status.init': 'Initialisation du Protocole Souverain...',
     'audit.status.connect': 'Établissement de la Liaison Neurale...',
@@ -713,6 +882,58 @@ const _i18n = {
     'game.upg.algo': 'Algorithme de Trading',
     'game.upg.ai': 'Réseau de Neurones',
     'game.locked': 'Verrouillé',
+    // Simulator & Pricing
+    'pricing.simulator.title': 'Simulateur de Revenus de l\'Empire',
+    'pricing.simulator.traffic': 'Portée d\'Audience (Utilisateurs/Mois)',
+    'pricing.simulator.value': 'Valeur Moyenne Transaction ($)',
+    'pricing.simulator.revenue': 'Revenu Mensuel Estimé',
+    'pricing.simulator.disclaimer': '*Basé sur un taux de conversion standard de 1%',
+    'pricing.initiate.title': 'Initié',
+    'pricing.initiate.price': '$5,000',
+    'pricing.initiate.desc': 'Fondation pour les nouveaux entrants sur le marché.',
+    'pricing.initiate.f1': '✓ Plateforme Web Premium',
+    'pricing.initiate.f2': '✓ Protocole SEO Basique',
+    'pricing.initiate.f3': '✓ 1 Mois de Support',
+    'pricing.btn.deploy': 'Déployer',
+    'pricing.badge.best': 'Meilleure Valeur',
+    'pricing.badge.slots': 'PLUS QUE 2 PLACES',
+    'pricing.conquest.title': 'Conquête',
+    'pricing.conquest.price': '$8,000',
+    'pricing.conquest.desc': 'Expansion rapide et automatisation pour entrepreneurs sérieux.',
+    'pricing.conquest.f1': '★ App Souveraine (iOS/Android)',
+    'pricing.conquest.f2': '★ Intégration d\'Algorithme',
+    'pricing.conquest.f3': '✓ Système de Marché P2P',
+    'pricing.conquest.f4': '✓ 3 Mois de Support Prioritaire',
+    'pricing.btn.access': 'Accès Domination',
+    'pricing.monopoly.title': 'Monopole',
+    'pricing.monopoly.price': 'Sur Mesure',
+    'pricing.monopoly.desc': 'Domination totale du marché pour les entités établies.',
+    'pricing.monopoly.f1': '✓ Écosystème Complet (Web + App)',
+    'pricing.monopoly.f2': '✓ Intégration Neurale IA',
+    'pricing.monopoly.f3': '✓ Minage de Données Dédié',
+    'pricing.monopoly.f4': '✓ Support War Room 24/7',
+    'pricing.btn.contact_hq': 'Contacter QG',
+    // Sovereign Architect
+    'arch.title': 'Architecte Souverain',
+    'arch.systems': 'Noyau Système',
+    'arch.analysis': 'Analyse Système',
+    'arch.cat.platform': 'PLATEFORME PRINCIPALE',
+    'arch.cat.intel': 'INTELLIGENCE',
+    'arch.cat.infra': 'INFRASTRUCTURE',
+    'arch.spec.complexity': 'COMPLEXITÉ',
+    'arch.spec.time': 'EST. SEMAINES',
+    'arch.spec.cost': 'INVESTISSEMENT',
+    'arch.stack.label': 'PILE TECHNIQUE',
+    'arch.btn.init': 'INITIALISER LE BUILD',
+    'arch.msg.empty': 'SÉLECTIONNEZ DES MODULES',
+    'arch.mod.web': 'Plateforme Web',
+    'arch.mod.mob': 'App Mobile',
+    'arch.mod.desk': 'Logiciel Bureau',
+    'arch.mod.chat': 'Chatbot IA',
+    'arch.mod.net': 'Réseau Neuronal',
+    'arch.mod.db': 'BDD Sécurisée',
+    'arch.mod.pay': 'Paiements',
+    'arch.mod.chain': 'Blockchain',
   }
 };
 
@@ -748,6 +969,9 @@ function applyTranslations(lang) {
       if (txt) e.placeholder = txt;
     });
 
+    // Dispatch event for other scripts (like audit.js)
+    window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
+
     // set select(s) (any selector marked with data-lang-select)
     const selects = document.querySelectorAll('[data-lang-select]');
     selects.forEach(s => { try { s.value = lang; } catch (e) { } });
@@ -775,6 +999,29 @@ function initContactForm() {
   const form = document.getElementById('contact-form');
   if (!form) return;
   const status = document.getElementById('form-status');
+
+  // --- URL Param Pre-fill (Sovereign Architect Integration) ---
+  const params = new URLSearchParams(window.location.search);
+  const pSubject = params.get('subject');
+  const pCost = params.get('cost');
+  const pStack = params.get('stack');
+
+  if (pSubject) {
+    if (form.subject) {
+      let finalMsg = pSubject;
+      if (pCost || pStack) {
+        finalMsg += `\n\n[ARCHITECT SPECIFICATION]\n`;
+        if (pCost) finalMsg += `Est. Investment: $${pCost}\n`;
+        if (pStack) finalMsg += `Tech Stack: ${pStack}\n`;
+        finalMsg += `\n[END SPEC]`;
+      }
+      form.subject.value = finalMsg;
+    }
+    // Also scroll to form
+    const formSection = form.closest('.section');
+    if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
+  }
+  // ------------------------------------------------------------
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -892,121 +1139,67 @@ function initGoldenGlance() {
     let width, height;
     let particles = [];
     const particleCount = window.innerWidth < 768 ? 40 : 80;
-    const connectionDistance = 150;
-    const mouseDistance = 200;
-
-    const mouse = { x: null, y: null };
-
-    // Handle mouse relative to canvas/viewport correctly
-    window.addEventListener('mousemove', (e) => {
-      // If canvas is fixed/absolute in hero, we need relative coords? 
-      // Actually hero is relative, canvas is absolute top 0 left 0. 
-      // e.clientX is viewport. If hero is at top, clientX/Y works mostly.
-      // But let's use getBoundingClientRect to be safe.
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-    });
-
-    window.addEventListener('mouseleave', () => {
-      mouse.x = null;
-      mouse.y = null;
-    });
+    let lines = [];
+    const gap = 30;
 
     function resize() {
-      width = canvas.width = canvas.parentElement.offsetWidth;
-      height = canvas.height = canvas.parentElement.offsetHeight;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initLines();
     }
 
-    class Particle {
-      constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 1;
-        this.vy = (Math.random() - 0.5) * 1;
-        this.size = Math.random() * 2 + 1;
-        this.color = Math.random() > 0.5 ? '#FFD700' : '#00f2ff'; // Gold or Cyber Blue
-      }
-
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        // Bounce off edges
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-
-        // Mouse interaction
-        if (mouse.x != null) {
-          const dx = mouse.x - this.x;
-          const dy = mouse.y - this.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < mouseDistance) {
-            const forceDirectionX = dx / distance;
-            const forceDirectionY = dy / distance;
-            const force = (mouseDistance - distance) / mouseDistance;
-            const direction = -1; // -1 to repel, 1 to attract
-            this.vx += forceDirectionX * force * direction * 0.05;
-            this.vy += forceDirectionY * force * direction * 0.05;
-          }
+    function initLines() {
+      lines = [];
+      // Create a grid of points for 3D terrain effect
+      for (let y = 100; y < height + 100; y += gap) {
+        let line = [];
+        for (let x = -100; x < width + 100; x += gap) {
+          line.push({ x, y, baseY: y, angle: (x * 0.01) + (y * 0.02) });
         }
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.fill();
+        lines.push(line);
       }
     }
 
-    function initParticles() {
-      particles = [];
-      resize();
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    }
-
-    function animateParticles() {
+    function animate() {
       ctx.clearRect(0, 0, width, height);
 
-      particles.forEach(p => {
-        p.update();
-        p.draw();
+      // Perspective/3D Tilt effect done via 2D math (cleaner than full 3D engine)
+      const time = Date.now() * 0.002;
+
+      ctx.lineWidth = 1.5;
+
+      lines.forEach((line, i) => {
+        ctx.beginPath();
+        let first = true;
+
+        // Gradient color based on depth (Y position)
+        const alpha = 0.1 + (i / lines.length) * 0.5;
+        ctx.strokeStyle = `rgba(0, 242, 255, ${alpha})`; // Cyan
+
+        line.forEach(p => {
+          // Wave movement
+          const wave = Math.sin(p.angle + time) * 15;
+          // Mouse interaction (subtle warp)
+          // p.y = p.baseY + wave; 
+
+          // Draw
+          if (first) {
+            ctx.moveTo(p.x, p.baseY + wave);
+            first = false;
+          } else {
+            ctx.lineTo(p.x, p.baseY + wave);
+          }
+        });
+
+        ctx.stroke();
       });
 
-      // Draw connections
-      for (let a = 0; a < particles.length; a++) {
-        for (let b = a; b < particles.length; b++) {
-          const dx = particles[a].x - particles[b].x;
-          const dy = particles[a].y - particles[b].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < connectionDistance) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 215, 0, ${1 - distance / connectionDistance})`;
-            ctx.lineWidth = 1;
-            ctx.moveTo(particles[a].x, particles[a].y);
-            ctx.lineTo(particles[b].x, particles[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(animateParticles);
+      requestAnimationFrame(animate);
     }
 
-    // Debounce resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(initParticles, 100);
-    });
-
-    initParticles();
-    animateParticles();
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
   }
 
   // 2. Scroll Reveal

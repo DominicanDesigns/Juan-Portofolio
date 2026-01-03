@@ -4,261 +4,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sovereign Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Sovereign Command - Juan Nunez</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --primary: #d4a017;
-            --bg: #0a0a0a;
-            --surface: #121212;
-            --text: #e0e0e0;
-            --danger: #cf3434;
+            --glass-bg: rgba(10, 10, 15, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-green: #00ff9d;
+            --neon-red: #ff3333;
+            --neon-gold: #daae51;
         }
 
         body {
+            background: #000;
+            color: #e0e0e0;
             font-family: 'Outfit', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            padding: 2rem;
-            margin: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 1rem;
-        }
-
-        h1 {
-            margin: 0;
-            color: var(--primary);
-        }
-
-        .grid {
+            height: 100vh;
+            overflow: hidden;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-rows: 60px 1fr;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(218, 174, 81, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.03) 0%, transparent 20%);
         }
 
-        .card {
-            background: var(--surface);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #333;
+        /* --- HEADER --- */
+        .admin-header {
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 10;
         }
 
-        .card h2 {
-            margin-top: 0;
-            border-bottom: 1px solid #333;
-            padding-bottom: 0.5rem;
+        .brand-zone {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
+        .brand-logo {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--neon-gold);
+            font-size: 1.2rem;
+            border: 1px solid var(--neon-gold);
+            padding: 2px 8px;
+            letter-spacing: 2px;
         }
 
-        th,
-        td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #333;
+        .brand-title {
+            font-weight: 700;
             font-size: 0.9rem;
-        }
-
-        th {
-            color: #888;
             text-transform: uppercase;
-            font-size: 0.75rem;
-        }
-
-        .btn {
-            padding: 5px 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .btn-dang {
-            background: rgba(207, 52, 52, 0.2);
-            color: var(--danger);
-            border: 1px solid var(--danger);
-        }
-
-        .btn-dang:hover {
-            background: var(--danger);
+            letter-spacing: 0.1em;
             color: #fff;
         }
 
-        .status-banned {
-            color: var(--danger);
+        .admin-nav {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #666;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .logout-btn {
+            color: var(--neon-red);
+            border: 1px solid rgba(255, 51, 51, 0.3);
+            background: transparent;
+            padding: 6px 16px;
+            font-family: 'Share Tech Mono', monospace;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: var(--neon-red);
+            color: #000;
+        }
+
+        /* --- MAIN LAYOUT --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr 350px;
+            gap: 1px;
+            height: 100%;
+            background: var(--glass-border);
+            /* Grid lines */
+        }
+
+        .panel {
+            background: #050505;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .panel-header {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- LEFT: USERS --- */
+        .user-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0;
+        }
+
+        .user-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s;
+        }
+
+        .user-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .u-name {
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .u-role {
+            font-size: 0.7rem;
+            color: #555;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .u-action {
+            background: none;
+            border: none;
+            color: var(--neon-red);
+            font-size: 0.7rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            text-transform: uppercase;
             font-weight: 700;
         }
 
-        .status-active {
-            color: #10b981;
+        .u-action:hover {
+            opacity: 1;
+            text-decoration: underline;
         }
 
-        .timestamp {
-            font-family: monospace;
+        /* --- CENTER: CHAT FEED --- */
+        .chat-feed {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            background: radial-gradient(circle at center, #080808 0%, #000 100%);
+        }
+
+        .feed-item {
+            display: flex;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 4px;
+            padding: 0.8rem;
+            gap: 1rem;
+            border-left: 2px solid transparent;
+            transition: transform 0.2s;
+        }
+
+        .feed-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(2px);
+        }
+
+        .feed-item.admin-msg {
+            border-left-color: var(--neon-gold);
+        }
+
+        .feed-item.guest-msg {
+            border-left-color: #444;
+        }
+
+        .feed-item.system-msg {
+            border-left-color: var(--neon-green);
+            background: rgba(0, 255, 157, 0.05);
+        }
+
+        .feed-content {
+            flex: 1;
+        }
+
+        .feed-meta {
+            font-size: 0.7rem;
+            color: #555;
+            margin-bottom: 4px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .feed-text {
+            font-size: 0.9rem;
+            color: #ddd;
+            line-height: 1.4;
+        }
+
+        .feed-controls {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .del-btn {
+            background: none;
+            border: 1px solid #444;
             color: #666;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .del-btn:hover {
+            color: var(--neon-red);
+            border-color: var(--neon-red);
+        }
+
+        .broadcast-bar {
+            padding: 1rem;
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .bc-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            color: var(--neon-gold);
+            padding: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            border-radius: 2px;
+        }
+
+        .bc-input:focus {
+            outline: none;
+            border-color: var(--neon-gold);
+        }
+
+        .bc-btn {
+            background: var(--neon-gold);
+            color: #000;
+            border: none;
+            font-weight: 700;
+            padding: 0 1.5rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* --- RIGHT: STATS --- */
+        .stat-box {
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .stat-num {
+            font-size: 3rem;
+            font-weight: 200;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .system-log {
+            flex: 1;
+            padding: 1rem;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: #666;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 6px;
+        }
+
+        .log-time {
+            color: #444;
+            margin-right: 8px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <header class="header">
-            <div>
-                <h1>CORE CONTROL</h1>
-                <p style="color: #666; margin: 5px 0;">Administrator Access // Local Client Database</p>
-            </div>
-            <div>
-                <a href="chat.html" style="color: #fff; text-decoration: none; margin-right: 15px;">Monitor Chat</a>
-                <button id="logout-btn" class="btn" style="background: #333; color: #fff;">Logout</button>
-            </div>
-        </header>
-
-        <div class="grid">
-            <!-- User Control -->
-            <div class="card">
-                <h2>User Database</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="user-table">
-                        <!-- JS Insert -->
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Message Logs -->
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h2>Communication Logs</h2>
-                    <button id="purge-btn" class="btn btn-dang">PURGE ALL</button>
+    <!-- Header -->
+    <header class="admin-header">
+        <div class="brand-zone">
+            <a href="index.html" class="logo"
+                style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                <div
+                    style="background: var(--accent-gold); color: #000; font-weight: 900; padding: 4px 8px; font-size: 1.25rem; border-radius: 2px; line-height: 1;">
+                    JN</div>
+                <div style="display: flex; flex-direction: column; line-height: 1;">
+                    <span
+                        style="color: #fff; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase;">JUAN
+                        NUNEZ</span>
+                    <span
+                        style="color: var(--accent-primary); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 2px;">ORGANIZATION</span>
                 </div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Time</th>
-                            <th>User</th>
-                            <th>Message</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="msg-table">
-                        <!-- JS Insert -->
-                    </tbody>
-                </table>
-            </div>
+            </a>
         </div>
+        <nav class="admin-nav">
+            <div class="nav-item active">Live Monitor</div>
+            <div class="nav-item">Database</div>
+            <a href="chat.html" class="nav-item">Secure Comms &rarr;</a>
+        </nav>
+        <button class="logout-btn" id="logout-btn">Jack Out</button>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="dashboard-grid">
+
+        <!-- COL 1: User Registry -->
+        <aside class="panel">
+            <div class="panel-header">
+                <span>Active Operatives</span>
+                <span id="user-total" style="color: var(--neon-gold)">0</span>
+            </div>
+            <div class="user-list" id="user-list">
+                <!-- Dynamic Users -->
+            </div>
+        </aside>
+
+        <!-- COL 2: Central Command (Chat) -->
+        <main class="panel">
+            <div class="panel-header">
+                <span>Global Communication Feed</span>
+                <span class="live-dot"
+                    style="width:8px;height:8px;background:var(--neon-green);border-radius:50%;box-shadow:0 0 5px var(--neon-green);"></span>
+            </div>
+            <div class="chat-feed" id="chat-feed">
+                <!-- Dynamic Messages -->
+            </div>
+
+            <form class="broadcast-bar" id="broadcast-form">
+                <input type="text" class="bc-input" id="bc-input" placeholder="BROADCAST SYSTEM ALERT..."
+                    autocomplete="off">
+                <button type="submit" class="bc-btn">Transmit</button>
+            </form>
+        </main>
+
+        <!-- COL 3: Telemetry -->
+        <aside class="panel">
+            <div class="panel-header">System Telemetry</div>
+
+            <div class="stat-box">
+                <div class="stat-num" id="msg-total">0</div>
+                <div class="stat-lbl">Encrypted Ingests</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-num" style="color: var(--neon-green)">100%</div>
+                <div class="stat-lbl">Network Integrity</div>
+            </div>
+
+            <div class="panel-header">Admin Logs</div>
+            <div class="system-log" id="sys-log">
+                <!-- Logs -->
+            </div>
+        </aside>
+
     </div>
 
-    <!-- Admin Logic -->
-    <script type="module">
-        import { auth } from './src/logic/auth-service.js';
-        import { db } from './src/logic/db.js';
-        import { chatService } from './src/logic/chat-service.js';
+    <script>
+        // --- CORE LOGIC ---
 
-        // Security Check
-        const user = auth.getUser();
-        if (!user || user.username !== 'Administrator') {
-            window.location.href = 'index.html';
+        // 1. Storage Wrapper
+        const store = {
+            get: (key) => JSON.parse(localStorage.getItem(key) || 'null'),
+            set: (key, val) => localStorage.setItem(key, JSON.stringify(val))
+        };
+
+        // 2. Auth Guard
+        const session = store.get('user_session');
+        if (!session || (session.role !== 'ADMIN' && session.username !== 'Administrator')) {
+            document.body.innerHTML = '<div style="height:100vh;display:flex;align-items:center;justify-content:center;background:#000;color:red;font-family:monospace;font-size:2rem;">ACCESS RESTRICTED</div>';
+            setTimeout(() => window.location.href = 'login.html', 1500);
+            throw new Error("Unauthorized");
         }
 
-        const userTable = document.getElementById('user-table');
-        const msgTable = document.getElementById('msg-table');
-        const purgeBtn = document.getElementById('purge-btn');
+        // 3. Render Components
+        const els = {
+            userList: document.getElementById('user-list'),
+            chatFeed: document.getElementById('chat-feed'),
+            userTotal: document.getElementById('user-total'),
+            msgTotal: document.getElementById('msg-total'),
+            log: document.getElementById('sys-log'),
+            bcForm: document.getElementById('broadcast-form'),
+            bcInput: document.getElementById('bc-input')
+        };
+
+        function addLog(text) {
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false });
+            const div = document.createElement('div');
+            div.className = 'log-entry';
+            div.innerHTML = `<span class="log-time">[${time}]</span> ${text}`;
+            els.log.prepend(div);
+        }
+
+        addLog(`COMMAND SESSION INITIALIZED: ${session.username}`);
 
         function renderUsers() {
-            const users = db.getUsers();
-            userTable.innerHTML = '';
-            users.forEach(u => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td style="font-weight: 700;">${u.username}</td>
-                    <td>${u.is_banned ? '<span class="status-banned">BANNED</span>' : '<span class="status-active">ACTIVE</span>'}</td>
-                    <td>
-                        <button class="btn btn-dang btn-sm" onclick="window.toggleBan('${u.id}', ${u.is_banned})">
-                            ${u.is_banned ? 'UNBAN' : 'BAN'}
-                        </button>
-                    </td>
+            const users = store.get('users_db') || {};
+            els.userList.innerHTML = '';
+            els.userTotal.textContent = Object.keys(users).length;
+
+            Object.entries(users).forEach(([username, data]) => {
+                if (username === 'Administrator') return; // Hide Super Admin logic or make immutable
+
+                const item = document.createElement('div');
+                item.className = 'user-item';
+                item.innerHTML = `
+                    <div class="user-info">
+                        <span class="u-name">${username}</span>
+                        <span class="u-role">${data.role || 'GUEST'}</span>
+                    </div>
+                    <button class="u-action" onclick="revokeUser('${username}')">[REVOKE]</button>
                 `;
-                userTable.appendChild(tr);
+                els.userList.appendChild(item);
             });
         }
 
-        function renderMessages() {
-            const msgs = db.getMessages().reverse(); // Newest first
-            msgTable.innerHTML = '';
-            msgs.forEach(m => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="timestamp">${new Date(m.timestamp).toLocaleTimeString()}</td>
-                    <td>${m.user}</td>
-                    <td>${m.content}</td>
-                    <td>
-                        <button class="btn btn-dang btn-sm" onclick="window.deleteMsg('${m.id}')">DEL</button>
-                    </td>
+        function renderChat() {
+            const msgs = store.get('chat_history') || [];
+            els.chatFeed.innerHTML = '';
+            els.msgTotal.textContent = msgs.length;
+
+            msgs.forEach((msg, idx) => {
+                // Determine style
+                let typeClass = 'guest-msg';
+                if (msg.user === 'Administrator' || msg.user === 'SYSTEM' || msg.user === 'Sovereign AI') typeClass = 'admin-msg';
+                if (msg.user === 'SYSTEM') typeClass = 'system-msg';
+
+                const item = document.createElement('div');
+                item.className = `feed-item ${typeClass}`;
+                item.innerHTML = `
+                    <div class="feed-content">
+                        <div class="feed-meta">${msg.user} / ID: ${msg.ts}</div>
+                        <div class="feed-text">${msg.content}</div>
+                    </div>
+                    <div class="feed-controls">
+                        <button class="del-btn" onclick="deleteMsg(${idx})">REDACT</button>
+                    </div>
                 `;
-                msgTable.appendChild(tr);
+                // Append (newest at bottom usually, but scrolling handled by flex)
+                els.chatFeed.appendChild(item);
             });
+            els.chatFeed.scrollTop = els.chatFeed.scrollHeight;
         }
 
-        // --- Actions ---
-
-        // Expose to window for onclick handlers
-        window.toggleBan = (userId, currentStatus) => {
-            // Since we need to update DB, we do it directly
-            // Note: In real app better to access via service, but direct DB update is fine here
-            // user.id is stored as number or string? Check DB.js. 
-            // In db.js: user.id = Date.now() (number).
-            // Template strings convert it to string. 
-            db.updateUser(Number(userId), { is_banned: !currentStatus });
-            renderUsers();
-        };
-
-        window.deleteMsg = (msgId) => {
-            chatService.deleteMessage(msgId);
-            renderMessages();
-        };
-
-        purgeBtn.addEventListener('click', () => {
-            if (confirm('WARNING: This will obliterate all chat logs. Proceed?')) {
-                chatService.purgeChat();
-                renderMessages();
+        // 4. Actions
+        window.revokeUser = (username) => {
+            if (confirm(`REVOKE CREDENTIALS FOR: ${username}?`)) {
+                const users = store.get('users_db') || {};
+                delete users[username];
+                store.set('users_db', users);
+                addLog(`REVOKED ACCESS: ${username}`);
+                renderUsers();
+                // Force Update
+                window.dispatchEvent(new Event('storage'));
             }
+        };
+
+        window.deleteMsg = (idx) => {
+            const msgs = store.get('chat_history') || [];
+            const removed = msgs.splice(idx, 1);
+            store.set('chat_history', msgs);
+            if (removed[0]) addLog(`REDACTED MSG FROM: ${removed[0].user}`);
+            renderChat();
+            window.dispatchEvent(new Event('storage'));
+        };
+
+        els.bcForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const txt = els.bcInput.value.trim();
+            if (!txt) return;
+
+            const msgs = store.get('chat_history') || [];
+            msgs.push({
+                user: 'SYSTEM',
+                content: `ALERT: ${txt}`,
+                ts: Date.now(),
+                type: 'system'
+            });
+            store.set('chat_history', msgs);
+
+            els.bcInput.value = '';
+            addLog(`BROADCAST SENT: ${txt}`);
+            renderChat();
+            window.dispatchEvent(new Event('storage'));
         });
 
         document.getElementById('logout-btn').addEventListener('click', () => {
-            auth.logout();
+            localStorage.removeItem('user_session');
+            window.location.href = 'login.html';
+        });
+
+        // 5. Sync
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'chat_history') renderChat();
+            if (e.key === 'users_db') renderUsers();
         });
 
         // Init
         renderUsers();
-        renderMessages();
-
-        // Listen for live updates
-        window.addEventListener('storage', () => {
-            renderUsers();
-            renderMessages();
-        });
+        renderChat();
 
     </script>
 </body>
