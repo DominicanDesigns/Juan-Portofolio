@@ -1518,3 +1518,80 @@ input[type=range]::-webkit-slider-runnable-track {
     background-color: #000 !important;
     background-image: none !important;
 }
+/* Payment Modal */
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Darker backdrop */
+    backdrop-filter: blur(8px);
+    z-index: 2000; /* Higher than header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none; /* Click through when hidden */
+    transition: opacity 0.3s ease;
+}
+
+.payment-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.payment-modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-gold);
+    box-shadow: 0 0 50px rgba(251, 191, 36, 0.2);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    
+    /* FIX: Allow scrolling for long forms (card input) */
+    max-height: 90vh; /* Don't exceed 90% of screen height */
+    overflow-y: auto; /* Scroll if content (buttons/forms) is too tall */
+}
+
+.payment-modal.active .payment-modal-content {
+    transform: translateY(0);
+}
+
+.payment-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.payment-modal-close:hover {
+    color: #fff;
+}
+
+.payment-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.payment-header h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.payment-header p {
+    color: var(--accent-gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+

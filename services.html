@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- PayPal SDK: Replace 'sb' with your actual Client ID when live -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ARJc9hoxkzsoYS6jm-uWzirgqih_isRPmvPGu5gIhEKDAr4vtqPJOPoJL9L-7YfN9rgQEb_2qShIvu52&currency=USD&components=buttons&enable-funding=venmo,card"></script>
 </head>
 
 <body>
@@ -83,9 +86,8 @@
                                     style="color: var(--accent-gold);">★</span> <span data-i18n="plan.web.f3">Full
                                     Algorithm Integration Ready</span></li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;"
-                            data-i18n="cta.secure_deploy">Secure
-                            Deployment</a>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;"
+                            data-plan="empire" data-i18n="cta.purchase_empire">Purchase Now</a>
                     </div>
 
                     <!-- Apps Plan -->
@@ -107,9 +109,9 @@
                                     style="color: var(--accent-gold);">★</span> <span data-i18n="plan.apps.f3">Secure
                                     PayPal Integration</span></li>
                         </ul>
-                        <a href="contact.html" class="btn btn-primary"
+                        <a href="#" class="btn btn-primary"
                             style="width: 100%; text-align: center; background: var(--accent-gold);"
-                            data-i18n="cta.launch_platform">Launch Platform</a>
+                            data-plan="sovereign" data-i18n="cta.purchase_sovereign">Purchase Now</a>
                     </div>
 
 
@@ -128,8 +130,8 @@
                             <li style="margin-bottom: 0.5rem;">✓ <span data-i18n="plan.maint.f3">Monthly report</span>
                             </li>
                         </ul>
-                        <a href="contact.html" class="btn btn-secondary" style="width: 100%; text-align: center;"
-                            data-i18n="cta.subscribe">Subscribe</a>
+                        <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;" data-plan="asset"
+                            data-i18n="cta.subscribe">Subscribe Now</a>
                     </div>
                 </div>
 
@@ -218,7 +220,22 @@
         </div>
     </footer>
 
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content">
+            <button class="payment-modal-close" id="close-modal">&times;</button>
+            <div class="payment-header">
+                <h3 id="modal-title">Complete Purchase</h3>
+                <p id="modal-price">$0.00</p>
+                <div style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.5rem;">Secure Transaction via
+                    PayPal</div>
+            </div>
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
     <script src="script.js" defer></script>
+    <script src="payments.js" defer></script>
 </body>
 
 </html>
