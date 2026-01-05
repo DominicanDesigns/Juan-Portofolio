@@ -113,6 +113,10 @@
             flex-direction: column;
             gap: 1rem;
         }
+
+        .hidden {
+            display: none !important;
+        }
     </style>
 </head>
 
@@ -145,6 +149,12 @@
         </p>
 
         <div class="action-area">
+            <!-- Dynamic Download Button -->
+            <a id="download-btn" href="#" class="btn btn-primary hidden" download
+                style="width: 100%; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; background: var(--accent-gold); color: #000;">
+                <span style="font-size: 1.2rem;">⬇️</span>
+                Download Asset Package
+            </a>
             <a id="whatsapp-btn" href="#" class="btn btn-primary"
                 style="width: 100%; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/whatsapp.svg" width="20" height="20"
@@ -171,6 +181,7 @@
             const plan = params.get('plan');
             const txnId = params.get('id');
             const price = params.get('price');
+            const sku = params.get('sku'); // Get Product ID
 
             // Security Check: Redirect if no transaction ID
             if (!txnId || !name) {
@@ -183,9 +194,40 @@
             document.getElementById('plan-name').textContent = plan;
             document.getElementById('txn-id').textContent = txnId;
 
+            // --- Download Logic (Automation Scripts) ---
+            const downloadMap = {
+                'webscraper': 'assets/downloads/webscraper.zip',
+                'social': 'assets/downloads/social.zip',
+                'excel': 'assets/downloads/excel.zip',
+                'email': 'assets/downloads/email.zip',
+                'ecom': 'assets/downloads/ecom.zip',
+                'crypto': 'assets/downloads/crypto.zip',
+                'desktop': 'assets/downloads/desktop.zip'
+            };
+
+            const downloadBtn = document.getElementById('download-btn');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+            const emailBtn = document.getElementById('email-btn');
+
+            if (sku && downloadMap[sku]) {
+                // If it's a digital product, show Download button
+                downloadBtn.href = downloadMap[sku];
+                downloadBtn.classList.remove('hidden');
+
+                // Update instructions
+                document.querySelector('.lead').textContent = "Asset Secured.";
+                document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
+                    `Transaction verified. <strong style="color:var(--accent-gold)">Download your logic package below.</strong><br>Link expires in 24 hours.`;
+
+                // Adjust secondary buttons text
+                whatsappBtn.innerHTML = `
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/whatsapp.svg" width="20" height="20" style="filter: invert(1);">
+                    Contact Support / Setup Help
+                `;
+            }
+
             // --- WhatsApp Logic ---
             const whatsappNumber = "18097292380";
-
             const message = `Hello, I just purchased *${plan}* for $${price}.
             
 Name: ${name}
@@ -195,35 +237,22 @@ I am ready to provide the project details.`;
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            document.getElementById('whatsapp-btn').href = whatsappUrl;
-
+            whatsappBtn.href = whatsappUrl;
 
             // --- Email Failure Fallback Logic ---
-            // "Send me a Gmail in case they dont... do Whatsapp"
             const emailSubject = `Purchase Receipt: ${plan} - ${name}`;
             const emailBody = `Hello,
-
+            
 I have completed the payment for: ${plan} ($${price}).
-
+            
 Transaction Details:
 - Name: ${name}
 - Transaction ID: ${txnId}
-
+            
 Please confirm receipt and next steps.`;
 
             const mailtoUrl = `mailto:?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-
-            const emailBtn = document.getElementById('email-btn');
             emailBtn.href = mailtoUrl;
-            emailBtn.addEventListener('mouseenter', () => {
-                emailBtn.style.borderColor = 'var(--accent-gold)';
-                emailBtn.style.color = '#fff';
-            });
-            emailBtn.addEventListener('mouseleave', () => {
-                emailBtn.style.borderColor = 'rgba(255,255,255,0.1)';
-                emailBtn.style.color = 'var(--text-muted)';
-            });
 
             // Optional: Unblur background slightly
             setTimeout(() => {

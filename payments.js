@@ -113,6 +113,49 @@ const PAYMENT_CONFIG = {
         title: "Monopoly Tier",
         price: "1000.00",
         description: "Total Market Domination - Access"
+    },
+    // --- AUTOMATION SCRIPTS ---
+    prod_webscraper: {
+        id: "webscraper",
+        title: "Web Scraping Logic",
+        price: "150.00",
+        description: "Playwright Data Extraction System"
+    },
+    prod_social: {
+        id: "social",
+        title: "Social Auto-Pilot",
+        price: "200.00",
+        description: "Social Media Engagement Automation"
+    },
+    prod_excel: {
+        id: "excel",
+        title: "Sheet Master",
+        price: "150.00",
+        description: "Excel & Google Sheets Auto-Processing"
+    },
+    prod_email: {
+        id: "email",
+        title: "Outreach Bot",
+        price: "250.00",
+        description: "Cold Email & Lead Generation System"
+    },
+    prod_ecom: {
+        id: "ecom",
+        title: "Ecom Synchronizer",
+        price: "300.00",
+        description: "Ecommerce Store Automation Suite"
+    },
+    prod_crypto: {
+        id: "crypto",
+        title: "Crypto Sentinel",
+        price: "300.00",
+        description: "Automated Trading & Monitoring Algorithms"
+    },
+    prod_desktop: {
+        id: "desktop",
+        title: "Desktop Nexus",
+        price: "200.00",
+        description: "Full Desktop Workflow Automation"
     }
 };
 
@@ -254,7 +297,8 @@ function renderButtons(plan) {
                             name: payerName,
                             plan: plan.title,
                             price: plan.price,
-                            id: details.id
+                            id: details.id,
+                            sku: plan.id // Pass the product ID for file delivery
                         });
                         window.location.href = `success.html?${params.toString()}`;
                     }, 1000);

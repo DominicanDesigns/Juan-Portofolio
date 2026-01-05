@@ -66,6 +66,15 @@
                     <p class="lead" data-i18n="python.hero.lead">Harnessing the raw power of Python to automate,
                         analyze, and dominate business processes. Pure efficiency, engineered for the elite.</p>
 
+                    <!-- Language Availability Note -->
+                    <div class="reveal-on-scroll delay-100"
+                        style="margin-top: 1rem; margin-bottom: 2rem; display: inline-block; padding: 0.5rem 1.5rem; border: 1px solid var(--accent-gold); border-radius: 50px; background: rgba(251, 191, 36, 0.05); backdrop-filter: blur(5px);">
+                        <span data-i18n="python.lang_note"
+                            style="color: var(--accent-gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em;">
+                            Documentation & Code commented in: 🇬🇧 English | 🇪🇸 Español
+                        </span>
+                    </div>
+
                     <div class="cta-group">
                         <a href="contact.html" class="btn btn-primary" data-i18n="python.cta.start">Deploy Logic</a>
                         <a href="audit.html" class="btn btn-secondary" data-i18n="python.cta.audit">System Audit</a>
@@ -107,23 +116,88 @@
         <section class="section">
             <div class="container">
                 <div class="grid-3">
-                    <div class="card">
-                        <div class="card-icon">⚡</div>
-                        <h3 data-i18n="python.feat.1.title">Algorithmic Dominance</h3>
-                        <p data-i18n="python.feat.1.desc">Custom algorithms that outperform human efficiency by orders
-                            of magnitude.</p>
+                    <!-- 1. Web Scraping -->
+                    <div class="card reveal-on-scroll">
+                        <div class="card-icon">🕸️</div>
+                        <h3 data-i18n="python.prod.scraper.title">Web Scraping Logic</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $150.00</div>
+                        <p data-i18n="python.prod.scraper.desc">Playwright-based system for extracting data from dynamic
+                            websites to Excel/CSV.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="webscraper"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🔐</div>
-                        <h3 data-i18n="python.feat.2.title">Data Sovereignty</h3>
-                        <p data-i18n="python.feat.2.desc">Secure, localized data processing pipelines that ensure total
-                            control.</p>
+
+                    <!-- 2. Social Media -->
+                    <div class="card reveal-on-scroll delay-100">
+                        <div class="card-icon">📱</div>
+                        <h3 data-i18n="python.prod.social.title">Social Auto-Pilot</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $200.00</div>
+                        <p data-i18n="python.prod.social.desc">Automate engagement and posting across social platforms
+                            to grow your presence.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="social"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">🤖</div>
-                        <h3 data-i18n="python.feat.3.title">AI Integration</h3>
-                        <p data-i18n="python.feat.3.desc">Seamless integration of advanced AI models for predictive
-                            business intelligence.</p>
+
+                    <!-- 3. Excel/Sheets -->
+                    <div class="card reveal-on-scroll delay-200">
+                        <div class="card-icon">📊</div>
+                        <h3 data-i18n="python.prod.excel.title">Sheet Master</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $150.00</div>
+                        <p data-i18n="python.prod.excel.desc">Automate complex data processing between Excel and Google
+                            Sheets.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="excel"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                    </div>
+
+                    <!-- 4. Email Outreach -->
+                    <div class="card reveal-on-scroll">
+                        <div class="card-icon">📧</div>
+                        <h3 data-i18n="python.prod.email.title">Outreach Bot</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $250.00</div>
+                        <p data-i18n="python.prod.email.desc">Cold email automation system for high-volume lead
+                            generation and outreach.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="email"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                    </div>
+
+                    <!-- 5. Ecommerce -->
+                    <div class="card reveal-on-scroll delay-100">
+                        <div class="card-icon">🛒</div>
+                        <h3 data-i18n="python.prod.ecom.title">Ecom Synchronizer</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $300.00</div>
+                        <p data-i18n="python.prod.ecom.desc">Full automation suite for managing inventory and
+                            synchronization for Ecommerce.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="ecom"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                    </div>
+
+                    <!-- 6. Crypto -->
+                    <div class="card reveal-on-scroll delay-200">
+                        <div class="card-icon">🪙</div>
+                        <h3 data-i18n="python.prod.crypto.title">Crypto Sentinel</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $300.00</div>
+                        <p data-i18n="python.prod.crypto.desc">Automated trading algorithms and market monitoring for
+                            24/7 profit hunting.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="crypto"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                    </div>
+
+                    <!-- 7. Desktop -->
+                    <div class="card reveal-on-scroll delay-300">
+                        <div class="card-icon">🖥️</div>
+                        <h3 data-i18n="python.prod.desktop.title">Desktop Nexus</h3>
+                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                            $200.00</div>
+                        <p data-i18n="python.prod.desktop.desc">Automate local desktop workflows, GUI interactions, and
+                            repetitive tasks.</p>
+                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="desktop"
+                            data-i18n="python.btn.acquire">Acquire Logic</button>
                     </div>
                 </div>
             </div>
@@ -197,6 +271,24 @@
     </footer>
 
     <script src="script.js" defer></script>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content">
+            <button id="close-modal" class="payment-modal-close">&times;</button>
+            <div class="payment-header">
+                <h3 id="modal-title">Plan Title</h3>
+                <p id="modal-price">$0.00</p>
+            </div>
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <!-- PayPal SDK (LIVE MODE) -->
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ARJc9hoxkzsoYS6jm-uWzirgqih_isRPmvPGu5gIhEKDAr4vtqPJOPoJL9L-7YfN9rgQEb_2qShIvu52&enable-funding=venmo&currency=USD"
+        data-sdk-integration-source="button-factory"></script>
+    <script src="payments.js"></script>
     <style>
         @keyframes float {
             0% {

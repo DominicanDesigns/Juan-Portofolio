@@ -246,6 +246,13 @@ p {
     /* Prevent wrapping */
     overflow-x: auto;
     /* Allow scroll if very very tight */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.nav-links::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Webkit */
 }
 
 .nav-link {
@@ -412,11 +419,6 @@ p {
     overflow: hidden;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
-    display: none;
-    width: 0 !important;
-    height: 0 !important;
 }
 
 /* Range Slider Styling */
@@ -1310,9 +1312,7 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* Hide connector for the last item (optional, or just let it point to nothing) */
-.blueprint-node:last-child::before {
-    display: none;
-}
+.blueprint-node:last-child::before {}
 
 .node-icon {
     font-size: 2rem;
@@ -1518,6 +1518,7 @@ input[type=range]::-webkit-slider-runnable-track {
     background-color: #000 !important;
     background-image: none !important;
 }
+
 /* Payment Modal */
 .payment-modal {
     position: fixed;
@@ -1525,15 +1526,18 @@ input[type=range]::-webkit-slider-runnable-track {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Darker backdrop */
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker backdrop */
     backdrop-filter: blur(8px);
-    z-index: 2000; /* Higher than header */
+    z-index: 2000;
+    /* Higher than header */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     opacity: 0;
-    pointer-events: none; /* Click through when hidden */
+    pointer-events: none;
+    /* Click through when hidden */
     transition: opacity 0.3s ease;
 }
 
@@ -1553,10 +1557,213 @@ input[type=range]::-webkit-slider-runnable-track {
     position: relative;
     transform: translateY(20px);
     transition: transform 0.3s ease;
-    
+
     /* FIX: Allow scrolling for long forms (card input) */
-    max-height: 90vh; /* Don't exceed 90% of screen height */
-    overflow-y: auto; /* Scroll if content (buttons/forms) is too tall */
+    max-height: 90vh;
+    /* Don't exceed 90% of screen height */
+    overflow-y: auto;
+    /* Scroll if content (buttons/forms) is too tall */
+}
+
+.payment-modal.active .payment-modal-content {
+    transform: translateY(0);
+}
+
+.payment-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.payment-modal-close:hover {
+    color: #fff;
+}
+
+.payment-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.payment-header h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.payment-header p {
+    color: var(--accent-gold);
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+}
+
+.tech-stack-area {
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    min-height: 50px;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.stack-item {
+    font-size: 0.75rem;
+    background: #222;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono';
+}
+
+.init-btn {
+    width: 100%;
+    background: var(--accent-gold);
+    color: #000;
+    border: none;
+    padding: 1rem;
+    font-family: 'Share Tech Mono';
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+}
+
+.init-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-scan {
+    width: 10px;
+    height: 10px;
+    background: #000;
+    animation: blink 0.5s infinite;
+}
+
+/* Glitch Text */
+.glitch-text {
+    position: relative;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .architect-interface {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .arch-canvas {
+        min-height: 400px;
+    }
+
+    .systems-panel,
+    .specs-panel {
+        height: auto;
+        border: none;
+    }
+}
+
+/* Cinematic Blue Background */
+.cinematic-blue-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: linear-gradient(135deg, #020024 0%, #090979 35%, #00d4ff 100%);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.void-black-bg {
+    background-color: #000 !important;
+    background-image: none !important;
+}
+
+/* Payment Modal */
+.payment-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    /* Darker backdrop */
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    /* Higher than header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    /* Click through when hidden */
+    transition: opacity 0.3s ease;
+}
+
+.payment-modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.payment-modal-content {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-gold);
+    box-shadow: 0 0 50px rgba(251, 191, 36, 0.2);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+
+    /* FIX: Allow scrolling for long forms (card input) */
+    max-height: 90vh;
+    /* Don't exceed 90% of screen height */
+    overflow-y: auto;
+    /* Scroll if content (buttons/forms) is too tall */
 }
 
 .payment-modal.active .payment-modal-content {
@@ -1595,3 +1802,21 @@ input[type=range]::-webkit-slider-runnable-track {
     font-weight: 700;
 }
 
+/* Custom Premium Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b1120;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent-gold), #d53369);
+    border-radius: 5px;
+    border: 2px solid #0b1120;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold);
+}
