@@ -107,6 +107,40 @@ function initRain() {
   });
 }
 
+// ---------- Revenue Simulator Logic ----------
+function initSimulator() {
+  const trafficInput = document.getElementById('roi-traffic');
+  const valueInput = document.getElementById('roi-value');
+  const trafficDisplay = document.getElementById('Traffic-display');
+  const valueDisplay = document.getElementById('Value-display');
+  const totalDisplay = document.getElementById('roi-total');
+
+  if (!trafficInput || !valueInput || !totalDisplay) return;
+
+  function calculate() {
+    const traffic = parseInt(trafficInput.value);
+    const value = parseInt(valueInput.value);
+
+    // Update displays
+    if (trafficDisplay) trafficDisplay.textContent = traffic.toLocaleString();
+    if (valueDisplay) valueDisplay.textContent = `$${value.toLocaleString()}`;
+
+    // Calculation: Traffic * 1% Conversion * Value
+    const revenue = traffic * 0.01 * value;
+
+    totalDisplay.textContent = `$${revenue.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    })}`;
+  }
+
+  trafficInput.addEventListener('input', calculate);
+  valueInput.addEventListener('input', calculate);
+
+  // Initial calculation
+  calculate();
+}
+
 // ---------- Centralized minimal chat fallback ----------
 // Tawk.to integration removed by user request
 
@@ -1251,5 +1285,6 @@ window.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initChatUI();
   initTypingEffect();
+  initSimulator(); // Added Simulator Logic
   initGoldenGlance(); // Launch visual enhancements
 });
