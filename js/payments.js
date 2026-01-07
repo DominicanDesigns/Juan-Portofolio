@@ -87,13 +87,14 @@ setTimeout(() => {
 }, 1000);
 
 // Owner Notification Settings
+// Base Config + Dynamic Loading
 const PAYMENT_CONFIG = {
     whatsappNumber: "18097292380", // Format: CountryCode + Number (No + or -)
 
     prod_empire: {
         id: "empire",
         title: "Empire Platform",
-        price: "5000.00", // String format for PayPal
+        price: "5000.00",
         description: "Full Web Platform Build"
     },
     prod_sovereign: {
@@ -113,51 +114,38 @@ const PAYMENT_CONFIG = {
         title: "Monopoly Tier",
         price: "1000.00",
         description: "Total Market Domination - Access"
-    },
-    // --- AUTOMATION SCRIPTS ---
-    prod_webscraper: {
-        id: "webscraper",
-        title: "Web Scraping Logic",
-        price: "150.00",
-        description: "Playwright Data Extraction System"
-    },
-    prod_social: {
-        id: "social",
-        title: "Social Auto-Pilot",
-        price: "200.00",
-        description: "Social Media Engagement Automation"
-    },
-    prod_excel: {
-        id: "excel",
-        title: "Sheet Master",
-        price: "150.00",
-        description: "Excel & Google Sheets Auto-Processing"
-    },
-    prod_email: {
-        id: "email",
-        title: "Outreach Bot",
-        price: "250.00",
-        description: "Cold Email & Lead Generation System"
-    },
-    prod_ecom: {
-        id: "ecom",
-        title: "Ecom Synchronizer",
-        price: "300.00",
-        description: "Ecommerce Store Automation Suite"
-    },
-    prod_crypto: {
-        id: "crypto",
-        title: "Crypto Sentinel",
-        price: "300.00",
-        description: "Automated Trading & Monitoring Algorithms"
-    },
-    prod_desktop: {
-        id: "desktop",
-        title: "Desktop Nexus",
-        price: "200.00",
-        description: "Full Desktop Workflow Automation"
     }
 };
+
+/**
+ * Load Scripts Metadata and Merge into PAYMENT_CONFIG
+ */
+async function loadScriptsConfig() {
+    try {
+        const response = await fetch('scripts.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const scripts = await response.json();
+
+        scripts.forEach(script => {
+            PAYMENT_CONFIG[`prod_${script.id}`] = {
+                id: script.id,
+                title: script.title,
+                price: script.price,
+                description: script.description || "Automation Script"
+            };
+        });
+
+        console.log(`Loaded ${scripts.length} scripts into payment config.`);
+
+        // Dispatch event that scripts are loaded (optional, for UI to know)
+        window.dispatchEvent(new Event('scriptsLoaded'));
+
+    } catch (e) {
+        console.warn("Could not load scripts.json for payment config:", e);
+    }
+}
 
 // State to track if buttons are rendered
 let currentButtons = null;
@@ -178,7 +166,17 @@ function initPaymentElements() {
  * @param {string} planKey - Key from PAYMENT_CONFIG (e.g., 'prod_empire')
  */
 function openModal(planKey) {
-    const plan = PAYMENT_CONFIG[`prod_${planKey}`];
+    // If the plan uses 'prod_' prefix but the ID passed doesn't have it, handle it?
+    // The data-plan attribute usually matches the key suffix or the full key?
+    // Current convention: data-plan="empire" -> PAYMENT_CONFIG["prod_empire"]
+
+    // Normalize key
+    let configKey = planKey;
+    if (!planKey.startsWith('prod_')) {
+        configKey = `prod_${planKey}`;
+    }
+
+    const plan = PAYMENT_CONFIG[configKey];
 
     if (!plan) {
         console.error("Plan not found:", planKey);
@@ -190,7 +188,7 @@ function openModal(planKey) {
     modalPrice.textContent = `$${Number(plan.price).toLocaleString()}`;
 
     // Store current plan for retry logic
-    modal.dataset.currentPlan = planKey;
+    modal.dataset.currentPlan = configKey;
 
     // Show Modal
     modal.classList.add('active');
@@ -214,7 +212,7 @@ function pollForPayPalSDK(plan) {
 
     function check() {
         // We need both the 'paypal' object and the 'Buttons' component
-        console.log(`Polling for PayPal... Attempt ${attempts + 1}. PayPal: ${typeof paypal}, Buttons: ${typeof paypal !== 'undefined' ? (!!paypal.Buttons) : 'N/A'}`);
+        // console.log(`Polling for PayPal... Attempt ${attempts + 1}`);
 
         if (typeof paypal !== 'undefined' && paypal.Buttons) {
             renderButtons(plan);
@@ -276,9 +274,16 @@ function renderButtons(plan) {
                 height: 40
             },
             createOrder: function (data, actions) {
+                // Resolve description for PayPal (must be string)
+                let description = plan.description;
+                if (typeof description === 'object') {
+                    const lang = localStorage.getItem('site_lang') || 'en';
+                    description = description[lang] || description['en'] || "Automation Script";
+                }
+
                 return actions.order.create({
                     purchase_units: [{
-                        description: plan.description,
+                        description: description.substring(0, 127), // Ensure length limit
                         amount: {
                             value: plan.price
                         }
@@ -336,21 +341,21 @@ function closeModal() {
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     initPaymentElements();
+    loadScriptsConfig();
 
     if (!modal) {
         console.error("Payment modal elements not found in DOM");
         return;
     }
 
-    // Open Modal Triggers
-    // Open Modal Triggers
-    const triggers = document.querySelectorAll('[data-plan]');
-    triggers.forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Open Modal Triggers (Event Delegation for Dynamic Content)
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-plan]')) {
             e.preventDefault();
+            const btn = e.target.closest('[data-plan]');
             const planKey = btn.getAttribute('data-plan');
             openModal(planKey);
-        });
+        }
     });
 
     // Close Modal Triggers

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Python Enterprise Solutions. Automate, Analyze, Dominate.">
     <title>Python Solutions - Juan Antonio Núñez Rijo Organization</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="glance.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,93 +115,150 @@
         <!-- Solutions Grid -->
         <section class="section">
             <div class="container">
-                <div class="grid-3">
-                    <!-- 1. Web Scraping -->
-                    <div class="card reveal-on-scroll">
-                        <div class="card-icon">🕸️</div>
-                        <h3 data-i18n="python.prod.scraper.title">Web Scraping Logic</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $150.00</div>
-                        <p data-i18n="python.prod.scraper.desc">Playwright-based system for extracting data from dynamic
-                            websites to Excel/CSV.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="webscraper"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
-                    </div>
+                <!-- Controls -->
+                <div
+                    style="margin-bottom: 3rem; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
+                    <input type="text" id="script-search" placeholder="Search Logic Modules..."
+                        style="background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 0.8rem 1.5rem; border-radius: 4px; color: #fff; font-family: inherit; width: 100%; max-width: 400px;">
 
-                    <!-- 2. Social Media -->
-                    <div class="card reveal-on-scroll delay-100">
-                        <div class="card-icon">📱</div>
-                        <h3 data-i18n="python.prod.social.title">Social Auto-Pilot</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $200.00</div>
-                        <p data-i18n="python.prod.social.desc">Automate engagement and posting across social platforms
-                            to grow your presence.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="social"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                    <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 5px;">
+                        <button class="filter-btn active" data-category="all"
+                            style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); cursor: pointer; border-radius: 4px; white-space: nowrap;">All</button>
+                        <button class="filter-btn" data-category="Core Automation"
+                            style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); cursor: pointer; border-radius: 4px; white-space: nowrap;">Core
+                            Automation</button>
+                        <button class="filter-btn" data-category="SaaS Templates"
+                            style="padding: 0.5rem 1rem; background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); cursor: pointer; border-radius: 4px; white-space: nowrap;">SaaS
+                            Templates</button>
                     </div>
+                </div>
 
-                    <!-- 3. Excel/Sheets -->
-                    <div class="card reveal-on-scroll delay-200">
-                        <div class="card-icon">📊</div>
-                        <h3 data-i18n="python.prod.excel.title">Sheet Master</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $150.00</div>
-                        <p data-i18n="python.prod.excel.desc">Automate complex data processing between Excel and Google
-                            Sheets.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="excel"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
-                    </div>
-
-                    <!-- 4. Email Outreach -->
-                    <div class="card reveal-on-scroll">
-                        <div class="card-icon">📧</div>
-                        <h3 data-i18n="python.prod.email.title">Outreach Bot</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $250.00</div>
-                        <p data-i18n="python.prod.email.desc">Cold email automation system for high-volume lead
-                            generation and outreach.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="email"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
-                    </div>
-
-                    <!-- 5. Ecommerce -->
-                    <div class="card reveal-on-scroll delay-100">
-                        <div class="card-icon">🛒</div>
-                        <h3 data-i18n="python.prod.ecom.title">Ecom Synchronizer</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $300.00</div>
-                        <p data-i18n="python.prod.ecom.desc">Full automation suite for managing inventory and
-                            synchronization for Ecommerce.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="ecom"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
-                    </div>
-
-                    <!-- 6. Crypto -->
-                    <div class="card reveal-on-scroll delay-200">
-                        <div class="card-icon">🪙</div>
-                        <h3 data-i18n="python.prod.crypto.title">Crypto Sentinel</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $300.00</div>
-                        <p data-i18n="python.prod.crypto.desc">Automated trading algorithms and market monitoring for
-                            24/7 profit hunting.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="crypto"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
-                    </div>
-
-                    <!-- 7. Desktop -->
-                    <div class="card reveal-on-scroll delay-300">
-                        <div class="card-icon">🖥️</div>
-                        <h3 data-i18n="python.prod.desktop.title">Desktop Nexus</h3>
-                        <div class="price" style="font-size: 1.5rem; color: var(--accent-gold); margin: 0.5rem 0;">
-                            $200.00</div>
-                        <p data-i18n="python.prod.desktop.desc">Automate local desktop workflows, GUI interactions, and
-                            repetitive tasks.</p>
-                        <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" data-plan="desktop"
-                            data-i18n="python.btn.acquire">Acquire Logic</button>
+                <div id="scripts-grid" class="grid-3">
+                    <!-- Dynamic Content Loading... -->
+                    <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem;">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
+                        <p>Initializing Neural Link...</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                const grid = document.getElementById('scripts-grid');
+                const searchInput = document.getElementById('script-search');
+                const filterBtns = document.querySelectorAll('.filter-btn');
+                let allScripts = [];
+                let currentCategory = 'all';
+                let currentLang = localStorage.getItem('site_lang') || 'en';
+
+                const i18n = {
+                    en: { btn: 'Acquire Logic', search: 'Search Logic Modules...' },
+                    es: { btn: 'Adquirir Lógica', search: 'Buscar Módulos Lógicos...' },
+                    fr: { btn: 'Acquérir Logique', search: 'Rechercher Modules...' }
+                };
+
+                // Fetch Scripts
+                try {
+                    const res = await fetch('assets/scripts.json');
+                    if (!res.ok) throw new Error("Failed to load inventory");
+                    allScripts = await res.json();
+                    renderScripts();
+                } catch (e) {
+                    grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: #ff4444;">
+                        <p>System Failure: Unable to retrieve logic modules.</p>
+                        <p style="font-size: 0.8em; color: var(--text-muted);">${e.message}</p>
+                    </div>`;
+                }
+
+                // Render Function
+                function renderScripts() {
+                    const query = searchInput.value.toLowerCase();
+                    const langData = i18n[currentLang] || i18n.en;
+
+                    // Update Search Placeholder
+                    if (searchInput) searchInput.placeholder = langData.search;
+
+                    const filtered = allScripts.filter(script => {
+                        // Handle Description Object (Multilingual) or String (Legacy fallback)
+                        let desc = "";
+                        if (typeof script.description === 'object') {
+                            desc = script.description[currentLang] || script.description['en'] || "";
+                        } else {
+                            desc = script.description || "";
+                        }
+
+                        const title = script.title;
+
+                        const matchesSearch = title.toLowerCase().includes(query) ||
+                            desc.toLowerCase().includes(query);
+                        const matchesCategory = currentCategory === 'all' || script.category === currentCategory;
+
+                        return matchesSearch && matchesCategory;
+                    });
+
+                    if (filtered.length === 0) {
+                        grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 4rem;">
+                            <p>No matching logic modules found.</p>
+                        </div>`;
+                        return;
+                    }
+
+                    grid.innerHTML = filtered.map((script, index) => {
+                        const delayClass = index < 10 ? `delay-${Math.min(index * 100, 300)}` : '';
+
+                        let desc = "";
+                        if (typeof script.description === 'object') {
+                            desc = script.description[currentLang] || script.description['en'] || "";
+                        } else {
+                            desc = script.description || "";
+                        }
+
+                        return `
+                        <div class="card reveal-on-scroll is-visible" style="animation-delay: ${index * 0.05}s">
+                            <div class="card-icon">⚡</div>
+                            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">${script.title}</h3>
+                            <div class="price" style="font-size: 1.25rem; color: var(--accent-gold); margin: 0.5rem 0;">
+                                $${script.price}
+                            </div>
+                            <p style="font-size: 0.9rem;">${desc}</p>
+                            <button class="btn btn-secondary" style="width: 100%; margin-top: 1rem;" 
+                                    data-plan="${script.id}">${langData.btn}</button>
+                        </div>
+                        `;
+                    }).join('');
+                }
+
+                // Search Listener
+                if (searchInput) searchInput.addEventListener('input', renderScripts);
+
+                // Category Listener
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Update active state
+                        filterBtns.forEach(b => {
+                            b.classList.remove('active');
+                            b.style.borderColor = 'var(--border-color)';
+                            b.style.color = 'var(--text-muted)';
+                        });
+                        btn.classList.add('active');
+                        btn.style.borderColor = 'var(--accent-primary)';
+                        btn.style.color = '#fff';
+
+                        currentCategory = btn.dataset.category;
+                        renderScripts();
+                    });
+                });
+
+                // Listen for Global Language Changes
+                window.addEventListener('languageChanged', (e) => {
+                    if (e.detail && e.detail.lang) {
+                        currentLang = e.detail.lang;
+                        renderScripts();
+                    }
+                });
+            });
+        </script>
 
     </main>
 
@@ -270,7 +327,7 @@
         </div>
     </footer>
 
-    <script src="script.js" defer></script>
+    <script src="js/script.js" defer></script>
 
     <!-- Payment Modal -->
     <div id="payment-modal" class="payment-modal">
@@ -288,7 +345,7 @@
     <script
         src="https://www.paypal.com/sdk/js?client-id=ARJc9hoxkzsoYS6jm-uWzirgqih_isRPmvPGu5gIhEKDAr4vtqPJOPoJL9L-7YfN9rgQEb_2qShIvu52&enable-funding=venmo&currency=USD"
         data-sdk-integration-source="button-factory"></script>
-    <script src="payments.js"></script>
+    <script src="js/payments.js"></script>
     <style>
         @keyframes float {
             0% {

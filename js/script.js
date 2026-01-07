@@ -141,6 +141,32 @@ function initSimulator() {
   calculate();
 }
 
+// ---------- Contact Form Pre-fill ----------
+function initContactForm() {
+  const params = new URLSearchParams(window.location.search);
+  const subjectVal = params.get('subject');
+  const costVal = params.get('cost');
+  const stackVal = params.get('stack');
+
+  const subjectField = document.getElementById('subject'); // Textarea
+
+  if (subjectVal && subjectField) {
+    let message = `PROJECT: ${subjectVal}\n`;
+    if (costVal) message += `ESTIMATED BUDGET: $${costVal}\n`;
+    if (stackVal) message += `TECHNICAL STACK: ${stackVal}\n`;
+    message += `\n----------------------------------------\n\nDETAILS:\n`;
+
+    subjectField.value = message;
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initRain();
+  if (document.querySelector('.hero-text')) initTypingEffect();
+  initSimulator();
+  initChatUI();
+  initContactForm();
+});
 // ---------- Centralized minimal chat fallback ----------
 // Tawk.to integration removed by user request
 

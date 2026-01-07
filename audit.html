@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sovereign AI Interface. Advanced intelligence for digital asset management.">
     <title>Sovereign AI - Juan Antonio Núñez Rijo Organization</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
     <style>
         /* Audit Specific Styles */
         .terminal-container {
@@ -129,6 +129,73 @@
         .hidden {
             display: none;
         }
+
+        /* AI Terminal Styles */
+        .terminal-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 35%;
+            /* Takes up bottom 35% of canvas */
+            background: rgba(0, 0, 0, 0.85);
+            border-top: 1px solid var(--accent-primary);
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            backdrop-filter: blur(4px);
+            z-index: 10;
+        }
+
+        .terminal-history {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #ccc;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-primary) #000;
+        }
+
+        .term-msg {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .ai-msg {
+            color: var(--accent-primary);
+            text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+        }
+
+        .user-msg {
+            color: var(--accent-gold);
+            text-shadow: 0 0 5px rgba(251, 191, 36, 0.5);
+        }
+
+        .terminal-input-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 0.5rem;
+        }
+
+        .prompt-char {
+            color: var(--accent-gold);
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        #ai-command-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            outline: none;
+        }
     </style>
 </head>
 
@@ -210,6 +277,10 @@
                                     <span class="opt-icon">💻</span>
                                     <span class="opt-label">Desktop</span>
                                 </button>
+                                <button class="arch-option" onclick="toggleModule('core_iot', 3500, 4, 'IoT System')">
+                                    <span class="opt-icon">📡</span>
+                                    <span class="opt-label">IoT System</span>
+                                </button>
                             </div>
                         </div>
 
@@ -223,6 +294,14 @@
                                 <button class="arch-option" onclick="toggleModule('ai_adv', 4000, 3, 'Neural Net')">
                                     <span class="opt-icon">🧠</span>
                                     <span class="opt-label">Neural Net</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('ai_vision', 3000, 2, 'Vision AI')">
+                                    <span class="opt-icon">👁️</span>
+                                    <span class="opt-label">Vision AI</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('ai_agent', 5000, 4, 'Auto Agents')">
+                                    <span class="opt-icon">🕴️</span>
+                                    <span class="opt-label">Auto Agents</span>
                                 </button>
                             </div>
                         </div>
@@ -242,6 +321,15 @@
                                     <span class="opt-icon">⛓️</span>
                                     <span class="opt-label">Blockchain</span>
                                 </button>
+                                <button class="arch-option"
+                                    onclick="toggleModule('inf_cloud', 1200, 1, 'Cloud Cluster')">
+                                    <span class="opt-icon">☁️</span>
+                                    <span class="opt-label">Cloud Cluster</span>
+                                </button>
+                                <button class="arch-option" onclick="toggleModule('inf_sec', 2000, 2, 'Cyber Shield')">
+                                    <span class="opt-icon">🛡️</span>
+                                    <span class="opt-label">Cyber Shield</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -249,8 +337,12 @@
                     <!-- 2. Blueprint Canvas (Center) -->
                     <div class="arch-canvas" id="blueprint-canvas">
                         <div class="grid-background"></div>
+                        <!-- Connections Layer -->
+                        <svg id="connections-layer" class="connections-layer"
+                            style="overflow: visible !important; width: 1px; height: 1px; position: absolute; top: 50%; left: 50%; pointer-events: none; z-index: 10;">
+                        </svg>
+
                         <div class="scanline"></div>
-                        <div class="canvas-center-marker"></div>
 
                         <!-- Empty State -->
                         <div id="canvas-empty" class="canvas-message">
@@ -375,9 +467,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="src/logic/db.js" type="module"></script>
-    <script src="audit.js" type="module"></script>
+    <script src="js/audit.js"></script>
+
 </body>
 
 </html>
