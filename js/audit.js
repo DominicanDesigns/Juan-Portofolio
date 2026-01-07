@@ -118,19 +118,65 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ignore if clicking the close button
         if (e.target.closest('.close-btn')) return;
 
-        e.stopPropagation(); // Prevent canvas click
+        // e is either MouseEvent or TouchEvent
+        // For touch, prevent scrolling immediately
+        if (e.type === 'touchstart') {
+            // e.preventDefault(); // Don't prevent default here to allow clicking
+        } else {
+            e.stopPropagation(); // mouse
+        }
+
         playSound('hover');
 
         state.dragTarget = { data: moduleData, element: element };
 
+        // Normalize coordinates
+        let clientX = e.clientX;
+        let clientY = e.clientY;
+
+        if (e.touches && e.touches.length > 0) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        }
+
         // Calculate offset from mouse to element top-left
         const rect = element.getBoundingClientRect();
-        state.dragOffsetX = e.clientX - rect.left;
-        state.dragOffsetY = e.clientY - rect.top;
+        state.dragOffsetX = clientX - rect.left;
+        state.dragOffsetY = clientY - rect.top;
 
         element.classList.add('dragging');
         element.style.zIndex = "100"; // Lift up
     }
+
+    // Touch Move Handler (Global)
+    document.addEventListener('touchmove', (e) => {
+        if (state.dragTarget) {
+            e.preventDefault(); // Stop scrolling while dragging
+
+            const touch = e.touches[0];
+            const rect = architectCanvas.getBoundingClientRect();
+
+            let newX = touch.clientX - rect.left - state.dragOffsetX;
+            let newY = touch.clientY - rect.top - state.dragOffsetY;
+
+            state.dragTarget.element.style.left = `${newX}px`;
+            state.dragTarget.element.style.top = `${newY}px`;
+
+            state.dragTarget.data.x = newX;
+            state.dragTarget.data.y = newY;
+
+            requestAnimationFrame(drawAllConnections);
+        }
+    }, { passive: false }); // crucial for preventDefault
+
+    // Touch End Handler (Global)
+    document.addEventListener('touchend', () => {
+        if (state.dragTarget) {
+            state.dragTarget.element.classList.remove('dragging');
+            state.dragTarget.element.style.zIndex = "20";
+            state.dragTarget = null;
+        }
+    });
 
 
     // --- 4. MODULE MANAGEMENT ---
@@ -207,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Event Listeners
         node.addEventListener('mousedown', (e) => startDrag(e, moduleData, node));
+        node.addEventListener('touchstart', (e) => startDrag(e, moduleData, node), { passive: false });
 
         nodesContainer.appendChild(node);
 
@@ -329,5 +376,10 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = `contact.html?${params.toString()}`;
         }, 1500);
     };
+
+    // --- 7. RESIZE HANDLING ---
+    window.addEventListener('resize', () => {
+        requestAnimationFrame(drawAllConnections);
+    });
 
 });
