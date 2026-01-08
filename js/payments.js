@@ -122,7 +122,7 @@ const PAYMENT_CONFIG = {
  */
 async function loadScriptsConfig() {
     try {
-        const response = await fetch('scripts.json');
+        const response = await fetch('assets/scripts.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -155,6 +155,8 @@ let modal, closeModalBtn, modalTitle, modalPrice, container;
 
 function initPaymentElements() {
     modal = document.getElementById('payment-modal');
+    if (!modal) return; // Exit if not on a page with the standard payment modal
+
     closeModalBtn = document.getElementById('close-modal');
     modalTitle = document.getElementById('modal-title');
     modalPrice = document.getElementById('modal-price');

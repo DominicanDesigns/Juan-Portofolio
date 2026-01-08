@@ -1,9 +1,11 @@
 {
     "nav.home": "Organisation",
     "nav.services": "Entreprises",
+
     "nav.python": "Solutions Python",
     "nav.audit": "Sovereign AI",
     "nav.game": "Sim: EMPIRE",
+
     "nav.contact": "Partenariats",
     "nav.languages": "Langues :",
     "hero.title": "Architecte de la Domination Numérique",
@@ -202,5 +204,25 @@
     "pricing.monopoly.f2": "✓ Intégration Neurale IA",
     "pricing.monopoly.f3": "✓ Minage de Données Dédié",
     "pricing.monopoly.f4": "✓ Support War Room 24/7",
-    "pricing.btn.contact_hq": "Contacter QG"
+    "pricing.btn.contact_hq": "Contacter QG",
+    "re.form.images": "Images de l'Actif",
+    "re.form.sqft": "Pieds Carrés",
+    "re.form.beds": "Chambres",
+    "re.form.baths": "Salles de Bain",
+    "re.form.type": "Type d'Actif & Frais",
+    "re.form.select_type": "Sélectionner Type",
+    "vault.title": "LE COFFRE",
+    "vault.lead": "Accès restreint à la propriété intellectuelle de haute valeur. Sécurisez votre avantage.",
+    "vault.status": "État",
+    "vault.open": "OUVERT",
+    "vault.inventory": "Inventaire",
+    "vault.premium": "ACTIFS PREMIUM",
+    "vault.security": "Sécurité",
+    "vault.encrypted": "CHIFFRÉ",
+    "vault.acquisitions": "Acquisitions Stratégiques",
+    "vault.subheading": "Déverrouillez le code fondamental de votre empire.",
+    "vault.access_denied": "Accès au Coffre Refusé.",
+    "vault.no_assets": "Aucun actif disponible actuellement.",
+    "vault.verified": "VÉRIFIÉ",
+    "vault.footer": "Organisation Juan Nuñez. ACCÈS RESTREINT."
 }

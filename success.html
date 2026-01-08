@@ -196,6 +196,11 @@
 
             // --- Download Logic (Automation Scripts) ---
             const downloadMap = {
+                // Premium Assets
+                'empire_source_code': 'assets/downloads/Empire_One_Source.zip',
+                'sovereign_ai_core': 'assets/downloads/Sovereign_AI_Core.zip',
+                'automation_master_key': 'assets/downloads/Automation_Master_Key.zip',
+                // Standard Scripts
                 'webscraper': 'assets/downloads/webscraper.zip',
                 'social': 'assets/downloads/social.zip',
                 'excel': 'assets/downloads/excel.zip',
@@ -214,10 +219,42 @@
                 downloadBtn.href = downloadMap[sku];
                 downloadBtn.classList.remove('hidden');
 
-                // Update instructions
-                document.querySelector('.lead').textContent = "Asset Secured.";
-                document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
-                    `Transaction verified. <strong style="color:var(--accent-gold)">Download your logic package below.</strong><br>Link expires in 24 hours.`;
+                // --- Expiration Enforcement Logic ---
+                const storageKey = `purchase_date_${txnId}`;
+                let purchaseDateStr = localStorage.getItem(storageKey);
+
+                if (!purchaseDateStr) {
+                    // First access: Store access time
+                    purchaseDateStr = new Date().toISOString();
+                    localStorage.setItem(storageKey, purchaseDateStr);
+                }
+
+                const purchaseDate = new Date(purchaseDateStr);
+                const expiryDate = new Date(purchaseDate);
+                expiryDate.setDate(expiryDate.getDate() + 30); // 30 Days Validity
+
+                const now = new Date();
+                const isExpired = now > expiryDate;
+
+                if (isExpired) {
+                    // EXPIRED STATE
+                    downloadBtn.classList.add('hidden');
+                    document.querySelector('.lead').textContent = "Link Expired";
+                    document.querySelector('.container-card h1').style.color = "#ff4444";
+                    document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
+                        `This secure link has exceeded its 30-day validity period.<br>
+                        <span style="color: #ff4444;">Expired on: ${expiryDate.toLocaleDateString()}</span><br>
+                        Please contact support to request renewed access.`;
+                } else {
+                    // VALID STATE
+                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                    const expiryString = expiryDate.toLocaleDateString(undefined, options);
+
+                    document.querySelector('.lead').textContent = "Asset Secured.";
+                    document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
+                        `Transaction verified. <strong style="color:var(--accent-gold)">Download your logic package below.</strong><br>
+                        <span style="color: #ff4444; font-size: 0.85rem;">Secure Link Expires: ${expiryString}</span>`;
+                }
 
                 // Adjust secondary buttons text
                 whatsappBtn.innerHTML = `

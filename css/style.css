@@ -223,7 +223,7 @@ p {
     gap: 8px;
     /* Reduced gap */
     text-decoration: none;
-    max-width: 200px;
+    max-width: 180px;
     /* Constrain logo width */
     flex-shrink: 0;
     /* Prevent logo from shrinking unpredictably */
@@ -239,8 +239,8 @@ p {
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
-    /* Reduced gap */
+    gap: 1rem;
+    /* Reduced gap further */
     align-items: center;
     flex-wrap: nowrap;
     /* Prevent wrapping */
@@ -257,8 +257,8 @@ p {
 
 .nav-link {
     position: relative;
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 0.75rem;
+    font-weight: 600;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -601,11 +601,16 @@ input[type=range]::-webkit-slider-runnable-track {
 }
 
 /* Language Selector */
+.lang-label {
+    display: none;
+}
+
 .lang-select {
     background: transparent;
     color: var(--text-main);
     border: 1px solid var(--border-color);
-    padding: 0.5rem;
+    padding: 0.4rem;
+    font-size: 0.75rem;
     border-radius: 0.5rem;
     cursor: pointer;
     font-family: inherit;
@@ -1640,7 +1645,8 @@ input[type=range]::-webkit-slider-runnable-track {
 
     .arch-canvas {
         min-height: 500px;
-        order: -1; /* Canvas on top for visibility */
+        order: -1;
+        /* Canvas on top for visibility */
     }
 
     .systems-panel,
@@ -1654,7 +1660,8 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Mobile Devices (768px) */
 @media (max-width: 768px) {
     html {
-        font-size: 14px; /* Scale down base font size */
+        font-size: 14px;
+        /* Scale down base font size */
     }
 
     h1 {
@@ -1667,7 +1674,8 @@ input[type=range]::-webkit-slider-runnable-track {
 
     /* Layout Adjustments */
     .grid-3 {
-        grid-template-columns: 1fr; /* Stack cards on mobile */
+        grid-template-columns: 1fr;
+        /* Stack cards on mobile */
         gap: 1.5rem;
     }
 
@@ -1691,7 +1699,8 @@ input[type=range]::-webkit-slider-runnable-track {
 
     .site-header {
         height: auto;
-        position: relative; /* Unstick on mobile if content is tall, or keep sticky but handle height */
+        position: relative;
+        /* Unstick on mobile if content is tall, or keep sticky but handle height */
     }
 
     /* Hero Sections */
@@ -1711,7 +1720,7 @@ input[type=range]::-webkit-slider-runnable-track {
         align-items: center;
         margin-top: 2rem;
     }
-    
+
     .hero-text p {
         margin-left: auto;
         margin-right: auto;
@@ -1720,7 +1729,7 @@ input[type=range]::-webkit-slider-runnable-track {
     .cta-group {
         justify-content: center;
     }
-    
+
     .tech-stack {
         justify-content: center;
         flex-wrap: wrap;
@@ -1730,13 +1739,15 @@ input[type=range]::-webkit-slider-runnable-track {
     .arch-canvas {
         min-height: 350px;
     }
-    
+
     .blueprint-node {
-        transform: scale(0.8); /* Smaller nodes */
+        transform: scale(0.8);
+        /* Smaller nodes */
     }
-    
+
     .category-group .option-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Better grid for options */
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        /* Better grid for options */
     }
 }
 

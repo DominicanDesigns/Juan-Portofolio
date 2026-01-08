@@ -1,11 +1,59 @@
 [
     {
+        "id": "empire_source_code",
+        "title": "Empire One Source Code",
+        "description": {
+            "en": "The complete source code of this portfolio platform. Engineered for dominance.",
+            "es": "El c\u00f3digo fuente completo de esta plataforma. Dise\u00f1ado para dominar.",
+            "fr": "Le code source complet de cette plateforme."
+        },
+        "price": "1500.00",
+        "filename": "Empire_One_Source.zip",
+        "languages": [
+            "HTML",
+            "CSS",
+            "JS"
+        ],
+        "category": "Premium"
+    },
+    {
+        "id": "sovereign_ai_core",
+        "title": "Sovereign AI Core",
+        "description": {
+            "en": "The underlying neural architecture of our AI terminal. Pure logic.",
+            "es": "La arquitectura neuronal de nuestro terminal de IA.",
+            "fr": "L'architecture neuronale de notre terminal IA."
+        },
+        "price": "500.00",
+        "filename": "Sovereign_AI_Core.zip",
+        "languages": [
+            "JS",
+            "Python"
+        ],
+        "category": "Premium"
+    },
+    {
+        "id": "automation_master_key",
+        "title": "Automation Master Key",
+        "description": {
+            "en": "Instant access to all 150+ logic modules in one secure package.",
+            "es": "Acceso instant\u00e1neo a los 150+ m\u00f3dulos l\u00f3gicos.",
+            "fr": "Acc\u00e8s instantan\u00e9 \u00e0 tous les modules logiques."
+        },
+        "price": "2500.00",
+        "filename": "Automation_Master_Key.zip",
+        "languages": [
+            "Python"
+        ],
+        "category": "Premium"
+    },
+    {
         "id": "01_web_scraping_data_delivery",
         "title": "01 Web Scraping Data Delivery",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "01_Web_Scraping_Data_Delivery.zip",
@@ -16,9 +64,9 @@
         "id": "02_social_media_automation",
         "title": "02 Social Media Automation",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "02_Social_Media_Automation.zip",
@@ -29,9 +77,9 @@
         "id": "03_excel_google_sheets_automation",
         "title": "03 Excel Google Sheets Automation",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "03_Excel_Google_Sheets_Automation.zip",
@@ -42,9 +90,9 @@
         "id": "04_email_automation_lead_outreach",
         "title": "04 Email Automation Lead Outreach",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "04_Email_Automation_Lead_Outreach.zip",
@@ -55,9 +103,9 @@
         "id": "05_ecommerce_automation",
         "title": "05 Ecommerce Automation",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "05_Ecommerce_Automation.zip",
@@ -68,9 +116,9 @@
         "id": "06_crypto_trading_automation",
         "title": "06 Crypto Trading Automation",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "06_Crypto_Trading_Automation.zip",
@@ -81,9 +129,9 @@
         "id": "07_desktop_automation",
         "title": "07 Desktop Automation",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Powerful automation script for enterprise use.",
+            "es": "Potente script de automatizaci\u00f3n para uso empresarial.",
+            "fr": "Un puissant script d'automatisation."
         },
         "price": "150.00",
         "filename": "07_Desktop_Automation.zip",
@@ -94,9 +142,9 @@
         "id": "vulnera",
         "title": "Vulnera",
         "description": {
-            "en": "Powerful automation script.",
-            "es": "Script de automatizaci\u00f3n potente.",
-            "fr": "Script d'automatisation puissant."
+            "en": "Advanced vulnerability scanner and reporting tool.",
+            "es": "Esc\u00e1ner de vulnerabilidades avanzado.",
+            "fr": "Outil avanc\u00e9 d'analyse de vuln\u00e9rabilit\u00e9."
         },
         "price": "150.00",
         "filename": "Vulnera.zip",
@@ -107,9 +155,9 @@
         "id": "ai_chatbot_web",
         "title": "AI Chatbot Web",
         "description": {
-            "en": "Soporte autom\u00e1tico",
-            "es": "Soporte autom\u00e1tico",
-            "fr": "Soporte autom\u00e1tico"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Chatbot_Web.zip",
@@ -120,9 +168,9 @@
         "id": "ai_chat_saas_template",
         "title": "AI Chat SaaS Template",
         "description": {
-            "en": "Plantilla SaaS IA",
-            "es": "Plantilla SaaS IA",
-            "fr": "Plantilla SaaS IA"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Chat_SaaS_Template.zip",
@@ -133,9 +181,9 @@
         "id": "ai_code_reviewer",
         "title": "AI Code Reviewer",
         "description": {
-            "en": "Revisa c\u00f3digo",
-            "es": "Revisa c\u00f3digo",
-            "fr": "Revisa c\u00f3digo"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Code_Reviewer.zip",
@@ -146,9 +194,9 @@
         "id": "ai_content_rewriter",
         "title": "AI Content Rewriter",
         "description": {
-            "en": "Reescribe textos",
-            "es": "Reescribe textos",
-            "fr": "Reescribe textos"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Content_Rewriter.zip",
@@ -159,9 +207,9 @@
         "id": "ai_cover_letter_generator",
         "title": "AI Cover Letter Generator",
         "description": {
-            "en": "Cartas personalizadas",
-            "es": "Cartas personalizadas",
-            "fr": "Cartas personalizadas"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Cover_Letter_Generator.zip",
@@ -172,9 +220,9 @@
         "id": "ai_customer_support_bot",
         "title": "AI Customer Support Bot",
         "description": {
-            "en": "Soporte automatizado",
-            "es": "Soporte automatizado",
-            "fr": "Soporte automatizado"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Customer_Support_Bot.zip",
@@ -185,9 +233,9 @@
         "id": "ai_email_assistant",
         "title": "AI Email Assistant",
         "description": {
-            "en": "Respuestas autom\u00e1ticas",
-            "es": "Respuestas autom\u00e1ticas",
-            "fr": "Respuestas autom\u00e1ticas"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Email_Assistant.zip",
@@ -198,9 +246,9 @@
         "id": "ai_fake_review_detector",
         "title": "AI Fake Review Detector",
         "description": {
-            "en": "Detecta rese\u00f1as falsas",
-            "es": "Detecta rese\u00f1as falsas",
-            "fr": "Detecta rese\u00f1as falsas"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Fake_Review_Detector.zip",
@@ -211,9 +259,9 @@
         "id": "ai_fraud_detector",
         "title": "AI Fraud Detector",
         "description": {
-            "en": "Detecta fraude",
-            "es": "Detecta fraude",
-            "fr": "Detecta fraude"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Fraud_Detector.zip",
@@ -224,9 +272,9 @@
         "id": "ai_hashtag_generator",
         "title": "AI Hashtag Generator",
         "description": {
-            "en": "Hashtags virales",
-            "es": "Hashtags virales",
-            "fr": "Hashtags virales"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Hashtag_Generator.zip",
@@ -237,9 +285,9 @@
         "id": "ai_image_captioner",
         "title": "AI Image Captioner",
         "description": {
-            "en": "Describe im\u00e1genes",
-            "es": "Describe im\u00e1genes",
-            "fr": "Describe im\u00e1genes"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Image_Captioner.zip",
@@ -250,9 +298,9 @@
         "id": "ai_interview_prep_tool",
         "title": "AI Interview Prep Tool",
         "description": {
-            "en": "Preguntas por rol",
-            "es": "Preguntas por rol",
-            "fr": "Preguntas por rol"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Interview_Prep_Tool.zip",
@@ -263,9 +311,9 @@
         "id": "ai_job_matcher",
         "title": "AI Job Matcher",
         "description": {
-            "en": "Ofertas compatibles",
-            "es": "Ofertas compatibles",
-            "fr": "Ofertas compatibles"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Job_Matcher.zip",
@@ -276,9 +324,9 @@
         "id": "ai_learning_planner",
         "title": "AI Learning Planner",
         "description": {
-            "en": "Planes de estudio",
-            "es": "Planes de estudio",
-            "fr": "Planes de estudio"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Learning_Planner.zip",
@@ -289,9 +337,9 @@
         "id": "ai_logo_generator",
         "title": "AI Logo Generator",
         "description": {
-            "en": "Logos autom\u00e1ticos",
-            "es": "Logos autom\u00e1ticos",
-            "fr": "Logos autom\u00e1ticos"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Logo_Generator.zip",
@@ -302,9 +350,9 @@
         "id": "ai_meeting_summarizer",
         "title": "AI Meeting Summarizer",
         "description": {
-            "en": "Resume reuniones",
-            "es": "Resume reuniones",
-            "fr": "Resume reuniones"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Meeting_Summarizer.zip",
@@ -315,9 +363,9 @@
         "id": "ai_product_description_writer",
         "title": "AI Product Description Writer",
         "description": {
-            "en": "Descripciones SEO",
-            "es": "Descripciones SEO",
-            "fr": "Descripciones SEO"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Product_Description_Writer.zip",
@@ -328,9 +376,9 @@
         "id": "ai_quiz_generator",
         "title": "AI Quiz Generator",
         "description": {
-            "en": "Quizzes autom\u00e1ticos",
-            "es": "Quizzes autom\u00e1ticos",
-            "fr": "Quizzes autom\u00e1ticos"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Quiz_Generator.zip",
@@ -341,9 +389,9 @@
         "id": "ai_resume_analyzer",
         "title": "AI Resume Analyzer",
         "description": {
-            "en": "Analiza CV para ATS",
-            "es": "Analiza CV para ATS",
-            "fr": "Analiza CV para ATS"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Resume_Analyzer.zip",
@@ -354,9 +402,9 @@
         "id": "ai_resume_builder",
         "title": "AI Resume Builder",
         "description": {
-            "en": "CV profesionales",
-            "es": "CV profesionales",
-            "fr": "CV profesionales"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Resume_Builder.zip",
@@ -367,9 +415,9 @@
         "id": "ai_sentiment_analyzer",
         "title": "AI Sentiment Analyzer",
         "description": {
-            "en": "Analiza opiniones",
-            "es": "Analiza opiniones",
-            "fr": "Analiza opiniones"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Sentiment_Analyzer.zip",
@@ -380,9 +428,9 @@
         "id": "ai_seo_analyzer",
         "title": "AI SEO Analyzer",
         "description": {
-            "en": "Auditor\u00eda SEO",
-            "es": "Auditor\u00eda SEO",
-            "fr": "Auditor\u00eda SEO"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_SEO_Analyzer.zip",
@@ -393,9 +441,9 @@
         "id": "ai_stock_predictor",
         "title": "AI Stock Predictor",
         "description": {
-            "en": "Predice tendencias",
-            "es": "Predice tendencias",
-            "fr": "Predice tendencias"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Stock_Predictor.zip",
@@ -406,9 +454,9 @@
         "id": "ai_study_assistant",
         "title": "AI Study Assistant",
         "description": {
-            "en": "Ayuda acad\u00e9mica",
-            "es": "Ayuda acad\u00e9mica",
-            "fr": "Ayuda acad\u00e9mica"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Study_Assistant.zip",
@@ -419,9 +467,9 @@
         "id": "ai_survey_analyzer",
         "title": "AI Survey Analyzer",
         "description": {
-            "en": "Analiza encuestas",
-            "es": "Analiza encuestas",
-            "fr": "Analiza encuestas"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Survey_Analyzer.zip",
@@ -432,9 +480,9 @@
         "id": "ai_text_classifier",
         "title": "AI Text Classifier",
         "description": {
-            "en": "Clasifica documentos",
-            "es": "Clasifica documentos",
-            "fr": "Clasifica documentos"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Text_Classifier.zip",
@@ -445,9 +493,9 @@
         "id": "ai_translation_tool",
         "title": "AI Translation Tool",
         "description": {
-            "en": "Traducciones autom\u00e1ticas",
-            "es": "Traducciones autom\u00e1ticas",
-            "fr": "Traducciones autom\u00e1ticas"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Translation_Tool.zip",
@@ -458,9 +506,9 @@
         "id": "ai_video_script_generator",
         "title": "AI Video Script Generator",
         "description": {
-            "en": "Guiones autom\u00e1ticos",
-            "es": "Guiones autom\u00e1ticos",
-            "fr": "Guiones autom\u00e1ticos"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Video_Script_Generator.zip",
@@ -471,9 +519,9 @@
         "id": "ai_voice_assistant",
         "title": "AI Voice Assistant",
         "description": {
-            "en": "Comandos por voz",
-            "es": "Comandos por voz",
-            "fr": "Comandos por voz"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_Voice_Assistant.zip",
@@ -481,12 +529,12 @@
         "category": "SaaS Templates"
     },
     {
-        "id": "ai_white_label_tool",
+        "id": "ai_white-label_tool",
         "title": "AI White-Label Tool",
         "description": {
-            "en": "Rebrand IA",
-            "es": "Rebrand IA",
-            "fr": "Rebrand IA"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "AI_White-Label_Tool.zip",
@@ -497,9 +545,9 @@
         "id": "amazon_price_scraper",
         "title": "Amazon Price Scraper",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Amazon_Price_Scraper.zip",
@@ -510,9 +558,9 @@
         "id": "api_endpoint_tester",
         "title": "API Endpoint Tester",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "API_Endpoint_Tester.zip",
@@ -523,9 +571,9 @@
         "id": "appointment_reminder",
         "title": "Appointment Reminder",
         "description": {
-            "en": "Automated Appointment Reminder solution",
-            "es": "Automated Appointment Reminder solution",
-            "fr": "Automated Appointment Reminder solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Appointment_Reminder.zip",
@@ -536,9 +584,9 @@
         "id": "appointment_scheduler",
         "title": "Appointment Scheduler",
         "description": {
-            "en": "Automated Appointment Scheduler solution",
-            "es": "Automated Appointment Scheduler solution",
-            "fr": "Automated Appointment Scheduler solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Appointment_Scheduler.zip",
@@ -549,9 +597,9 @@
         "id": "approval_system",
         "title": "Approval System",
         "description": {
-            "en": "Automated Approval System solution",
-            "es": "Automated Approval System solution",
-            "fr": "Automated Approval System solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Approval_System.zip",
@@ -562,9 +610,9 @@
         "id": "attendance_system",
         "title": "Attendance System",
         "description": {
-            "en": "Automated Attendance System solution",
-            "es": "Automated Attendance System solution",
-            "fr": "Automated Attendance System solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Attendance_System.zip",
@@ -575,9 +623,9 @@
         "id": "background_remover_ai",
         "title": "Background Remover AI",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Background_Remover_AI.zip",
@@ -588,9 +636,9 @@
         "id": "barcode_scanner_web",
         "title": "Barcode Scanner Web",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Barcode_Scanner_Web.zip",
@@ -601,9 +649,9 @@
         "id": "billing_system",
         "title": "Billing System",
         "description": {
-            "en": "Automated Billing System solution",
-            "es": "Automated Billing System solution",
-            "fr": "Automated Billing System solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Billing_System.zip",
@@ -614,9 +662,9 @@
         "id": "bitcoin_trend_predictor",
         "title": "Bitcoin Trend Predictor",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Bitcoin_Trend_Predictor.zip",
@@ -627,9 +675,9 @@
         "id": "budget_planner",
         "title": "Budget Planner",
         "description": {
-            "en": "Automated Budget Planner solution",
-            "es": "Automated Budget Planner solution",
-            "fr": "Automated Budget Planner solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Budget_Planner.zip",
@@ -640,9 +688,9 @@
         "id": "business_analytics_tool",
         "title": "Business Analytics Tool",
         "description": {
-            "en": "Automated Business Analytics Tool solution",
-            "es": "Automated Business Analytics Tool solution",
-            "fr": "Automated Business Analytics Tool solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Business_Analytics_Tool.zip",
@@ -653,9 +701,9 @@
         "id": "business_chat_app",
         "title": "Business Chat App",
         "description": {
-            "en": "Automated Business Chat App solution",
-            "es": "Automated Business Chat App solution",
-            "fr": "Automated Business Chat App solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Business_Chat_App.zip",
@@ -666,9 +714,9 @@
         "id": "business_dashboard",
         "title": "Business Dashboard",
         "description": {
-            "en": "Automated Business Dashboard solution",
-            "es": "Automated Business Dashboard solution",
-            "fr": "Automated Business Dashboard solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Business_Dashboard.zip",
@@ -679,9 +727,9 @@
         "id": "cash_flow_analyzer",
         "title": "Cash Flow Analyzer",
         "description": {
-            "en": "Automated Cash Flow Analyzer solution",
-            "es": "Automated Cash Flow Analyzer solution",
-            "fr": "Automated Cash Flow Analyzer solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Cash_Flow_Analyzer.zip",
@@ -692,9 +740,9 @@
         "id": "casino_odds_simulator",
         "title": "Casino Odds Simulator",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Casino_Odds_Simulator.zip",
@@ -705,9 +753,9 @@
         "id": "chess_bot_engine",
         "title": "Chess Bot Engine",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Chess_Bot_Engine.zip",
@@ -718,9 +766,9 @@
         "id": "citation_generator",
         "title": "Citation Generator",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Citation_Generator.zip",
@@ -731,9 +779,9 @@
         "id": "coding_syntax_highlighter",
         "title": "Coding Syntax Highlighter",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Coding_Syntax_Highlighter.zip",
@@ -744,9 +792,9 @@
         "id": "color_palette_generator",
         "title": "Color Palette Generator",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Color_Palette_Generator.zip",
@@ -757,9 +805,9 @@
         "id": "competitor_price_monitor",
         "title": "Competitor Price Monitor",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Competitor_Price_Monitor.zip",
@@ -770,9 +818,9 @@
         "id": "contract_manager",
         "title": "Contract Manager",
         "description": {
-            "en": "Automated Contract Manager solution",
-            "es": "Automated Contract Manager solution",
-            "fr": "Automated Contract Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Contract_Manager.zip",
@@ -783,9 +831,9 @@
         "id": "crm_mini",
         "title": "CRM Mini",
         "description": {
-            "en": "Automated CRM Mini solution",
-            "es": "Automated CRM Mini solution",
-            "fr": "Automated CRM Mini solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "CRM_Mini.zip",
@@ -793,12 +841,12 @@
         "category": "SaaS Templates"
     },
     {
-        "id": "crm_white_label",
+        "id": "crm_white-label",
         "title": "CRM White-Label",
         "description": {
-            "en": "Automated CRM White-Label solution",
-            "es": "Automated CRM White-Label solution",
-            "fr": "Automated CRM White-Label solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "CRM_White-Label.zip",
@@ -809,9 +857,9 @@
         "id": "cron_job_generator",
         "title": "Cron Job Generator",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Cron_Job_Generator.zip",
@@ -822,9 +870,9 @@
         "id": "crypto_arbitrage_scanner",
         "title": "Crypto Arbitrage Scanner",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Crypto_Arbitrage_Scanner.zip",
@@ -835,9 +883,9 @@
         "id": "css_minifier_tool",
         "title": "CSS Minifier Tool",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "CSS_Minifier_Tool.zip",
@@ -848,9 +896,9 @@
         "id": "customer_database",
         "title": "Customer Database",
         "description": {
-            "en": "Automated Customer Database solution",
-            "es": "Automated Customer Database solution",
-            "fr": "Automated Customer Database solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Customer_Database.zip",
@@ -861,9 +909,9 @@
         "id": "defi_yield_calculator",
         "title": "DeFi Yield Calculator",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "DeFi_Yield_Calculator.zip",
@@ -874,9 +922,9 @@
         "id": "discord_mod_bot",
         "title": "Discord Mod Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Discord_Mod_Bot.zip",
@@ -887,9 +935,9 @@
         "id": "discord_music_bot",
         "title": "Discord Music Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Discord_Music_Bot.zip",
@@ -900,9 +948,9 @@
         "id": "discord_rpg_bot",
         "title": "Discord RPG Bot",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Discord_RPG_Bot.zip",
@@ -913,9 +961,9 @@
         "id": "docker_compose_generator",
         "title": "Docker Compose Generator",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Docker_Compose_Generator.zip",
@@ -926,9 +974,9 @@
         "id": "document_generator",
         "title": "Document Generator",
         "description": {
-            "en": "Automated Document Generator solution",
-            "es": "Automated Document Generator solution",
-            "fr": "Automated Document Generator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Document_Generator.zip",
@@ -939,9 +987,9 @@
         "id": "dummy_data_generator",
         "title": "Dummy Data Generator",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Dummy_Data_Generator.zip",
@@ -952,9 +1000,9 @@
         "id": "email_extractor_pro",
         "title": "Email Extractor Pro",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Email_Extractor_Pro.zip",
@@ -965,9 +1013,9 @@
         "id": "employee_portal",
         "title": "Employee Portal",
         "description": {
-            "en": "Automated Employee Portal solution",
-            "es": "Automated Employee Portal solution",
-            "fr": "Automated Employee Portal solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Employee_Portal.zip",
@@ -978,9 +1026,9 @@
         "id": "essay_structure_analyzer",
         "title": "Essay Structure Analyzer",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Essay_Structure_Analyzer.zip",
@@ -991,9 +1039,9 @@
         "id": "expense_approval_tool",
         "title": "Expense Approval Tool",
         "description": {
-            "en": "Automated Expense Approval Tool solution",
-            "es": "Automated Expense Approval Tool solution",
-            "fr": "Automated Expense Approval Tool solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Expense_Approval_Tool.zip",
@@ -1004,9 +1052,9 @@
         "id": "expense_categorizer_ai",
         "title": "Expense Categorizer AI",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Expense_Categorizer_AI.zip",
@@ -1017,9 +1065,9 @@
         "id": "expense_tracker",
         "title": "Expense Tracker",
         "description": {
-            "en": "Automated Expense Tracker solution",
-            "es": "Automated Expense Tracker solution",
-            "fr": "Automated Expense Tracker solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Expense_Tracker.zip",
@@ -1030,9 +1078,9 @@
         "id": "facebook_marketplace_bot",
         "title": "Facebook Marketplace Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Facebook_Marketplace_Bot.zip",
@@ -1043,9 +1091,9 @@
         "id": "feedback_tool",
         "title": "Feedback Tool",
         "description": {
-            "en": "Automated Feedback Tool solution",
-            "es": "Automated Feedback Tool solution",
-            "fr": "Automated Feedback Tool solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Feedback_Tool.zip",
@@ -1056,9 +1104,9 @@
         "id": "file_format_converter",
         "title": "File Format Converter",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "File_Format_Converter.zip",
@@ -1069,9 +1117,9 @@
         "id": "flashcard_generator",
         "title": "Flashcard Generator",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Flashcard_Generator.zip",
@@ -1082,9 +1130,9 @@
         "id": "forex_trading_bot",
         "title": "Forex Trading Bot",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Forex_Trading_Bot.zip",
@@ -1095,9 +1143,9 @@
         "id": "git_conflict_solver",
         "title": "Git Conflict Solver",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Git_Conflict_Solver.zip",
@@ -1108,9 +1156,9 @@
         "id": "google_maps_extractor",
         "title": "Google Maps Extractor",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Google_Maps_Extractor.zip",
@@ -1121,9 +1169,9 @@
         "id": "history_timeline_builder",
         "title": "History Timeline Builder",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "History_Timeline_Builder.zip",
@@ -1134,9 +1182,9 @@
         "id": "image_optimizer_cli",
         "title": "Image Optimizer CLI",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Image_Optimizer_CLI.zip",
@@ -1147,9 +1195,9 @@
         "id": "instagram_dm_autoresponse",
         "title": "Instagram DM Autoresponse",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Instagram_DM_Autoresponse.zip",
@@ -1160,9 +1208,9 @@
         "id": "instagram_image_downloader",
         "title": "Instagram Image Downloader",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Instagram_Image_Downloader.zip",
@@ -1173,9 +1221,9 @@
         "id": "inventory_manager",
         "title": "Inventory Manager",
         "description": {
-            "en": "Automated Inventory Manager solution",
-            "es": "Automated Inventory Manager solution",
-            "fr": "Automated Inventory Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Inventory_Manager.zip",
@@ -1186,9 +1234,9 @@
         "id": "invoice_generator",
         "title": "Invoice Generator",
         "description": {
-            "en": "Automated Invoice Generator solution",
-            "es": "Automated Invoice Generator solution",
-            "fr": "Automated Invoice Generator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Invoice_Generator.zip",
@@ -1199,9 +1247,9 @@
         "id": "invoice_reminder_bot",
         "title": "Invoice Reminder Bot",
         "description": {
-            "en": "Automated Invoice Reminder Bot solution",
-            "es": "Automated Invoice Reminder Bot solution",
-            "fr": "Automated Invoice Reminder Bot solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Invoice_Reminder_Bot.zip",
@@ -1212,9 +1260,9 @@
         "id": "json_validator_tool",
         "title": "JSON Validator Tool",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "JSON_Validator_Tool.zip",
@@ -1225,9 +1273,9 @@
         "id": "jwt_decoder_tool",
         "title": "JWT Decoder Tool",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "JWT_Decoder_Tool.zip",
@@ -1238,9 +1286,9 @@
         "id": "kpi_tracker",
         "title": "KPI Tracker",
         "description": {
-            "en": "Automated KPI Tracker solution",
-            "es": "Automated KPI Tracker solution",
-            "fr": "Automated KPI Tracker solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "KPI_Tracker.zip",
@@ -1251,9 +1299,9 @@
         "id": "language_vocab_builder",
         "title": "Language Vocab Builder",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Language_Vocab_Builder.zip",
@@ -1264,9 +1312,9 @@
         "id": "lead_tracker",
         "title": "Lead Tracker",
         "description": {
-            "en": "Automated Lead Tracker solution",
-            "es": "Automated Lead Tracker solution",
-            "fr": "Automated Lead Tracker solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Lead_Tracker.zip",
@@ -1277,9 +1325,9 @@
         "id": "linkedin_job_scraper",
         "title": "LinkedIn Job Scraper",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "LinkedIn_Job_Scraper.zip",
@@ -1290,9 +1338,9 @@
         "id": "link_shortener_service",
         "title": "Link Shortener Service",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Link_Shortener_Service.zip",
@@ -1303,9 +1351,9 @@
         "id": "log_file_analyzer",
         "title": "Log File Analyzer",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Log_File_Analyzer.zip",
@@ -1316,9 +1364,9 @@
         "id": "markdown_to_pdf_converter",
         "title": "Markdown to PDF Converter",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Markdown_to_PDF_Converter.zip",
@@ -1329,9 +1377,9 @@
         "id": "math_problem_solver",
         "title": "Math Problem Solver",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Math_Problem_Solver.zip",
@@ -1342,9 +1390,9 @@
         "id": "meeting_scheduler",
         "title": "Meeting Scheduler",
         "description": {
-            "en": "Automated Meeting Scheduler solution",
-            "es": "Automated Meeting Scheduler solution",
-            "fr": "Automated Meeting Scheduler solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Meeting_Scheduler.zip",
@@ -1355,9 +1403,9 @@
         "id": "multiplayer_server_core",
         "title": "Multiplayer Server Core",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Multiplayer_Server_Core.zip",
@@ -1368,9 +1416,9 @@
         "id": "news_aggregator_bot",
         "title": "News Aggregator Bot",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "News_Aggregator_Bot.zip",
@@ -1381,9 +1429,9 @@
         "id": "nft_rarity_sniper",
         "title": "NFT Rarity Sniper",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "NFT_Rarity_Sniper.zip",
@@ -1394,9 +1442,9 @@
         "id": "order_manager",
         "title": "Order Manager",
         "description": {
-            "en": "Automated Order Manager solution",
-            "es": "Automated Order Manager solution",
-            "fr": "Automated Order Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Order_Manager.zip",
@@ -1407,9 +1455,9 @@
         "id": "password_manager_secure",
         "title": "Password Manager Secure",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Password_Manager_Secure.zip",
@@ -1420,9 +1468,9 @@
         "id": "payroll_calculator",
         "title": "Payroll Calculator",
         "description": {
-            "en": "Automated Payroll Calculator solution",
-            "es": "Automated Payroll Calculator solution",
-            "fr": "Automated Payroll Calculator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Payroll_Calculator.zip",
@@ -1433,9 +1481,9 @@
         "id": "pdf_merger_splitter",
         "title": "PDF Merger Splitter",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "PDF_Merger_Splitter.zip",
@@ -1446,9 +1494,9 @@
         "id": "periodic_table_explorer",
         "title": "Periodic Table Explorer",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Periodic_Table_Explorer.zip",
@@ -1459,9 +1507,9 @@
         "id": "pinterest_pin_scheduler",
         "title": "Pinterest Pin Scheduler",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Pinterest_Pin_Scheduler.zip",
@@ -1472,9 +1520,9 @@
         "id": "plagiarism_checker_lite",
         "title": "Plagiarism Checker Lite",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Plagiarism_Checker_Lite.zip",
@@ -1485,9 +1533,9 @@
         "id": "portfolio_tracker_dashboard",
         "title": "Portfolio Tracker Dashboard",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Portfolio_Tracker_Dashboard.zip",
@@ -1498,9 +1546,9 @@
         "id": "pos_system",
         "title": "POS System",
         "description": {
-            "en": "Automated POS System solution",
-            "es": "Automated POS System solution",
-            "fr": "Automated POS System solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "POS_System.zip",
@@ -1511,9 +1559,9 @@
         "id": "profit_calculator",
         "title": "Profit Calculator",
         "description": {
-            "en": "Automated Profit Calculator solution",
-            "es": "Automated Profit Calculator solution",
-            "fr": "Automated Profit Calculator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Profit_Calculator.zip",
@@ -1524,9 +1572,9 @@
         "id": "project_planner",
         "title": "Project Planner",
         "description": {
-            "en": "Automated Project Planner solution",
-            "es": "Automated Project Planner solution",
-            "fr": "Automated Project Planner solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Project_Planner.zip",
@@ -1537,9 +1585,9 @@
         "id": "proposal_generator",
         "title": "Proposal Generator",
         "description": {
-            "en": "Automated Proposal Generator solution",
-            "es": "Automated Proposal Generator solution",
-            "fr": "Automated Proposal Generator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Proposal_Generator.zip",
@@ -1550,9 +1598,9 @@
         "id": "pygame_platformer_base",
         "title": "Pygame Platformer Base",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Pygame_Platformer_Base.zip",
@@ -1563,9 +1611,9 @@
         "id": "python_virtualenv_manager",
         "title": "Python VirtualEnv Manager",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Python_VirtualEnv_Manager.zip",
@@ -1576,9 +1624,9 @@
         "id": "qr_code_studio",
         "title": "QR Code Studio",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "QR_Code_Studio.zip",
@@ -1589,9 +1637,9 @@
         "id": "quiz_master_pro",
         "title": "Quiz Master Pro",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Quiz_Master_Pro.zip",
@@ -1602,9 +1650,9 @@
         "id": "quote_generator",
         "title": "Quote Generator",
         "description": {
-            "en": "Automated Quote Generator solution",
-            "es": "Automated Quote Generator solution",
-            "fr": "Automated Quote Generator solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Quote_Generator.zip",
@@ -1615,9 +1663,9 @@
         "id": "real_estate_scraper",
         "title": "Real Estate Scraper",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Real_Estate_Scraper.zip",
@@ -1628,9 +1676,9 @@
         "id": "receipt_organizer",
         "title": "Receipt Organizer",
         "description": {
-            "en": "Automated Receipt Organizer solution",
-            "es": "Automated Receipt Organizer solution",
-            "fr": "Automated Receipt Organizer solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Receipt_Organizer.zip",
@@ -1641,9 +1689,9 @@
         "id": "reddit_marketing_bot",
         "title": "Reddit Marketing Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Reddit_Marketing_Bot.zip",
@@ -1654,9 +1702,9 @@
         "id": "regex_tester_pro",
         "title": "Regex Tester Pro",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Regex_Tester_Pro.zip",
@@ -1667,9 +1715,9 @@
         "id": "retirement_planner_tool",
         "title": "Retirement Planner Tool",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Retirement_Planner_Tool.zip",
@@ -1680,9 +1728,9 @@
         "id": "saas_business_template",
         "title": "SaaS Business Template",
         "description": {
-            "en": "Automated SaaS Business Template solution",
-            "es": "Automated SaaS Business Template solution",
-            "fr": "Automated SaaS Business Template solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "SaaS_Business_Template.zip",
@@ -1693,9 +1741,9 @@
         "id": "sales_tracker",
         "title": "Sales Tracker",
         "description": {
-            "en": "Automated Sales Tracker solution",
-            "es": "Automated Sales Tracker solution",
-            "fr": "Automated Sales Tracker solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Sales_Tracker.zip",
@@ -1706,9 +1754,9 @@
         "id": "science_formula_calculator",
         "title": "Science Formula Calculator",
         "description": {
-            "en": "Educational utility",
-            "es": "Educational utility",
-            "fr": "Educational utility"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Science_Formula_Calculator.zip",
@@ -1719,9 +1767,9 @@
         "id": "slack_daily_standup_bot",
         "title": "Slack Daily Standup Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Slack_Daily_Standup_Bot.zip",
@@ -1732,9 +1780,9 @@
         "id": "sql_query_builder",
         "title": "SQL Query Builder",
         "description": {
-            "en": "Developer productivity tool",
-            "es": "Developer productivity tool",
-            "fr": "Developer productivity tool"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "SQL_Query_Builder.zip",
@@ -1745,9 +1793,9 @@
         "id": "stock_market_alert_system",
         "title": "Stock Market Alert System",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Stock_Market_Alert_System.zip",
@@ -1758,9 +1806,9 @@
         "id": "subscription_manager",
         "title": "Subscription Manager",
         "description": {
-            "en": "Automated Subscription Manager solution",
-            "es": "Automated Subscription Manager solution",
-            "fr": "Automated Subscription Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Subscription_Manager.zip",
@@ -1771,9 +1819,9 @@
         "id": "sudoku_solver_ai",
         "title": "Sudoku Solver AI",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Sudoku_Solver_AI.zip",
@@ -1784,9 +1832,9 @@
         "id": "supplier_manager",
         "title": "Supplier Manager",
         "description": {
-            "en": "Automated Supplier Manager solution",
-            "es": "Automated Supplier Manager solution",
-            "fr": "Automated Supplier Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Supplier_Manager.zip",
@@ -1797,9 +1845,9 @@
         "id": "task_manager",
         "title": "Task Manager",
         "description": {
-            "en": "Automated Task Manager solution",
-            "es": "Automated Task Manager solution",
-            "fr": "Automated Task Manager solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Task_Manager.zip",
@@ -1810,9 +1858,9 @@
         "id": "tax_estimator_pro",
         "title": "Tax Estimator Pro",
         "description": {
-            "en": "Financial analysis and tracking",
-            "es": "Financial analysis and tracking",
-            "fr": "Financial analysis and tracking"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Tax_Estimator_Pro.zip",
@@ -1823,9 +1871,9 @@
         "id": "telegram_crypto_alert_bot",
         "title": "Telegram Crypto Alert Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Telegram_Crypto_Alert_Bot.zip",
@@ -1836,9 +1884,9 @@
         "id": "telegram_file_converter",
         "title": "Telegram File Converter",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Telegram_File_Converter.zip",
@@ -1849,9 +1897,9 @@
         "id": "text_adventure_engine",
         "title": "Text Adventure Engine",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Text_Adventure_Engine.zip",
@@ -1862,9 +1910,9 @@
         "id": "text_to_speech_converter",
         "title": "Text to Speech Converter",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Text_to_Speech_Converter.zip",
@@ -1875,9 +1923,9 @@
         "id": "tiktok_video_savior",
         "title": "TikTok Video Savior",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "TikTok_Video_Savior.zip",
@@ -1888,9 +1936,9 @@
         "id": "time_tracker",
         "title": "Time Tracker",
         "description": {
-            "en": "Automated Time Tracker solution",
-            "es": "Automated Time Tracker solution",
-            "fr": "Automated Time Tracker solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Time_Tracker.zip",
@@ -1901,9 +1949,9 @@
         "id": "tinder_swipe_auto",
         "title": "Tinder Swipe Auto",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Tinder_Swipe_Auto.zip",
@@ -1914,9 +1962,9 @@
         "id": "twitch_chat_moderation",
         "title": "Twitch Chat Moderation",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Twitch_Chat_Moderation.zip",
@@ -1927,9 +1975,9 @@
         "id": "twitter_auto_poster",
         "title": "Twitter Auto Poster",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Twitter_Auto_Poster.zip",
@@ -1940,9 +1988,9 @@
         "id": "twitter_sentiment_scraper",
         "title": "Twitter Sentiment Scraper",
         "description": {
-            "en": "Advanced web scraping automation",
-            "es": "Advanced web scraping automation",
-            "fr": "Advanced web scraping automation"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Twitter_Sentiment_Scraper.zip",
@@ -1953,9 +2001,9 @@
         "id": "typing_speed_trainer",
         "title": "Typing Speed Trainer",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Typing_Speed_Trainer.zip",
@@ -1966,9 +2014,9 @@
         "id": "watermark_remover",
         "title": "Watermark Remover",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Watermark_Remover.zip",
@@ -1979,9 +2027,9 @@
         "id": "whatsapp_auto_responder",
         "title": "WhatsApp Auto Responder",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "WhatsApp_Auto_Responder.zip",
@@ -1992,9 +2040,9 @@
         "id": "whatsapp_reminder_bot",
         "title": "WhatsApp Reminder Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "WhatsApp_Reminder_Bot.zip",
@@ -2005,9 +2053,9 @@
         "id": "wifi_speed_tester",
         "title": "Wifi Speed Tester",
         "description": {
-            "en": "High utility micro-service",
-            "es": "High utility micro-service",
-            "fr": "High utility micro-service"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Wifi_Speed_Tester.zip",
@@ -2018,9 +2066,9 @@
         "id": "wordle_clone_solver",
         "title": "Wordle Clone Solver",
         "description": {
-            "en": "Entertainment and logic",
-            "es": "Entertainment and logic",
-            "fr": "Entertainment and logic"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Wordle_Clone_Solver.zip",
@@ -2031,9 +2079,9 @@
         "id": "workflow_automation",
         "title": "Workflow Automation",
         "description": {
-            "en": "Automated Workflow Automation solution",
-            "es": "Automated Workflow Automation solution",
-            "fr": "Automated Workflow Automation solution"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "Workflow_Automation.zip",
@@ -2044,9 +2092,9 @@
         "id": "youtube_comment_bot",
         "title": "YouTube Comment Bot",
         "description": {
-            "en": "Automated interaction bot",
-            "es": "Automated interaction bot",
-            "fr": "Automated interaction bot"
+            "en": "Ready-to-deploy micro-SaaS template.",
+            "es": "Plantilla micro-SaaS lista para implementar.",
+            "fr": "Mod\u00e8le micro-SaaS pr\u00eat \u00e0 d\u00e9ployer."
         },
         "price": "150.00",
         "filename": "YouTube_Comment_Bot.zip",

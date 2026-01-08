@@ -1,9 +1,11 @@
 {
     "nav.home": "Organización",
     "nav.services": "Empresas",
+
     "nav.python": "Soluciones Python",
-    "nav.audit": "Sovereign AI",
+    "nav.audit": "IA Soberana",
     "nav.game": "Sim: IMPERIO",
+
     "nav.contact": "Alianzas",
     "nav.languages": "Idiomas:",
     "hero.title": "Arquitecto de Dominio Digital",
@@ -202,5 +204,25 @@
     "pricing.monopoly.f2": "✓ Integración Neuronal IA",
     "pricing.monopoly.f3": "✓ Minería de Datos Dedicada",
     "pricing.monopoly.f4": "✓ Soporte War Room 24/7",
-    "pricing.btn.contact_hq": "Contactar HQ"
+    "pricing.btn.contact_hq": "Contactar HQ",
+    "re.form.images": "Imágenes del Activo",
+    "re.form.sqft": "Pies Cuadrados",
+    "re.form.beds": "Habitaciones",
+    "re.form.baths": "Baños",
+    "re.form.type": "Tipo de Activo & Tarifa",
+    "re.form.select_type": "Seleccionar Tipo",
+    "vault.title": "LA BÓVEDA",
+    "vault.lead": "Acceso Restringido a Propiedad Intelectual de Alto Valor. Asegure su ventaja en la economía digital.",
+    "vault.status": "Estado",
+    "vault.open": "ABIERTO",
+    "vault.inventory": "Inventario",
+    "vault.premium": "ACTIVOS PREMIUM",
+    "vault.security": "Seguridad",
+    "vault.encrypted": "ENCRIPTADO",
+    "vault.acquisitions": "Adquisiciones Estratégicas",
+    "vault.subheading": "Desbloquee el código fundamental de su propio imperio.",
+    "vault.access_denied": "Acceso a la Bóveda Denegado.",
+    "vault.no_assets": "No hay activos disponibles actualmente en la Bóveda.",
+    "vault.verified": "VERIFICADO",
+    "vault.footer": "Organización Juan Nuñez. ACCESO RESTRINGIDO."
 }

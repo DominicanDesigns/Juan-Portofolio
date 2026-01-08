@@ -1,9 +1,12 @@
 {
     "nav.home": "Organization",
     "nav.services": "Ventures",
+
     "nav.python": "Python Solutions",
     "nav.audit": "Sovereign AI",
     "nav.game": "Sim: EMPIRE",
+
+
     "nav.contact": "Partnership",
     "nav.languages": "Languages:",
     "hero.title": "Architect of Digital Dominance",
@@ -223,5 +226,25 @@
     "pricing.monopoly.f2": "✓ AI Neural Integration",
     "pricing.monopoly.f3": "✓ Dedicated Data Mining",
     "pricing.monopoly.f4": "✓ 24/7 War Room Support",
-    "pricing.btn.contact_hq": "Contact HQ"
+    "pricing.btn.contact_hq": "Contact HQ",
+    "re.form.images": "Asset Images",
+    "re.form.sqft": "Sq. Ft",
+    "re.form.beds": "Bedrooms",
+    "re.form.baths": "Bathrooms",
+    "re.form.type": "Asset Type & Listing Fee",
+    "re.form.select_type": "Select Type",
+    "vault.title": "THE VAULT",
+    "vault.lead": "Restricted Access to High-Value Intellectual Property. Secure your advantage within the digital economy.",
+    "vault.status": "Status",
+    "vault.open": "OPEN",
+    "vault.inventory": "Inventory",
+    "vault.premium": "PREMIUM ASSETS",
+    "vault.security": "Security",
+    "vault.encrypted": "ENCRYPTED",
+    "vault.acquisitions": "Strategic Acquisitions",
+    "vault.subheading": "Unlock the foundational code of your own empire.",
+    "vault.access_denied": "Vault Access Denied.",
+    "vault.no_assets": "No assets currently available in the Vault.",
+    "vault.verified": "VERIFIED",
+    "vault.footer": "Juan Nunez Organization. VAULT ACCESS RESTRICTED."
 }
