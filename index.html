@@ -187,6 +187,89 @@
             </div>
         </section>
 
+        <!-- THE HIGH STAKES ROOM (CASINO) -->
+        <section class="section casino-section" id="high-stakes">
+            <div class="casino-bg-layer"></div>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="neon-text-flicker">The High Stakes Room</h2>
+                    <p style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase;">
+                        <span style="color: #ff0055; font-weight: bold;">18+</span> | Fortune favors the bold
+                    </p>
+                </div>
+
+                <div class="casino-console reveal-on-scroll">
+                    <div class="sovereign-terminal-frame" id="sovereign-terminal">
+
+                        <!-- Terminal Header -->
+                        <div class="term-header">
+                            <div class="term-status-light"></div>
+                            <div class="term-title">SOVEREIGN ASSET TERMINAL v9.0</div>
+                            <div class="term-meta">
+                                <span>LATENCY: 4ms</span>
+                                <span style="color: #00ff00">CONNECTED</span>
+                            </div>
+                        </div>
+
+                        <!-- Data Dashboard -->
+                        <div class="term-dashboard">
+                            <div class="term-card">
+                                <span class="term-label">LIQUIDITY (WALLET)</span>
+                                <div class="term-value" id="term-balance">$50,000</div>
+                            </div>
+                            <div class="term-card term-log-container">
+                                <span class="term-label">SYSTEM LOGS</span>
+                                <div class="term-log" id="term-log"></div>
+                            </div>
+                        </div>
+
+                        <!-- Main Display (Reels) -->
+                        <div class="slot-machine-frame minimal-frame">
+                            <div class="jackpot-sign" id="jackpot-display">+$0</div>
+                            <div class="reels-container professional-reels">
+                                <div class="reel-window">
+                                    <div class="reel" id="reel-1">💎</div>
+                                </div>
+                                <div class="reel-window">
+                                    <div class="reel" id="reel-2">👑</div>
+                                </div>
+                                <div class="reel-window">
+                                    <div class="reel" id="reel-3">📈</div>
+                                </div>
+                            </div>
+                            <div class="status-display terminal-font" id="term-status">READY FOR DEPLOYMENT</div>
+                        </div>
+
+                        <!-- Control Deck -->
+                        <div class="term-controls">
+                            <!-- Refinement (Stake) -->
+                            <div class="control-group">
+                                <label>STAKE REFINEMENT</label>
+                                <div class="stake-selector">
+                                    <button class="btn-terminal-s" id="btn-stake-down">-</button>
+                                    <div class="stake-display" id="term-stake-input">$1,000</div>
+                                    <button class="btn-terminal-s" id="btn-stake-up">+</button>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="action-group">
+                                <button id="btn-deploy" class="btn-terminal-action">
+                                    DEPLOY CAPITAL
+                                    <span class="btn-sub">STANDARD PROTOCOL</span>
+                                </button>
+                                <button id="btn-prosecute" class="btn-terminal-danger">
+                                    ISSUE PROSECUTION
+                                    <span class="btn-sub">TARGET: LONG DISTANCE</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Capital Deployment (Pricing & ROI) -->
         <section class="section" id="pricing"
             style="background: linear-gradient(180deg, rgba(255, 204, 0, 0.02), transparent);">
@@ -495,6 +578,7 @@
         src="https://www.paypal.com/sdk/js?client-id=ARJc9hoxkzsoYS6jm-uWzirgqih_isRPmvPGu5gIhEKDAr4vtqPJOPoJL9L-7YfN9rgQEb_2qShIvu52&enable-funding=venmo&currency=USD"
         data-sdk-integration-source="button-factory"></script>
     <script src="js/payments.js"></script>
+    <script src="js/slots.js"></script>
     <script src="js/script.js" defer></script>
 </body>
 
