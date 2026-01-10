@@ -7,12 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminal = document.getElementById('sovereign-terminal');
     if (!terminal) return;
 
+    // --- CONFIGURATION ---
+    const RANKS = [
+        { title: 'ANALYST', threshold: 0, bonus: 0 },
+        { title: 'ASSOCIATE', threshold: 1000, bonus: 10000 },
+        { title: 'VICE PRESIDENT', threshold: 5000, bonus: 25000 },
+        { title: 'DIRECTOR', threshold: 20000, bonus: 50000 },
+        { title: 'MANAGING DIRECTOR', threshold: 50000, bonus: 100000 },
+        { title: 'SOVEREIGN', threshold: 100000, bonus: 1000000 }
+    ];
+
     // --- STATE MANAGEMENT ---
-    const State = {
+    let State = {
         balance: 50000,
         stake: 1000,
+        xp: 0,
+        rankIndex: 0,
         isProcessing: false,
-        mode: 'STANDARD' // STANDARD or PROSECUTION
+        mode: 'STANDARD'
     };
 
     // --- DOM ELEMENTS ---
@@ -26,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         stakeInput: document.getElementById('term-stake-input'),
         status: document.getElementById('term-status'),
         log: document.getElementById('term-log'),
+        rank: document.getElementById('term-rank'),
         btnDeploy: document.getElementById('btn-deploy'),
         btnProsecute: document.getElementById('btn-prosecute'),
         jackpotText: document.getElementById('jackpot-display')
@@ -33,13 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Symbols (Professional/Wealth)
     const symbols = ['💎', '👑', '🏙️', '📈', '🍸', '📡', '🐉'];
-    // 📡 = Uplink (Wild), 🐉 = Dragon (Jackpot)
 
     // --- INITIALIZATION ---
     function init() {
+        loadState();
         updateDisplay();
         log("TERMINAL ONLINE. CONNECTION SECURE.");
-        log("ACCESSING GLOBAL GAMING HUB... [LINK ESTABLISHED]");
+        log(`IDENTITY VERIFIED: ${RANKS[State.rankIndex].title}`);
 
         // Event Listeners
         ui.btnDeploy.addEventListener('click', () => executeTrade('STANDARD'));
@@ -48,6 +61,60 @@ document.addEventListener('DOMContentLoaded', () => {
         // Stake Input Listeners
         document.getElementById('btn-stake-up').addEventListener('click', () => adjustStake(500));
         document.getElementById('btn-stake-down').addEventListener('click', () => adjustStake(-500));
+    }
+
+    // --- PERSISTENCE ---
+    function loadState() {
+        const saved = localStorage.getItem('sovereign_state');
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                State = { ...State, ...parsed }; // Merge saved with defaults
+                log("PRIOR SESSION RESTORED.");
+            } catch (e) {
+                console.error("Save file corrupted");
+            }
+        }
+    }
+
+    function saveState() {
+        localStorage.setItem('sovereign_state', JSON.stringify({
+            balance: State.balance,
+            xp: State.xp,
+            rankIndex: State.rankIndex
+        }));
+    }
+
+    // --- PROGRESSION ---
+    function addXP(amount) {
+        State.xp += amount;
+        checkRankUp();
+        saveState();
+    }
+
+    function checkRankUp() {
+        const nextRankIdx = State.rankIndex + 1;
+        if (nextRankIdx < RANKS.length) {
+            const nextRank = RANKS[nextRankIdx];
+            if (State.xp >= nextRank.threshold) {
+                // LEVEL UP
+                State.rankIndex = nextRankIdx;
+                State.balance += nextRank.bonus;
+
+                log(`*** PROMOTION GRANTED: ${nextRank.title} ***`);
+                log(`SIGNING BONUS: +$${nextRank.bonus.toLocaleString()}`);
+
+                // Visual Flair
+                ui.rank.style.color = '#00ff00';
+                ui.rank.classList.add('neon-text-flicker'); // Reuse existing class
+                setTimeout(() => {
+                    ui.rank.style.color = 'var(--accent-gold)';
+                    ui.rank.classList.remove('neon-text-flicker');
+                }, 3000);
+
+                createConfetti();
+            }
+        }
     }
 
     // --- CORE LOGIC ---
@@ -84,7 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             log(`TARGET LOCKED: ${target}`);
             log(`DISTANCE: ${distance}KM | LATENCY: 12ms`);
+
+            addXP(50); // XP for attempting prosecution
             await wait(1000);
+        } else {
+            addXP(10); // Standard Spin XP
         }
 
         // Standard Checks
@@ -113,6 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
         State.isProcessing = false;
         ui.btnDeploy.classList.remove('disabled');
         ui.btnProsecute.classList.remove('disabled');
+
+        saveState(); // Save after transaction
     }
 
     async function spinReels() {
@@ -120,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ui.reels.forEach(r => r.classList.add('blur'));
 
         // Spin Duration
-        const duration = State.mode === 'PROSECUTION' ? 3000 : 1500; // Longer tension for prosecution
+        const duration = State.mode === 'PROSECUTION' ? 3000 : 1500;
 
         const spinInterval = setInterval(() => {
             ui.reels.forEach(r => r.textContent = symbols[Math.floor(Math.random() * symbols.length)]);
@@ -193,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Prosecution Bonus
         if (State.mode === 'PROSECUTION') {
             if (winMultiplier > 0) {
-                winMultiplier *= 2; // Double payout on prosecution
+                winMultiplier *= 2;
                 message = "PROSECUTION SUCCESSFUL. TARGET LIQUIDATED.";
             } else {
                 message = "PROSECUTION FAILED. COUNTER-MEASURES DETECTED.";
@@ -209,6 +282,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ui.jackpotText.textContent = `+$${payout.toLocaleString()}`;
             ui.jackpotText.classList.add('visible');
             setTimeout(() => ui.jackpotText.classList.remove('visible'), 2000);
+
+            // Win XP
+            addXP(Math.floor(payout / 100));
         } else {
             log(`[LOSS] CAPITAL DEPLOYED: -$${State.stake}`);
             ui.status.textContent = message;
@@ -223,6 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDisplay() {
         ui.balance.textContent = `$${State.balance.toLocaleString()}`;
         ui.stakeInput.textContent = `$${State.stake.toLocaleString()}`;
+        ui.rank.textContent = `CLEARANCE: ${RANKS[State.rankIndex].title} [XP: ${State.xp}]`;
     }
 
     function log(msg) {

@@ -294,7 +294,7 @@ function renderButtons(plan) {
             },
             onApprove: function (data, actions) {
                 return actions.order.capture().then(function (details) {
-                    container.innerHTML = "<p style='text-align:center; padding:1rem; color: var(--accent-gold);'>Payment Verified.<br>Accessing Secure Terminal...</p>";
+                    container.innerHTML = "<p style='text-align:center; padding:1rem; color: var(--accent-gold);'>Payment Verified.<br><strong>Redirecting to Receipt Page...</strong></p>";
                     modalTitle.textContent = "Access Granted";
 
                     const payerName = details.payer.name.given_name + " " + details.payer.name.surname;

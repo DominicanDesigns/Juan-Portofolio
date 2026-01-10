@@ -143,10 +143,16 @@
             </div>
         </div>
 
-        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-            Your transaction has been verified. The final step is to initialize the secure channel with Headquarters to
-            begin deployment.
-        </p>
+        <div id="action-required-msg"
+            style="background: rgba(255, 215, 0, 0.1); border-left: 4px solid var(--accent-gold); padding: 1rem; margin-bottom: 2rem; text-align: left;">
+            <p style="color: #fff; font-size: 0.95rem; margin: 0; font-weight: 500;">
+                <strong style="color: var(--accent-gold);">ACTION REQUIRED:</strong>
+                Transmission incomplete. You must manually initialize the secure protocol below to begin service
+                delivery.
+                <br><br>
+                <em style="opacity: 0.8; font-size: 0.85rem;">Failure to send receipt may delay your deployment.</em>
+            </p>
+        </div>
 
         <div class="action-area">
             <!-- Dynamic Download Button -->
@@ -241,7 +247,7 @@
                     downloadBtn.classList.add('hidden');
                     document.querySelector('.lead').textContent = "Link Expired";
                     document.querySelector('.container-card h1').style.color = "#ff4444";
-                    document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
+                    document.getElementById('action-required-msg').innerHTML =
                         `This secure link has exceeded its 30-day validity period.<br>
                         <span style="color: #ff4444;">Expired on: ${expiryDate.toLocaleDateString()}</span><br>
                         Please contact support to request renewed access.`;
@@ -251,7 +257,7 @@
                     const expiryString = expiryDate.toLocaleDateString(undefined, options);
 
                     document.querySelector('.lead').textContent = "Asset Secured.";
-                    document.querySelector('p[style*="color: var(--text-muted)"]').innerHTML =
+                    document.getElementById('action-required-msg').innerHTML =
                         `Transaction verified. <strong style="color:var(--accent-gold)">Download your logic package below.</strong><br>
                         <span style="color: #ff4444; font-size: 0.85rem;">Secure Link Expires: ${expiryString}</span>`;
                 }
