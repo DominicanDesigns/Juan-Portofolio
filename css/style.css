@@ -784,7 +784,7 @@ input[type=range]::-webkit-slider-runnable-track {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    z-index: 1000;
+    z-index: 9999;
     padding: 1rem 1.5rem;
     background: var(--accent-primary);
     color: #000;
@@ -818,7 +818,7 @@ input[type=range]::-webkit-slider-runnable-track {
     font-weight: 800;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     animation: badge-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 1001;
+    z-index: 10000;
 }
 
 @keyframes badge-pop {
@@ -851,7 +851,7 @@ input[type=range]::-webkit-slider-runnable-track {
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-premium);
-    z-index: 1000;
+    z-index: 9999;
     backdrop-filter: blur(20px);
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);

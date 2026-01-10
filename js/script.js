@@ -231,14 +231,26 @@ function initChatUI() {
     document.body.appendChild(widget);
   }
 
+  // Robust Event Listeners
   const btn = document.getElementById('chat-open');
   const closeBtn = document.getElementById('chat-close');
   const messagesEl = document.getElementById('chat-messages');
   const form = document.getElementById('chat-form');
   const input = document.getElementById('chat-input');
 
-  btn && btn.addEventListener('click', () => document.getElementById('chat-widget').classList.toggle('hidden'));
-  closeBtn && closeBtn.addEventListener('click', () => document.getElementById('chat-widget').classList.add('hidden'));
+  if (btn) {
+    btn.onclick = () => {
+      const widget = document.getElementById('chat-widget');
+      if (widget) widget.classList.toggle('hidden');
+    };
+  }
+
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      const widget = document.getElementById('chat-widget');
+      if (widget) widget.classList.add('hidden');
+    };
+  }
 
   function renderMessage({ user, content, ts }) {
     if (!messagesEl) return;
