@@ -114,6 +114,24 @@ const PAYMENT_CONFIG = {
         title: "Monopoly Tier",
         price: "1000.00",
         description: "Total Market Domination - Access"
+    },
+    prod_proto_flow: {
+        id: "proto_flow",
+        title: "Proto-Flow Automation",
+        price: "497.00",
+        description: "Single Linear Process Automation"
+    },
+    prod_hyper_loop: {
+        id: "hyper_loop",
+        title: "Hyper-Loop Logic",
+        price: "1297.00",
+        description: "Multi-Step Business Logic"
+    },
+    prod_sovereign_system: {
+        id: "sovereign_system",
+        title: "Sovereign System",
+        price: "4997.00",
+        description: "Full Ecosystem Automation"
     }
 };
 

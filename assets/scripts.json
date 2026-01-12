@@ -1,5 +1,83 @@
 [
     {
+        "id": "workflow_social_autopilot",
+        "title": "Social Media Auto-Pilot",
+        "description": {
+            "en": "Automatically distribute content to X, LinkedIn, and Instagram from a single source.",
+            "es": "Distribuye contenido automÃ¡ticamente a X, LinkedIn e Instagram desde una sola fuente.",
+            "fr": "Distribuez automatiquement du contenu vers X, LinkedIn et Instagram."
+        },
+        "price": "197.00",
+        "filename": "Social_Media_Auto_Pilot.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_inbox_zero",
+        "title": "Inbox Zero AI",
+        "description": {
+            "en": "AI-powered email triage that labels, priorities, and drafts responses for you.",
+            "es": "ClasificaciÃ³n de correo con IA que etiqueta, prioriza y redacta respuestas.",
+            "fr": "Triage d'e-mails par IA qui Ã©tiquette, priorise et rÃ©dige des rÃ©ponses."
+        },
+        "price": "249.00",
+        "filename": "Inbox_Zero_AI.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_lead_enrich",
+        "title": "Lead Enrichment Pro",
+        "description": {
+            "en": "Turn an email address into a full profile with company data, social links, and size.",
+            "es": "Convierte un correo en un perfil completo con datos de la empresa y redes sociales.",
+            "fr": "Transformez une adresse e-mail en un profil complet avec donnÃ©es d'entreprise."
+        },
+        "price": "297.00",
+        "filename": "Lead_Enrichment_Pro.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_market_monitor",
+        "title": "Market Monitor System",
+        "description": {
+            "en": "Real-time alerts for Asset/Stock price movements sent directly to Telegram/Discord.",
+            "es": "Alertas en tiempo real para cotizaciones enviadas directamente a Telegram/Discord.",
+            "fr": "Alertes en temps rÃ©el pour les cotations envoyÃ©es direct sur Telegram/Discord."
+        },
+        "price": "149.00",
+        "filename": "Market_Monitor_System.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_content_engine",
+        "title": "Content Repurposing Engine",
+        "description": {
+            "en": "Turn 1 Video into a Blog Post, 5 Tweets, and a Newsletter automatically.",
+            "es": "Convierte 1 video en un blog, 5 tweets y un boletÃ­n automÃ¡ticamente.",
+            "fr": "Transformez 1 vidÃ©o en article de blog, 5 tweets et une newsletter."
+        },
+        "price": "349.00",
+        "filename": "Content_Repurposing_Engine.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_brand_sentinel",
+        "title": "Brand Sentinel",
+        "description": {
+            "en": "Monitor web mentions of your brand and get sentiment analysis summaries daily.",
+            "es": "Monitorea menciones de tu marca y recibe resÃºmenes de anÃ¡lisis de sentimiento.",
+            "fr": "Surveillez les mentions de votre marque avec analyse de sentiment."
+        },
+        "price": "297.00",
+        "filename": "Brand_Sentinel.zip",
+        "languages": ["JSON"],
+        "category": "Workflow Automation"
+    },
+    {
         "id": "empire_source_code",
         "title": "Empire One Source Code",
         "description": {
