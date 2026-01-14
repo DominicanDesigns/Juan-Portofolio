@@ -196,6 +196,16 @@ function openModal(planKey) {
         configKey = `prod_${planKey}`;
     }
 
+    // Customize Logic for openModal to ensure elements are ready
+    if (!modal) {
+        initPaymentElements();
+        if (!modal) {
+            console.error("Payment modal elements missing even after init retry");
+            alert("Payment system initializing... Please try again in 1 second.");
+            return;
+        }
+    }
+
     const plan = PAYMENT_CONFIG[configKey];
 
     if (!plan) {

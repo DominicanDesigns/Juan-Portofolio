@@ -117,19 +117,22 @@
             <div class="container hero-content"
                 style="text-align: center; flex-direction: column; justify-content: center;">
                 <h1 class="reveal-on-scroll" style="font-size: 4rem; margin-bottom: 2rem;">
-                    The <span class="text-gradient"
-                        style="background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Invisible
+                    <span data-i18n="hero.prefix">The</span> <span class="text-gradient"
+                        style="background: linear-gradient(135deg, #fff 0%, var(--accent-primary) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"
+                        data-i18n="hero.machine">Invisible
                         Machine</span>
                 </h1>
                 <p class="lead reveal-on-scroll delay-100"
                     style="margin: 0 auto 3rem auto; font-size: 1.5rem; max-width: 800px;">
-                    Systems that work while you sleep. The ultimate leverage for the sovereign individual.
+                    <span data-i18n="hero.subtitle">Systems that work while you sleep. The ultimate leverage for the
+                        sovereign individual.</span>
                     <br><span
-                        style="color: var(--accent-gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;">No
+                        style="color: var(--accent-gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;"
+                        data-i18n="hero.tagline">No
                         Employees. No Noise. Pure Result.</span>
                 </p>
                 <div class="cta-group reveal-on-scroll delay-200" style="justify-content: center;">
-                    <a href="#tiers" class="btn btn-primary">Acquire Leverage</a>
+                    <a href="#tiers" class="btn btn-primary" data-i18n="hero.cta">Acquire Leverage</a>
                 </div>
             </div>
         </section>
@@ -140,20 +143,23 @@
                 <div class="grid-3">
                     <div class="card reveal-on-scroll">
                         <div class="card-icon">👁️</div>
-                        <h3>Invisible</h3>
-                        <p>The best systems are the ones you never see. They run in the background, executing logic with
+                        <h3 data-i18n="philo.invisible.title">Invisible</h3>
+                        <p data-i18n="philo.invisible.desc">The best systems are the ones you never see. They run in the
+                            background, executing logic with
                             military precision, 24/7/365.</p>
                     </div>
                     <div class="card reveal-on-scroll delay-100">
                         <div class="card-icon">⚡</div>
-                        <h3>Instant</h3>
-                        <p>Latency is the enemy. Our logic engines process data in real-time, connecting your fragmented
+                        <h3 data-i18n="philo.instant.title">Instant</h3>
+                        <p data-i18n="philo.instant.desc">Latency is the enemy. Our logic engines process data in
+                            real-time, connecting your fragmented
                             tools into a unified organism.</p>
                     </div>
                     <div class="card reveal-on-scroll delay-200">
                         <div class="card-icon">💎</div>
-                        <h3>Sovereign</h3>
-                        <p>Own your logic. Use open standards. Build a moat around your business operations that no
+                        <h3 data-i18n="philo.sovereign.title">Sovereign</h3>
+                        <p data-i18n="philo.sovereign.desc">Own your logic. Use open standards. Build a moat around your
+                            business operations that no
                             competitor can copy.</p>
                     </div>
                 </div>
@@ -164,76 +170,81 @@
         <section id="tiers" class="section">
             <div class="container">
                 <div class="section-header reveal-on-scroll">
-                    <h2 style="color: var(--accent-primary);">Select Your Architecture</h2>
-                    <p>Deploy the level of automation your empire requires.</p>
+                    <h2 style="color: var(--accent-primary);" data-i18n="tiers.title">Select Your Architecture</h2>
+                    <p data-i18n="tiers.subtitle">Deploy the level of automation your empire requires.</p>
                 </div>
 
                 <div class="grid-3">
                     <!-- Tier 1 -->
                     <div class="card tier-card reveal-on-scroll">
-                        <h3
-                            style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;">
+                        <h3 style="color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;"
+                            data-i18n="tier1.level">
                             Entry Level</h3>
                         <h2 style="font-size: 2rem; margin: 1rem 0;">Proto-Flow</h2>
                         <div class="price-tag">$497</div>
-                        <p style="font-size: 0.9rem;">Perfect for specific, single-channel bottlenecks.</p>
+                        <p style="font-size: 0.9rem;" data-i18n="tier1.desc">Perfect for specific, single-channel
+                            bottlenecks.</p>
 
                         <ul class="feature-list">
-                            <li>Single Linear Process</li>
-                            <li>Two App Integration (e.g. Lead -> CRM)</li>
-                            <li>Error Handling Basic</li>
-                            <li>30 Days Logic Support</li>
+                            <li data-i18n="tier1.f1">Single Linear Process</li>
+                            <li data-i18n="tier1.f2">Two App Integration (e.g. Lead -> CRM)</li>
+                            <li data-i18n="tier1.f3">Error Handling Basic</li>
+                            <li data-i18n="tier1.f4">30 Days Logic Support</li>
                         </ul>
 
-                        <button class="btn btn-secondary" style="width: 100%;"
-                            data-plan="proto_flow">Initialize</button>
+                        <button class="btn btn-secondary" style="width: 100%;" data-plan="proto_flow"
+                            onclick="openModal('proto_flow')" data-i18n="tier1.btn">Initialize</button>
                     </div>
 
                     <!-- Tier 2 -->
                     <div class="card tier-card reveal-on-scroll delay-100"
                         style="border-color: var(--accent-primary); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
-                        <div
-                            style="position: absolute; top: 0; right: 0; background: var(--accent-primary); color: #000; padding: 0.2rem 1rem; font-weight: bold; font-size: 0.8rem;">
+                        <div style="position: absolute; top: 0; right: 0; background: var(--accent-primary); color: #000; padding: 0.2rem 1rem; font-weight: bold; font-size: 0.8rem;"
+                            data-i18n="tier2.rec">
                             RECOMMENDED</div>
-                        <h3
-                            style="color: var(--accent-primary); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;">
+                        <h3 style="color: var(--accent-primary); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;"
+                            data-i18n="tier2.level">
                             Business Logic</h3>
                         <h2 style="font-size: 2rem; margin: 1rem 0;">Hyper-Loop</h2>
                         <div class="price-tag">$1,297</div>
-                        <p style="font-size: 0.9rem;">Multi-step logic for complex operational needs.</p>
+                        <p style="font-size: 0.9rem;" data-i18n="tier2.desc">Multi-step logic for complex operational
+                            needs.</p>
 
                         <ul class="feature-list">
-                            <li>Multi-Stage Workflows</li>
-                            <li>Cross-Platform Decision Logic</li>
-                            <li>Data Transformation Engine</li>
-                            <li>Advanced Error Recovery</li>
-                            <li>60 Days Priority Support</li>
+                            <li data-i18n="tier2.f1">Multi-Stage Workflows</li>
+                            <li data-i18n="tier2.f2">Cross-Platform Decision Logic</li>
+                            <li data-i18n="tier2.f3">Data Transformation Engine</li>
+                            <li data-i18n="tier2.f4">Advanced Error Recovery</li>
+                            <li data-i18n="tier2.f5">60 Days Priority Support</li>
                         </ul>
 
-                        <button class="btn btn-primary" style="width: 100%;" data-plan="hyper_loop">Deploy Core</button>
+                        <button class="btn btn-primary" style="width: 100%;" data-plan="hyper_loop"
+                            onclick="openModal('hyper_loop')" data-i18n="tier2.btn">Deploy Core</button>
                     </div>
 
                     <!-- Tier 3 -->
                     <div class="card tier-card reveal-on-scroll delay-200">
-                        <h3
-                            style="color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;">
+                        <h3 style="color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; font-size: 1rem;"
+                            data-i18n="tier3.level">
                             Empire Grade</h3>
                         <h2 style="font-size: 2rem; margin: 1rem 0;">Sovereign</h2>
                         <div class="price-tag">$4,997</div>
-                        <p style="font-size: 0.9rem;">Full ecosystem automation. The "Invisible Machine".</p>
+                        <p style="font-size: 0.9rem;" data-i18n="tier3.desc">Full ecosystem automation. The "Invisible
+                            Machine".</p>
 
                         <ul class="feature-list">
-                            <li>Full Business Ecosystem Logic</li>
-                            <li>Unlimited Step Complexity</li>
-                            <li>Custom API Development</li>
-                            <li>Dashboard & Reporting Nodes</li>
-                            <li>Dedicated Server Architecture</li>
-                            <li>Lifetime Logic Warranty</li>
+                            <li data-i18n="tier3.f1">Full Business Ecosystem Logic</li>
+                            <li data-i18n="tier3.f2">Unlimited Step Complexity</li>
+                            <li data-i18n="tier3.f3">Custom API Development</li>
+                            <li data-i18n="tier3.f4">Dashboard & Reporting Nodes</li>
+                            <li data-i18n="tier3.f5">Dedicated Server Architecture</li>
+                            <li data-i18n="tier3.f6">Lifetime Logic Warranty</li>
                         </ul>
 
                         <button class="btn btn-secondary"
                             style="width: 100%; border-color: var(--accent-gold); color: var(--accent-gold);"
-                            data-plan="sovereign_system">Consult Registry</button>
+                            data-plan="sovereign_system" onclick="openModal('sovereign_system')"
+                            data-i18n="tier3.btn">Consult Registry</button>
                     </div>
                 </div>
             </div>
@@ -243,8 +254,8 @@
         <section class="section">
             <div class="container">
                 <div class="section-header reveal-on-scroll">
-                    <h2 style="color: var(--accent-primary);">Ready-Made Workflows</h2>
-                    <p>Instant deployment. Proven reliability. Zero friction.</p>
+                    <h2 style="color: var(--accent-primary);" data-i18n="workflows.title">Ready-Made Workflows</h2>
+                    <p data-i18n="workflows.subtitle">Instant deployment. Proven reliability. Zero friction.</p>
                 </div>
 
                 <div id="workflows-grid" class="grid-3">
@@ -262,11 +273,178 @@
                 const grid = document.getElementById('workflows-grid');
                 let currentLang = localStorage.getItem('site_lang') || 'en';
 
+                // Ensure language selector matches current state if present in header
+                const langSelect = document.querySelector('.lang-select');
+                if (langSelect) langSelect.value = currentLang;
+
                 const i18n = {
-                    en: { btn: 'Acquire Logic' },
-                    es: { btn: 'Adquirir Lógica' },
-                    fr: { btn: 'Acquérir Logique' }
+                    en: {
+                        "nav.home": "Organization",
+                        "nav.automations": "Automations",
+                        "nav.services": "Ventures",
+                        "nav.python": "Python Solutions",
+                        "nav.audit": "Sovereign AI",
+                        "nav.game": "Sim: EMPIRE",
+                        "nav.chat": "CHAT",
+                        "nav.contact": "Partnership",
+                        "nav.languages": "Languages:",
+                        "hero.prefix": "The",
+                        "hero.machine": "Invisible Machine",
+                        "hero.subtitle": "Systems that work while you sleep. The ultimate leverage for the sovereign individual.",
+                        "hero.tagline": "No Employees. No Noise. Pure Result.",
+                        "hero.cta": "Acquire Leverage",
+                        "philo.invisible.title": "Invisible",
+                        "philo.invisible.desc": "The best systems are the ones you never see. They run in the background, executing logic with military precision, 24/7/365.",
+                        "philo.instant.title": "Instant",
+                        "philo.instant.desc": "Latency is the enemy. Our logic engines process data in real-time, connecting your fragmented tools into a unified organism.",
+                        "philo.sovereign.title": "Sovereign",
+                        "philo.sovereign.desc": "Own your logic. Use open standards. Build a moat around your business operations that no competitor can copy.",
+                        "tiers.title": "Select Your Architecture",
+                        "tiers.subtitle": "Deploy the level of automation your empire requires.",
+                        "tier1.level": "Entry Level",
+                        "tier1.desc": "Perfect for specific, single-channel bottlenecks.",
+                        "tier1.f1": "Single Linear Process",
+                        "tier1.f2": "Two App Integration (e.g. Lead -> CRM)",
+                        "tier1.f3": "Error Handling Basic",
+                        "tier1.f4": "30 Days Logic Support",
+                        "tier1.btn": "Initialize",
+                        "tier2.rec": "RECOMMENDED",
+                        "tier2.level": "Business Logic",
+                        "tier2.desc": "Multi-step logic for complex operational needs.",
+                        "tier2.f1": "Multi-Stage Workflows",
+                        "tier2.f2": "Cross-Platform Decision Logic",
+                        "tier2.f3": "Data Transformation Engine",
+                        "tier2.f4": "Advanced Error Recovery",
+                        "tier2.f5": "60 Days Priority Support",
+                        "tier2.btn": "Deploy Core",
+                        "tier3.level": "Empire Grade",
+                        "tier3.desc": "Full ecosystem automation. The \"Invisible Machine\".",
+                        "tier3.f1": "Full Business Ecosystem Logic",
+                        "tier3.f2": "Unlimited Step Complexity",
+                        "tier3.f3": "Custom API Development",
+                        "tier3.f4": "Dashboard & Reporting Nodes",
+                        "tier3.f5": "Dedicated Server Architecture",
+                        "tier3.f6": "Lifetime Logic Warranty",
+                        "tier3.btn": "Consult Registry",
+                        "workflows.title": "Ready-Made Workflows",
+                        "workflows.subtitle": "Instant deployment. Proven reliability. Zero friction.",
+                        btn: 'Acquire Logic'
+                    },
+                    es: {
+                        "nav.home": "Organización",
+                        "nav.automations": "Automatización",
+                        "nav.services": "Empresas",
+                        "nav.python": "Soluciones Python",
+                        "nav.audit": "IA Soberana",
+                        "nav.game": "Sim: IMPERIO",
+                        "nav.chat": "CHAT",
+                        "nav.contact": "Alianzas",
+                        "nav.languages": "Idiomas:",
+                        "hero.prefix": "La",
+                        "hero.machine": "Máquina Invisible",
+                        "hero.subtitle": "Sistemas que trabajan mientras duermes. El apalancamiento definitivo para el individuo soberano.",
+                        "hero.tagline": "Sin Empleados. Sin Ruido. Puro Resultado.",
+                        "hero.cta": "Adquirir Apalancamiento",
+                        "philo.invisible.title": "Invisible",
+                        "philo.invisible.desc": "Los mejores sistemas son los que nunca ves. Se ejecutan en segundo plano, ejecutando lógica con precisión militar, 24/7/365.",
+                        "philo.instant.title": "Instantáneo",
+                        "philo.instant.desc": "La latencia es el enemigo. Nuestros motores lógicos procesan datos en tiempo real, conectando tus herramientas fragmentadas en un organismo unificado.",
+                        "philo.sovereign.title": "Soberano",
+                        "philo.sovereign.desc": "Sé dueño de tu lógica. Usa estándares abiertos. Construye un foso alrededor de tus operaciones comerciales que ningún competidor pueda copiar.",
+                        "tiers.title": "Selecciona tu Arquitectura",
+                        "tiers.subtitle": "Despliega el nivel de automatización que tu imperio requiere.",
+                        "tier1.level": "Nivel de Entrada",
+                        "tier1.desc": "Perfecto para cuellos de botella específicos de un solo canal.",
+                        "tier1.f1": "Proceso Lineal Único",
+                        "tier1.f2": "Integración de Dos Apps (ej. Lead -> CRM)",
+                        "tier1.f3": "Manejo de Errores Básico",
+                        "tier1.f4": "30 Días de Soporte Lógico",
+                        "tier1.btn": "Inicializar",
+                        "tier2.rec": "RECOMENDADO",
+                        "tier2.level": "Lógica de Negocios",
+                        "tier2.desc": "Lógica multi-paso para necesidades operativas complejas.",
+                        "tier2.f1": "Flujos de Trabajo Multi-Etapa",
+                        "tier2.f2": "Lógica de Decisión Multi-Plataforma",
+                        "tier2.f3": "Motor de Transformación de Datos",
+                        "tier2.f4": "Recuperación de Errores Avanzada",
+                        "tier2.f5": "60 Días de Soporte Prioritario",
+                        "tier2.btn": "Desplegar Núcleo",
+                        "tier3.level": "Grado Imperio",
+                        "tier3.desc": "Automatización completa del ecosistema. La \"Máquina Invisible\".",
+                        "tier3.f1": "Lógica de Ecosistema Empresarial Completo",
+                        "tier3.f2": "Complejidad de Pasos Ilimitada",
+                        "tier3.f3": "Desarrollo de API Personalizada",
+                        "tier3.f4": "Nodos de Panel y Reportes",
+                        "tier3.f5": "Arquitectura de Servidor Dedicado",
+                        "tier3.f6": "Garantía de Lógica de Por Vida",
+                        "tier3.btn": "Consultar Registro",
+                        "workflows.title": "Flujos Listos para Usar",
+                        "workflows.subtitle": "Despliegue instantáneo. Confiabilidad probada. Cero fricción.",
+                        btn: 'Adquirir Lógica'
+                    },
+                    fr: {
+                        "nav.home": "Organisation",
+                        "nav.automations": "Automatisations",
+                        "nav.services": "Entreprises",
+                        "nav.python": "Solutions Python",
+                        "nav.audit": "IA Souveraine",
+                        "nav.game": "Sim: EMPIRE",
+                        "nav.chat": "CHAT",
+                        "nav.contact": "Partenariats",
+                        "nav.languages": "Langues :",
+                        "hero.prefix": "La",
+                        "hero.machine": "Machine Invisible",
+                        "hero.subtitle": "Des systèmes qui travaillent pendant que vous dormez. Le levier ultime pour l'individu souverain.",
+                        "hero.tagline": "Pas d'Employés. Pas de Bruit. Résultat Pur.",
+                        "hero.cta": "Acquérir du Levier",
+                        "philo.invisible.title": "Invisible",
+                        "philo.invisible.desc": "Les meilleurs systèmes sont ceux que vous ne voyez jamais. Ils tournent en arrière-plan, exécutant la logique avec une précision militaire, 24/7/365.",
+                        "philo.instant.title": "Instantané",
+                        "philo.instant.desc": "La latence est l'ennemi. Nos moteurs logiques traitent les données en temps réel, connectant vos outils fragmentés en un organisme unifié.",
+                        "philo.sovereign.title": "Souverain",
+                        "philo.sovereign.desc": "Possédez votre logique. Utilisez des standards ouverts. Construisez un fossé autour de vos opérations commerciales qu'aucun concurrent ne peut copier.",
+                        "tiers.title": "Sélectionnez Votre Architecture",
+                        "tiers.subtitle": "Déployez le niveau d'automatisation que votre empire exige.",
+                        "tier1.level": "Niveau Entrée",
+                        "tier1.desc": "Parfait pour les goulots d'étranglement spécifiques à un canal.",
+                        "tier1.f1": "Processus Linéaire Unique",
+                        "tier1.f2": "Intégration Deux Apps (ex. Lead -> CRM)",
+                        "tier1.f3": "Gestion d'Erreurs Basique",
+                        "tier1.f4": "30 Jours de Support Logique",
+                        "tier1.btn": "Initialiser",
+                        "tier2.rec": "RECOMMANDÉ",
+                        "tier2.level": "Logique d'Affaires",
+                        "tier2.desc": "Logique multi-étapes pour besoins opérationnels complexes.",
+                        "tier2.f1": "Flux de Travail Multi-Étapes",
+                        "tier2.f2": "Logique de Décision Multi-Plateforme",
+                        "tier2.f3": "Moteur de Transformation de Données",
+                        "tier2.f4": "Récupération d'Erreurs Avancée",
+                        "tier2.f5": "60 Jours de Support Prioritaire",
+                        "tier2.btn": "Déployer le Noyau",
+                        "tier3.level": "Grade Empire",
+                        "tier3.desc": "Automatisation complète de l'écosystème. La \"Machine Invisible\".",
+                        "tier3.f1": "Logique d'Écosystème d'Affaires Complet",
+                        "tier3.f2": "Complexité d'Étapes Illimitée",
+                        "tier3.f3": "Développement API Sur Mesure",
+                        "tier3.f4": "Noeuds de Tableau de Bord & Rapports",
+                        "tier3.f5": "Architecture Serveur Dédiée",
+                        "tier3.f6": "Garantie Logique à Vie",
+                        "tier3.btn": "Consulter le Registre",
+                        "workflows.title": "Flux Prêts à l'Emploi",
+                        "workflows.subtitle": "Déploiement instantané. Fiabilité éprouvée. Zéro friction.",
+                        btn: 'Acquérir Logique'
+                    }
                 };
+
+                function updatePageText() {
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        if (i18n[currentLang] && i18n[currentLang][key]) {
+                            el.textContent = i18n[currentLang][key];
+                        }
+                    });
+                }
 
                 try {
                     const res = await fetch('assets/scripts.json');
@@ -277,14 +455,27 @@
                     const workflows = allScripts.filter(s => s.category === 'Workflow Automation');
 
                     renderWorkflows(workflows);
+                    updatePageText(); // Initial translation apply
 
-                    // Listen for language changes
+                    // Listen for language changes common event (dispatched by nav select usually)
                     window.addEventListener('languageChanged', (e) => {
                         if (e.detail && e.detail.lang) {
                             currentLang = e.detail.lang;
                             renderWorkflows(workflows);
+                            updatePageText();
                         }
                     });
+
+                    // Independent selector listener just in case
+                    if (langSelect) {
+                        langSelect.addEventListener('change', (e) => {
+                            currentLang = e.target.value;
+                            localStorage.setItem('site_lang', currentLang);
+                            window.dispatchEvent(new CustomEvent('languageChanged', {
+                                detail: { lang: currentLang }
+                            }));
+                        });
+                    }
 
                 } catch (e) {
                     console.error(e);

@@ -4,7 +4,7 @@
         "title": "Social Media Auto-Pilot",
         "description": {
             "en": "Automatically distribute content to X, LinkedIn, and Instagram from a single source.",
-            "es": "Distribuye contenido automÃ¡ticamente a X, LinkedIn e Instagram desde una sola fuente.",
+            "es": "Distribuye contenido automáticamente a X, LinkedIn e Instagram desde una sola fuente.",
             "fr": "Distribuez automatiquement du contenu vers X, LinkedIn et Instagram."
         },
         "price": "197.00",
@@ -17,8 +17,8 @@
         "title": "Inbox Zero AI",
         "description": {
             "en": "AI-powered email triage that labels, priorities, and drafts responses for you.",
-            "es": "ClasificaciÃ³n de correo con IA que etiqueta, prioriza y redacta respuestas.",
-            "fr": "Triage d'e-mails par IA qui Ã©tiquette, priorise et rÃ©dige des rÃ©ponses."
+            "es": "Clasificación de correo con IA que etiqueta, prioriza y redacta respuestas.",
+            "fr": "Triage d'e-mails par IA qui étiquette, priorise et rédige des réponses."
         },
         "price": "249.00",
         "filename": "Inbox_Zero_AI.zip",
@@ -31,7 +31,7 @@
         "description": {
             "en": "Turn an email address into a full profile with company data, social links, and size.",
             "es": "Convierte un correo en un perfil completo con datos de la empresa y redes sociales.",
-            "fr": "Transformez une adresse e-mail en un profil complet avec donnÃ©es d'entreprise."
+            "fr": "Transformez une adresse e-mail en un profil complet avec données d'entreprise."
         },
         "price": "297.00",
         "filename": "Lead_Enrichment_Pro.zip",
@@ -44,7 +44,7 @@
         "description": {
             "en": "Real-time alerts for Asset/Stock price movements sent directly to Telegram/Discord.",
             "es": "Alertas en tiempo real para cotizaciones enviadas directamente a Telegram/Discord.",
-            "fr": "Alertes en temps rÃ©el pour les cotations envoyÃ©es direct sur Telegram/Discord."
+            "fr": "Alertes en temps réel pour les cotations envoyées direct sur Telegram/Discord."
         },
         "price": "149.00",
         "filename": "Market_Monitor_System.zip",
@@ -56,8 +56,8 @@
         "title": "Content Repurposing Engine",
         "description": {
             "en": "Turn 1 Video into a Blog Post, 5 Tweets, and a Newsletter automatically.",
-            "es": "Convierte 1 video en un blog, 5 tweets y un boletÃ­n automÃ¡ticamente.",
-            "fr": "Transformez 1 vidÃ©o en article de blog, 5 tweets et une newsletter."
+            "es": "Convierte 1 video en un blog, 5 tweets y un boletín automáticamente.",
+            "fr": "Transformez 1 vidéo en article de blog, 5 tweets et une newsletter."
         },
         "price": "349.00",
         "filename": "Content_Repurposing_Engine.zip",
@@ -69,7 +69,7 @@
         "title": "Brand Sentinel",
         "description": {
             "en": "Monitor web mentions of your brand and get sentiment analysis summaries daily.",
-            "es": "Monitorea menciones de tu marca y recibe resÃºmenes de anÃ¡lisis de sentimiento.",
+            "es": "Monitorea menciones de tu marca y recibe resúmenes de análisis de sentimiento.",
             "fr": "Surveillez les mentions de votre marque avec analyse de sentiment."
         },
         "price": "297.00",
@@ -82,7 +82,7 @@
         "title": "Empire One Source Code",
         "description": {
             "en": "The complete source code of this portfolio platform. Engineered for dominance.",
-            "es": "El c\u00f3digo fuente completo de esta plataforma. Dise\u00f1ado para dominar.",
+            "es": "El código fuente completo de esta plataforma. Diseñado para dominar.",
             "fr": "Le code source complet de cette plateforme."
         },
         "price": "1500.00",
@@ -115,8 +115,8 @@
         "title": "Automation Master Key",
         "description": {
             "en": "Instant access to all 150+ logic modules in one secure package.",
-            "es": "Acceso instant\u00e1neo a los 150+ m\u00f3dulos l\u00f3gicos.",
-            "fr": "Acc\u00e8s instantan\u00e9 \u00e0 tous les modules logiques."
+            "es": "Acceso instantáneo a los 150+ módulos lógicos.",
+            "fr": "Accès instantané à tous les modules logiques."
         },
         "price": "2500.00",
         "filename": "Automation_Master_Key.zip",
@@ -2178,5 +2178,447 @@
         "filename": "YouTube_Comment_Bot.zip",
         "languages": [],
         "category": "SaaS Templates"
+    },
+    {
+        "id": "workflow_smart_dashboard",
+        "title": "Smart Daily Dashboard",
+        "description": {
+            "en": "Pull calendar, tasks, weather, and emails to send a morning summary via Telegram.",
+            "es": "Extrae calendario, tareas, clima y correos para enviar un resumen matutino por Telegram.",
+            "fr": "Récupérez calendrier, tâches, météo et e-mails pour un résumé matinal via Telegram."
+        },
+        "price": "49.00",
+        "filename": "Smart_Daily_Dashboard.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ai_email_summarizer",
+        "title": "AI Email Summarizer",
+        "description": {
+            "en": "Filter newsletters, summarize important emails using AI, and save them to Notion.",
+            "es": "Filtra boletines, resume correos importantes con IA y guárdalos en Notion.",
+            "fr": "Filtrez les newsletters, résumez les e-mails importants avec l'IA et enregistrez-les dans Notion."
+        },
+        "price": "99.00",
+        "filename": "AI_Email_Summarizer.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_auto_categorize_expenses",
+        "title": "Auto-Categorize Expenses",
+        "description": {
+            "en": "Automatically categorize bank transactions via AI and report monthly spending.",
+            "es": "Categoriza automáticamente transacciones bancarias vía IA y reporta gastos mensuales.",
+            "fr": "Catégorisez automatiquement les transactions bancaires via l'IA et signalez les dépenses mensuelles."
+        },
+        "price": "99.00",
+        "filename": "Auto_Categorize_Expenses.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_missed_call_handler",
+        "title": "Missed Call Handler",
+        "description": {
+            "en": "Log missed calls in CRM, create a follow-up task, and send an apology SMS.",
+            "es": "Registra llamadas perdidas en CRM, crea tarea de seguimiento y envía SMS de disculpa.",
+            "fr": "Enregistrez les appels manqués dans le CRM, créez une tâche de suivi et envoyez un SMS d'excuse."
+        },
+        "price": "99.00",
+        "filename": "Missed_Call_Handler.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_lead_capture_scoring",
+        "title": "Lead Capture & Scoring",
+        "description": {
+            "en": "Enrich web leads with Clearbit, score them with AI, and add to HubSpot.",
+            "es": "Enriquece leads web con Clearbit, puntúalos con IA y agrégalos a HubSpot.",
+            "fr": "Enrichissez les leads web avec Clearbit, notez-les avec l'IA et ajoutez-les à HubSpot."
+        },
+        "price": "299.00",
+        "filename": "Lead_Capture_Scoring.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_proposal_generator",
+        "title": "Proposal Generator",
+        "description": {
+            "en": "Generate a custom HTML proposal for qualified leads and email it as a PDF.",
+            "es": "Genera una propuesta HTML personalizada para leads cualificados y envíala como PDF.",
+            "fr": "Générez une proposition HTML personnalisée pour les leads qualifiés et envoyez-la par e-mail au format PDF."
+        },
+        "price": "199.00",
+        "filename": "Proposal_Generator.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_auto_follow_up",
+        "title": "Auto Follow-Up Sequence",
+        "description": {
+            "en": "Send personalized follow-up emails automatically if a lead doesn't reply.",
+            "es": "Envía correos de seguimiento personalizados automáticamente si un lead no responde.",
+            "fr": "Envoyez automatiquement des e-mails de suivi personnalisés si un prospect ne répond pas."
+        },
+        "price": "199.00",
+        "filename": "Auto_Follow_Up_Sequence.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_invoice_generation",
+        "title": "Invoice Generation",
+        "description": {
+            "en": "Create and send a Stripe invoice when a deal is closed, tracking payment status.",
+            "es": "Crea y envía una factura Stripe al cerrar un trato, rastreando el estado del pago.",
+            "fr": "Créez et envoyez une facture Stripe lorsqu'une affaire est conclue, en suivant l'état du paiement."
+        },
+        "price": "99.00",
+        "filename": "Invoice_Generation.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ai_knowledge_base",
+        "title": "AI Knowledge Base Builder",
+        "description": {
+            "en": "Extract text from new documents, generate embeddings, and store in a vector DB.",
+            "es": "Extrae texto de documentos nuevos, genera embeddings y almacena en base de datos vectorial.",
+            "fr": "Extrayez du texte de nouveaux documents, générez des embeddings et stockez-les dans une base vectorielle."
+        },
+        "price": "299.00",
+        "filename": "AI_Knowledge_Base_Builder.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_voice_notes_notion",
+        "title": "Voice Notes to Notion",
+        "description": {
+            "en": "Transcribe audio notes, extract action items via AI, and create tasks in Notion.",
+            "es": "Transcribe notas de audio, extrae acciones vía IA y crea tareas en Notion.",
+            "fr": "Transcrivez des notes vocales, extrayez des actions via l'IA et créez des tâches dans Notion."
+        },
+        "price": "49.00",
+        "filename": "Voice_Notes_to_Notion.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_auto_support_replies",
+        "title": "Auto Support Replies",
+        "description": {
+            "en": "Analyze ticket intent and draft a suggested AI response for the support agent.",
+            "es": "Analiza la intención del ticket y redacta una respuesta sugerida por IA para el agente.",
+            "fr": "Analysez l'intention du ticket et rédigez une réponse suggérée par l'IA pour l'agent de support."
+        },
+        "price": "249.00",
+        "filename": "Auto_Support_Replies.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ai_content_repurposer",
+        "title": "AI Content Repurposer",
+        "description": {
+            "en": "Turn a single blog post into a Twitter thread and LinkedIn post automatically.",
+            "es": "Convierte un post de blog en un hilo de Twitter y post de LinkedIn automáticamente.",
+            "fr": "Transformez automatiquement un article de blog en fil Twitter et post LinkedIn."
+        },
+        "price": "299.00",
+        "filename": "AI_Content_Repurposer.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_social_media_poster",
+        "title": "Social Media Auto-Poster",
+        "description": {
+            "en": "Publish approved content from Notion directly to Twitter, LinkedIn, and Instagram.",
+            "es": "Publica contenido aprobado desde Notion directamente a Twitter, LinkedIn e Instagram.",
+            "fr": "Publiez du contenu approuvé depuis Notion directement sur Twitter, LinkedIn et Instagram."
+        },
+        "price": "199.00",
+        "filename": "Social_Media_Auto_Poster.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ugc_monitoring",
+        "title": "UGC Monitoring",
+        "description": {
+            "en": "Detect brand mentions, analyze sentiment, and auto-like positive posts.",
+            "es": "Detecta menciones de marca, analiza sentimiento y da like automático a posts positivos.",
+            "fr": "Détectez les mentions de marque, analysez le sentiment et aimez automatiquement les posts positifs."
+        },
+        "price": "249.00",
+        "filename": "UGC_Monitoring.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ad_performance",
+        "title": "Ad Performance Monitor",
+        "description": {
+            "en": "Check ad spend hourly and alert Slack if CPA (Cost Per Acquisition) spikes.",
+            "es": "Verifica gasto publicitario cada hora y alerta en Slack si el CPA se dispara.",
+            "fr": "Vérifiez les dépenses publicitaires toutes les heures et alertez Slack si le CPA grimpe en flèche."
+        },
+        "price": "199.00",
+        "filename": "Ad_Performance_Monitor.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_seo_content_gap",
+        "title": "SEO Content Gap Analyzer",
+        "description": {
+            "en": "Compare competitor keywords with your content to generate new article ideas.",
+            "es": "Compara palabras clave de competidores con tu contenido para generar ideas de artículos.",
+            "fr": "Comparez les mots-clés des concurrents avec votre contenu pour générer de nouvelles idées d'articles."
+        },
+        "price": "199.00",
+        "filename": "SEO_Content_Gap_Analyzer.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_github_jira_sync",
+        "title": "GitHub to Jira Sync",
+        "description": {
+            "en": "Create Jira tickets automatically when new GitHub issues are opened.",
+            "es": "Crea tickets de Jira automáticamente cuando se abren nuevos issues en GitHub.",
+            "fr": "Créez des tickets Jira automatiquement lorsque de nouveaux problèmes GitHub sont ouverts."
+        },
+        "price": "99.00",
+        "filename": "GitHub_to_Jira_Sync.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_auto_release_notes",
+        "title": "Auto Release Notes",
+        "description": {
+            "en": "Summarize recent commit messages using AI and update GitHub release notes.",
+            "es": "Resume mensajes de commits recientes usando IA y actualiza notas de versión en GitHub.",
+            "fr": "Résumez les messages de commit récents à l'aide de l'IA et mettez à jour les notes de version GitHub."
+        },
+        "price": "49.00",
+        "filename": "Auto_Release_Notes.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_error_monitoring",
+        "title": "Error Monitoring",
+        "description": {
+            "en": "Filter Sentry errors by severity and alert engineers only on critical failures.",
+            "es": "Filtra errores de Sentry por gravedad y alerta a ingenieros solo en fallos críticos.",
+            "fr": "Filtrez les erreurs Sentry par gravité et alertez les ingénieurs uniquement en cas de pannes critiques."
+        },
+        "price": "99.00",
+        "filename": "Error_Monitoring.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_deployment_health",
+        "title": "Deployment Health Check",
+        "description": {
+            "en": "Ping production endpoints after deployment and alert immediately if site is down.",
+            "es": "Hace ping a endpoints de producción tras despliegue y alerta de inmediato si el sitio cae.",
+            "fr": "Pinguez les endpoints de production après le déploiement et alertez immédiatement si le site est en panne."
+        },
+        "price": "249.00",
+        "filename": "Deployment_Health_Check.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_learning_tracker",
+        "title": "Personalized Learning Tracker",
+        "description": {
+            "en": "Log completed courses and generate AI recommendations for what to study next.",
+            "es": "Registra cursos completados y genera recomendaciones de IA sobre qué estudiar después.",
+            "fr": "Enregistrez les cours terminés et générez des recommandations IA sur ce qu'il faut étudier ensuite."
+        },
+        "price": "49.00",
+        "filename": "Personalized_Learning_Tracker.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_exam_study_planner",
+        "title": "Exam Study Planner",
+        "description": {
+            "en": "Generate a daily study schedule from an exam date and add sessions to Calendar.",
+            "es": "Genera un horario de estudio diario desde una fecha de examen y agrega sesiones al calendario.",
+            "fr": "Générez un programme d'étude quotidien à partir d'une date d'examen et ajoutez des sessions au calendrier."
+        },
+        "price": "49.00",
+        "filename": "Exam_Study_Planner.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_research_paper_summarizer",
+        "title": "Research Paper Summarizer",
+        "description": {
+            "en": "Extract text from uploaded PDFs and save a structured summary to Notion.",
+            "es": "Extrae texto de PDFs subidos y guarda un resumen estructurado en Notion.",
+            "fr": "Extrayez le texte des PDF téléchargés et enregistrez un résumé structuré dans Notion."
+        },
+        "price": "99.00",
+        "filename": "Research_Paper_Summarizer.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_abandoned_cart",
+        "title": "Abandoned Cart Recovery",
+        "description": {
+            "en": "Wait one hour after cart abandonment, check status, and send a recovery email.",
+            "es": "Espera una hora tras abandono de carrito, verifica estado y envía email de recuperación.",
+            "fr": "Attendez une heure après l'abandon du panier, vérifiez l'état et envoyez un e-mail de récupération."
+        },
+        "price": "299.00",
+        "filename": "Abandoned_Cart_Recovery.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_stock_monitoring",
+        "title": "Stock Level Monitoring",
+        "description": {
+            "en": "Monitor inventory updates and email suppliers automatically when stock is low.",
+            "es": "Monitorea inventario y envía correo a proveedores automáticamente cuando el stock es bajo.",
+            "fr": "Surveillez les mises à jour des stocks et envoyez automatiquement des e-mails aux fournisseurs lorsque le stock est bas."
+        },
+        "price": "199.00",
+        "filename": "Stock_Level_Monitoring.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_customer_review_analyzer",
+        "title": "Customer Review Analyzer",
+        "description": {
+            "en": "Analyze sentiment of new reviews and alert support teams to negative feedback.",
+            "es": "Analiza sentimiento de nuevas reseñas y alerta a soporte sobre feedback negativo.",
+            "fr": "Analysez le sentiment des nouveaux avis et alertez les équipes de support en cas de commentaires négatifs."
+        },
+        "price": "199.00",
+        "filename": "Customer_Review_Analyzer.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_suspicious_login",
+        "title": "Suspicious Login Alerts",
+        "description": {
+            "en": "Detect logins from foreign countries via GeoIP and flag them to admins.",
+            "es": "Detecta inicios de sesión de países extranjeros vía GeoIP y los marca a los administradores.",
+            "fr": "Détectez les connexions depuis des pays étrangers via GeoIP et signalez-les aux administrateurs."
+        },
+        "price": "199.00",
+        "filename": "Suspicious_Login_Alerts.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_backup_verification",
+        "title": "Backup Verification",
+        "description": {
+            "en": "Verify nightly backups exist on the server and alert DevOps if files are missing.",
+            "es": "Verifica que existan respaldos nocturnos en el servidor y alerta a DevOps si faltan archivos.",
+            "fr": "Vérifiez que les sauvegardes nocturnes existent sur le serveur et alertez DevOps si des fichiers manquent."
+        },
+        "price": "99.00",
+        "filename": "Backup_Verification.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_travel_planner",
+        "title": "Travel Planner",
+        "description": {
+            "en": "Extract flight details from confirmation emails to create calendar events and packing lists.",
+            "es": "Extrae detalles de vuelo de emails de confirmación para crear eventos y listas de equipaje.",
+            "fr": "Extrayez les détails du vol des e-mails de confirmation pour créer des événements de calendrier et des listes de colisage."
+        },
+        "price": "49.00",
+        "filename": "Travel_Planner.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_smart_home_notif",
+        "title": "Smart Home Notifications",
+        "description": {
+            "en": "Route IoT events (leaks, motion) to specific Telegram alerts based on urgency.",
+            "es": "Enruta eventos IoT (fugas, movimiento) a alertas de Telegram específicas según urgencia.",
+            "fr": "Acheminez les événements IoT (fuites, mouvements) vers des alertes Telegram spécifiques en fonction de l'urgence."
+        },
+        "price": "49.00",
+        "filename": "Smart_Home_Notifications.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_news_intelligence",
+        "title": "News Intelligence Digest",
+        "description": {
+            "en": "Fetch top news, AI-summarize it for your specific persona, and email a daily digest.",
+            "es": "Obtiene noticias top, las resume con IA para tu persona y envía un resumen diario por email.",
+            "fr": "Récupérez les actualités, résumez-les avec l'IA pour votre persona et envoyez un résumé quotidien par e-mail."
+        },
+        "price": "99.00",
+        "filename": "News_Intelligence_Digest.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_self_healing_workflow",
+        "title": "Self-Healing Workflow",
+        "description": {
+            "en": "Analyze workflow error logs with AI to diagnose the crash and suggest fixes.",
+            "es": "Analiza logs de errores de flujo con IA para diagnosticar fallos y sugerir arreglos.",
+            "fr": "Analysez les journaux d'erreurs de flux avec l'IA pour diagnostiquer le crash et suggérer des correctifs."
+        },
+        "price": "399.00",
+        "filename": "Self_Healing_Workflow.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_workflow_analytics",
+        "title": "Workflow Analytics",
+        "description": {
+            "en": "Query execution history to calculate success rates and alert on performance drops.",
+            "es": "Consulta historial de ejecución para calcular tasas de éxito y alertar sobre caídas de rendimiento.",
+            "fr": "Interrogez l'historique d'exécution pour calculer les taux de réussite et alerter sur les baisses de performances."
+        },
+        "price": "199.00",
+        "filename": "Workflow_Analytics.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
+    },
+    {
+        "id": "workflow_ai_workflow_generator",
+        "title": "AI Workflow Generator",
+        "description": {
+            "en": "Convert natural language descriptions into importable n8n workflow JSON files.",
+            "es": "Convierte descripciones en lenguaje natural a archivos JSON de flujo de trabajo n8n importables.",
+            "fr": "Convertissez des descriptions en langage naturel en fichiers JSON de flux de travail n8n importables."
+        },
+        "price": "499.00",
+        "filename": "AI_Workflow_Generator.zip",
+        "languages": ["n8n", "JSON"],
+        "category": "Workflow Automation"
     }
 ]
