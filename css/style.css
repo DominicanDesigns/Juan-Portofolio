@@ -1626,76 +1626,145 @@ input[type=range]::-webkit-slider-runnable-track {
 
 /* --- RESPONSIVE DESIGN SYSTEM --- */
 
-/* Tablet & Smaller Laptops (1024px) */
-@media (max-width: 1024px) {
-    :root {
-        --container-width: 95%;
-        --header-height: 80px;
-    }
-
-    h1 {
-        font-size: 3.5rem;
-    }
-
-    .architect-interface {
-        grid-template-columns: 1fr;
-        height: auto;
-        gap: 2rem;
-    }
-
-    .arch-canvas {
-        min-height: 500px;
-        order: -1;
-        /* Canvas on top for visibility */
-    }
-
-    .systems-panel,
-    .specs-panel {
-        height: auto;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        min-height: 300px;
-    }
-}
-
-/* Mobile Devices (768px) */
-@media (max-width: 768px) {
-    html {
-        font-size: 14px;
-        /* Scale down base font size */
-    }
-
-    h1 {
-        font-size: 2.8rem;
-    }
-
-    h2 {
-        font-size: 2.2rem;
-    }
-
-    /* Layout Adjustments */
-    .grid-3 {
-        grid-template-columns: 1fr;
-        /* Stack cards on mobile */
-        gap: 1.5rem;
-    }
-
-    .section {
-        padding: 3rem 0;
-    }
-
-    /* Header & Nav */
-    .nav-container {
+    /* Mobile Menu Toggle */
+    .mobile-toggle {
+        display: none;
         flex-direction: column;
-        gap: 1rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+        padding: 0;
     }
 
-    .nav-links {
+    .mobile-toggle .bar {
         width: 100%;
-        justify-content: center;
-        padding-bottom: 0.5rem;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.3s ease;
     }
+
+    .mobile-toggle.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Tablet & Smaller Laptops (1024px) */
+    @media (max-width: 1024px) {
+        :root {
+            --container-width: 95%;
+            --header-height: 80px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        .architect-interface {
+            grid-template-columns: 1fr;
+            height: auto;
+            gap: 2rem;
+        }
+
+        .arch-canvas {
+            min-height: 500px;
+            order: -1;
+            /* Canvas on top for visibility */
+        }
+
+        .systems-panel,
+        .specs-panel {
+            height: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 300px;
+        }
+    }
+
+    /* Mobile Devices (768px) */
+    @media (max-width: 768px) {
+        .mobile-toggle {
+            display: flex;
+        }
+
+        html {
+            font-size: 14px;
+            /* Scale down base font size */
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+        }
+
+        /* Layout Adjustments */
+        .grid-3 {
+            grid-template-columns: 1fr;
+            /* Stack cards on mobile */
+            gap: 1.5rem;
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        /* Header & Nav */
+        .nav-container {
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%; /* Slide out by default */
+            width: 80%; /* Cover most of the screen */
+            height: 100vh;
+            background: rgba(5, 5, 10, 0.95);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+            z-index: 1050;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.8);
+            border-left: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-links.active {
+            right: 0;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            padding: 1rem 0;
+        }
+        
+        /* Language Selector in Mobile Menu */
+        .nav-links .lang-label {
+            display: none; /* Hide label to save space or style differently */
+        }
+        
+        .nav-links .lang-select {
+            margin-top: 1rem;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+        }
 
     .site-header {
         height: auto;

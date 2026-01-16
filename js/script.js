@@ -166,7 +166,37 @@ document.addEventListener('DOMContentLoaded', () => {
   initSimulator();
   initChatUI();
   initContactForm();
+  initMobileMenu();
 });
+
+// ---------- Mobile Menu Logic ----------
+function initMobileMenu() {
+  const toggleBtn = document.querySelector('.mobile-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (!toggleBtn || !navLinks) return;
+
+  toggleBtn.addEventListener('click', () => {
+    toggleBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggleBtn.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside (on the body/main content)
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target) && navLinks.classList.contains('active')) {
+      toggleBtn.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
+}
 // ---------- Centralized minimal chat fallback ----------
 // Tawk.to integration removed by user request
 
